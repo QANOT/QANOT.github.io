@@ -1,0 +1,1714 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Qanot AI — lightweight Python agent framework">
+      
+      
+      
+        <link rel="canonical" href="https://qanot.github.io/docs/uz/scheduler/">
+      
+      
+        <link rel="prev" href="../telegram/">
+      
+      
+        <link rel="next" href="../api-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Scheduler - Qanot AI Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cron-scheduler" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Qanot AI Docs" class="md-header__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qanot AI Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scheduler
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Qanot AI Docs" class="md-nav__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qanot AI Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O'zbekcha
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O'zbekcha
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosh sahifa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boshlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qo'llanma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sozlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arxitektura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providerlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toollar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pluginlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xotira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cron-joblar-qanday-ishlaydi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron job'lar qanday ishlaydi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cron job&#39;lar qanday ishlaydi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cron-ifoda-formati" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron ifoda formati
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bajarish-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bajarish rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bajarish rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isolated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isolated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        systemEvent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standart-heartbeat-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standart heartbeat job
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proaktiv-xabar-yuborish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proaktiv xabar yuborish
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cron-joblarni-boshqarish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron job'larni boshqarish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cron job&#39;larni boshqarish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#toollar-orqali-suhbatda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool'lar orqali (suhbatda)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron_create-parametrlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cron_create parametrlari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jobsjson-orqali-qolda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jobs.json orqali (qo'lda)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-qayta-yuklash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job qayta yuklash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xato-boshqaruvi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xato boshqaruvi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arxitektura-eslatmalari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arxitektura eslatmalari
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cron-joblar-qanday-ishlaydi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron job'lar qanday ishlaydi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cron job&#39;lar qanday ishlaydi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cron-ifoda-formati" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron ifoda formati
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bajarish-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bajarish rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bajarish rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isolated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isolated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        systemEvent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standart-heartbeat-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standart heartbeat job
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proaktiv-xabar-yuborish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proaktiv xabar yuborish
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cron-joblarni-boshqarish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron job'larni boshqarish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cron job&#39;larni boshqarish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#toollar-orqali-suhbatda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool'lar orqali (suhbatda)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron_create-parametrlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cron_create parametrlari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jobsjson-orqali-qolda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jobs.json orqali (qo'lda)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-qayta-yuklash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job qayta yuklash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xato-boshqaruvi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xato boshqaruvi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arxitektura-eslatmalari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arxitektura eslatmalari
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cron-scheduler">Cron Scheduler<a class="headerlink" href="#cron-scheduler" title="Permanent link">&para;</a></h1>
+<p>Qanot AI rejali vazifalarni bajarish uchun APScheduler asosidagi cron tizimini o'z ichiga oladi. Agent tabiiy suhbat orqali cron job'larni yaratishi, yangilashi va o'chirishi mumkin.</p>
+<h2 id="cron-joblar-qanday-ishlaydi">Cron job'lar qanday ishlaydi<a class="headerlink" href="#cron-joblar-qanday-ishlaydi" title="Permanent link">&para;</a></h2>
+<p>Cron job'lar <code>{cron_dir}/jobs.json</code> da aniqlanadi. Har bir job'da nom, cron jadval, bajarish rejimi va agent'ga nima qilish kerakligini aytadigan prompt bor.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">[</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;daily-summary&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0 20 * * *&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;isolated&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Summarize today&#39;s conversations and update MEMORY.md&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">]</span>
+</code></pre></div>
+<h3 id="cron-ifoda-formati">Cron ifoda formati<a class="headerlink" href="#cron-ifoda-formati" title="Permanent link">&para;</a></h3>
+<p>Standart 5 maydonli cron: <code>daqiqa soat kun oy hafta_kuni</code></p>
+<table>
+<thead>
+<tr>
+<th>Ifoda</th>
+<th>Ma'nosi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0 */4 * * *</code></td>
+<td>Har 4 soatda</td>
+</tr>
+<tr>
+<td><code>0 20 * * *</code></td>
+<td>Har kuni 20:00 da</td>
+</tr>
+<tr>
+<td><code>30 9 * * 1-5</code></td>
+<td>Ish kunlari 9:30 da</td>
+</tr>
+<tr>
+<td><code>0 0 1 * *</code></td>
+<td>Har oyning birinchi kuni</td>
+</tr>
+<tr>
+<td><code>*/15 * * * *</code></td>
+<td>Har 15 daqiqada</td>
+</tr>
+</tbody>
+</table>
+<p>Config'dagi timezone jadvallash uchun ishlatiladi (standart: <code>Asia/Tashkent</code>).</p>
+<h2 id="bajarish-rejimlari">Bajarish rejimlari<a class="headerlink" href="#bajarish-rejimlari" title="Permanent link">&para;</a></h2>
+<h3 id="isolated">isolated<a class="headerlink" href="#isolated" title="Permanent link">&para;</a></h3>
+<p>Mustaqil agent yaratadi — o'zining suhbat tarixi, context tracker'i va session writer'i bilan.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;isolated&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Check for overdue tasks in the workspace&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Qanday ishlaydi:</strong></p>
+<ol>
+<li>Yangi <code>Agent</code> instansiyasi <code>prompt_mode="minimal"</code> bilan yaratiladi (faqat SOUL.md + TOOLS.md + sessiya ma'lumotlari)</li>
+<li>Prompt user xabar sifatida yuboriladi</li>
+<li>Agent to'liq tool loop'ini ishga tushiradi (25 ta iteratsiyagacha)</li>
+<li>Natijalar alohida sessiya fayliga loglanadi (<code>cron-{name}-{timestamp}.jsonl</code>)</li>
+<li>Agar agent <code>proactive-outbox.md</code> ga yozsa, kontent barcha ruxsat etilgan foydalanuvchilarga yuboriladi</li>
+</ol>
+<p><strong>Qachon ishlatish kerak:</strong> Davom etayotgan foydalanuvchi suhbatlariga ta'sir qilmasligi kerak bo'lgan fon vazifalari. Masalan: xotira tozalash, vaqti-vaqti bilan veb tekshirish, ma'lumotlarni qayta ishlash.</p>
+<h3 id="systemevent">systemEvent<a class="headerlink" href="#systemevent" title="Permanent link">&para;</a></h3>
+<p>Prompt'ni asosiy agent'ning xabar navbatiga tizim hodisasi sifatida inject qiladi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;systemEvent&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Remind the user about their 3pm meeting&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Qanday ishlaydi:</strong></p>
+<ol>
+<li>Prompt scheduler'ning xabar navbatiga qo'yiladi</li>
+<li>Telegram adapter'ining proaktiv loop'i uni oladi</li>
+<li>Asosiy agent uni oddiy navbat sifatida qayta ishlaydi (to'liq suhbat konteksti bilan)</li>
+</ol>
+<p><strong>Qachon ishlatish kerak:</strong> Joriy suhbat konteksti kerak bo'lgan yoki davom etayotgan suhbat qismi sifatida ko'rinishi kerak bo'lgan vazifalar. Masalan: eslatmalar, vaqtga asoslangan kuzatuvlar, rejali tekshiruvlar.</p>
+<h2 id="standart-heartbeat-job">Standart heartbeat job<a class="headerlink" href="#standart-heartbeat-job" title="Permanent link">&para;</a></h2>
+<p>Agar <code>jobs.json</code> da mavjud bo'lmasa, heartbeat job avtomatik yaratiladi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;heartbeat&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0 */4 * * *&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;isolated&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HEARTBEAT: Read HEARTBEAT.md and perform self-improvement checks:\n1. Check proactive-tracker.md -- overdue behaviors?\n2. Pattern check -- repeated requests to automate?\n3. Outcome check -- decisions &gt;7 days old to follow up?\n4. Memory -- context %, update MEMORY.md with distilled learnings\n5. Proactive surprise -- anything to delight human?\nIf you have a message for the human, write it to /data/workspace/proactive-outbox.md&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Bu har 4 soatda ishlaydi, agent'ni o'z holatini ko'rib chiqish, xotirani tozalash va ixtiyoriy ravishda foydalanuvchiga proaktiv xabar yuborishga undaydi.</p>
+<h2 id="proaktiv-xabar-yuborish">Proaktiv xabar yuborish<a class="headerlink" href="#proaktiv-xabar-yuborish" title="Permanent link">&para;</a></h2>
+<p>Cron job'lar <code>proactive-outbox.md</code> mexanizmi orqali foydalanuvchilarga xabar yuborishi mumkin:</p>
+<ol>
+<li>Isolated cron job <code>{workspace_dir}/proactive-outbox.md</code> ga kontent yozadi</li>
+<li>Job tugagandan keyin scheduler outbox'ni tekshiradi</li>
+<li>Agar kontent bo'lsa, barcha <code>allowed_users</code> ga Telegram orqali yuboriladi</li>
+<li>Outbox tozalanadi</li>
+</ol>
+<p>Bu isolated cron job'larning foydalanuvchilar bilan aloqa qilishning yagona yo'li. System event job'lar to'g'ridan-to'g'ri suhbat orqali aloqa qiladi.</p>
+<h2 id="cron-joblarni-boshqarish">Cron job'larni boshqarish<a class="headerlink" href="#cron-joblarni-boshqarish" title="Permanent link">&para;</a></h2>
+<h3 id="toollar-orqali-suhbatda">Tool'lar orqali (suhbatda)<a class="headerlink" href="#toollar-orqali-suhbatda" title="Permanent link">&para;</a></h3>
+<p>Agent tabiiy suhbat orqali cron job'larni boshqara oladi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User: Har kuni kechki 8 da xulosa qil
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Agent: [cron_create ni chaqiradi: name=&quot;daily-summary&quot;, schedule=&quot;0 20 * * *&quot;, ...]
+</code></pre></div>
+<p>Mavjud tool'lar: <code>cron_create</code>, <code>cron_list</code>, <code>cron_update</code>, <code>cron_delete</code>. Parametrlar uchun <a href="../tools/">Tools</a> ga qarang.</p>
+<h3 id="cron_create-parametrlari">cron_create parametrlari<a class="headerlink" href="#cron_create-parametrlari" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Tur</th>
+<th>Majburiy</th>
+<th>Tavsif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Ha</td>
+<td>Noyob job nomi</td>
+</tr>
+<tr>
+<td><code>prompt</code></td>
+<td>string</td>
+<td>Ha</td>
+<td>Eslatma matni yoki vazifa prompt'i</td>
+</tr>
+<tr>
+<td><code>schedule</code></td>
+<td>string</td>
+<td>Yo'q*</td>
+<td>Cron ifoda (masalan, <code>0 9 * * *</code>) takroriy job'lar uchun</td>
+</tr>
+<tr>
+<td><code>at</code></td>
+<td>string</td>
+<td>Yo'q*</td>
+<td>ISO 8601 vaqt belgisi (masalan, <code>2026-03-12T17:00:00+05:00</code>) bir martalik eslatmalar uchun</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>string</td>
+<td>Yo'q</td>
+<td><code>"systemEvent"</code> (matn yetkazish) yoki <code>"isolated"</code> (to'liq agent). Standart: <code>"systemEvent"</code></td>
+</tr>
+<tr>
+<td><code>delete_after_run</code></td>
+<td>boolean</td>
+<td>Yo'q</td>
+<td>Bajarilgandan keyin job'ni avtomatik o'chirish. Standart: <code>at</code> eslatmalar uchun <code>true</code>, takroriy uchun <code>false</code></td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>string</td>
+<td>Yo'q</td>
+<td>Bu job uchun IANA timezone almashtirish (masalan, <code>"Asia/Tashkent"</code>, <code>"Europe/London"</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>* <code>schedule</code> yoki <code>at</code> dan biri berilishi kerak. Takroriy job'lar uchun <code>schedule</code>, bir martalik eslatmalar uchun <code>at</code> ishlating.</p>
+<p><strong>Bir martalik eslatmalar:</strong> <code>at</code> parametrini ishlatganda, job ko'rsatilgan ISO 8601 vaqt belgisida bir marta ishlaydi va keyin avtomatik o'chiriladi (<code>delete_after_run</code> majburiy <code>true</code> qilinadi).</p>
+<p><strong>Job bo'yicha timezone:</strong> Standart holda job'lar config'dagi global timezone'ni ishlatadi. <code>timezone</code> parametri muayyan job uchun buni almashtiradi — foydalanuvchi boshqa vaqt zonasida eslatma kerak bo'lganda foydali.</p>
+<h3 id="jobsjson-orqali-qolda">jobs.json orqali (qo'lda)<a class="headerlink" href="#jobsjson-orqali-qolda" title="Permanent link">&para;</a></h3>
+<p><code>{cron_dir}/jobs.json</code> ni to'g'ridan-to'g'ri tahrirlang. O'zgarishlar botni qayta ishga tushirgandan keyin kuchga kiradi, yoki agent qayta yuklashni boshlash uchun <code>cron_update</code> ni chaqira oladi.</p>
+<h2 id="job-qayta-yuklash">Job qayta yuklash<a class="headerlink" href="#job-qayta-yuklash" title="Permanent link">&para;</a></h2>
+<p>Cron tool <code>jobs.json</code> ni o'zgartirganda, <code>scheduler.reload_jobs()</code> ni chaqiradi:</p>
+<ol>
+<li>APScheduler'dan barcha mavjud <code>cron_*</code> job'larni olib tashlaydi</li>
+<li><code>jobs.json</code> ni diskdan qayta o'qiydi</li>
+<li>Heartbeat job mavjudligini ta'minlaydi</li>
+<li>Barcha yoqilgan job'larni qayta qo'shadi</li>
+</ol>
+<p>Bu o'zgarishlar botni qayta ishga tushirmasdan darhol kuchga kirishini ta'minlaydi.</p>
+<h2 id="xato-boshqaruvi">Xato boshqaruvi<a class="headerlink" href="#xato-boshqaruvi" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Muvaffaqiyatsiz isolated job'lar:</strong> Xatolar loglanadi, lekin asosiy botga ta'sir qilmaydi</li>
+<li><strong>Muvaffaqiyatsiz system event'lar:</strong> Xatolar loglanadi va keyingi proaktiv loop iteratsiyasida qayta uriniladi</li>
+<li><strong>Noto'g'ri cron ifodalar:</strong> 5 ta maydon bo'lmagan ifodali job'lar ogohlantirish bilan o'tkazib yuboriladi</li>
+</ul>
+<h2 id="arxitektura-eslatmalari">Arxitektura eslatmalari<a class="headerlink" href="#arxitektura-eslatmalari" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Scheduler APScheduler 3.x dan <code>AsyncIOScheduler</code> ishlatadi</li>
+<li>Har bir isolated job tizim prompt'larini kichik saqlash uchun <code>prompt_mode="minimal"</code> bilan yangi <code>Agent</code> oladi</li>
+<li>Scheduler asosiy agent bilan bir xil <code>LLMProvider</code> va <code>ToolRegistry</code> ni baham ko'radi</li>
+<li>Xabar navbati scheduler va Telegram adapter o'rtasidagi ko'prik bo'lgan <code>asyncio.Queue</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        © 2026 Qanot AI — Powered by <a href="https://t.me/qanot_bot" target="_blank">Qanot</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

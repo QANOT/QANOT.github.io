@@ -1,0 +1,4355 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Qanot AI — lightweight Python agent framework">
+      
+      
+      
+        <link rel="canonical" href="https://qanot.github.io/docs/uz/GUIDE/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../configuration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Qo'llanma - Qanot AI Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qanot-ai-v20-foydalanuvchi-qollanmasi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Qanot AI Docs" class="md-header__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qanot AI Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Qo'llanma
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Qanot AI Docs" class="md-nav__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qanot AI Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O'zbekcha
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O'zbekcha
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosh sahifa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boshlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qo'llanma
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qo'llanma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mundarija" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mundarija
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-tez-boshlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tez boshlash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Tez boshlash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-qadam-ornatish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-qadam: O'rnatish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-qadam-initsializatsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-qadam: Initsializatsiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-qadam-ishga-tushirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-qadam: Ishga tushirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-konfiguratsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Konfiguratsiya
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Konfiguratsiya">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#toliq-config-malumotnomasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To'liq config ma'lumotnomasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initdan-keyin-configni-ozgartirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Init'dan keyin config'ni o'zgartirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-providerlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Provider'lar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Provider&#39;lar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic (Claude)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI (GPT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-lokal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama (lokal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kop-provayderli-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ko'p provayderli failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ovoz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Ovoz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Ovoz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ovoz-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ovoz rejimlari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muxlisauz-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muxlisa.uz (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotibai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KotibAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aisha-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aisha AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Whisper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bir-nechta-voice-provider-ishlatish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bir nechta voice provider ishlatish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stt-tilini-majburlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STT tilini majburlash
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model routing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qanday-ishlaydi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qanday ishlaydi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguratsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfiguratsiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xarajat-tejash-misollari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xarajat tejash misollari
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-xavfsizlik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Xavfsizlik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Xavfsizlik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bajarish-xavfsizlik-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bajarish xavfsizlik rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bajarish xavfsizlik rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cautious" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cautious
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        strict
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#har-doim-bloklangan-buyruqlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Har doim bloklangan buyruqlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secretref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecretRef
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fayl-qafasi-file-jail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fayl qafasi (File Jail)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-xotira" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Xotira
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Xotira">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wal-protocol-write-ahead-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAL Protocol (Write-Ahead Log)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fayl-tuzilishi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fayl tuzilishi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memorymd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MEMORY.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kunlik-yozuvlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kunlik yozuvlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontekst-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontekst compaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-qanday-organadi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent qanday o'rganadi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. RAG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. RAG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qanday-ishlaydi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qanday ishlaydi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-provider-zanjiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding provider zanjiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguratsiya_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfiguratsiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-embedding-sozlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini embedding sozlash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-embedding-sozlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama embedding sozlash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nima-indekslanadi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nima indekslanadi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-kop-agentli-tizim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Ko'p agentli tizim
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Ko&#39;p agentli tizim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tarifi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent ta'rifi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-maydonlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent maydonlari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ozaro-tasir-shakllari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O'zaro ta'sir shakllari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O&#39;zaro ta&#39;sir shakllari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-delegate_to_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. delegate_to_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-converse_with_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. converse_with_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spawn_sub_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. spawn_sub_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#umumiy-loyiha-taxtasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Umumiy loyiha taxtasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kirish-nazorati" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kirish nazorati
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yoqish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yoqish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-endpointlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API endpoint'lar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misol-bot-holatini-tekshirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misol: bot holatini tekshirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cli-malumotnomasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. CLI ma'lumotnomasi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. CLI ma&#39;lumotnomasi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buyruqlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buyruqlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muhit-ozgaruvchilari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muhit o'zgaruvchilari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-yol-aniqlash-tartibi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config yo'l aniqlash tartibi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-muammolarni-hal-qilish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Muammolarni hal qilish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Muammolarni hal qilish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bot-ishga-tushmayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot ishga tushmayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Config file not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-kalit-notogri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API kalit noto'g'ri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontekst-tolib-ketishi-kontekst-toldi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontekst to'lib ketishi / "Kontekst to'ldi"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovoz-ishlamayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ovoz ishlamayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-sekin-javob-beryapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot sekin javob beryapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag-xotiralarni-topa-olmayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG xotiralarni topa olmayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-loopda-qolib-ketyapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot loop'da qolib ketyapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eskirgan-sessiyalar-yuqori-disk-ishlatilishi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eskirgan sessiyalar / yuqori disk ishlatilishi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-yuklanmayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin yuklanmayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-rejimi-ishlamayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook rejimi ishlamayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sozlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arxitektura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providerlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toollar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pluginlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xotira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mundarija" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mundarija
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-tez-boshlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tez boshlash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Tez boshlash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-qadam-ornatish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-qadam: O'rnatish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-qadam-initsializatsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-qadam: Initsializatsiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-qadam-ishga-tushirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-qadam: Ishga tushirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-konfiguratsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Konfiguratsiya
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Konfiguratsiya">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#toliq-config-malumotnomasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To'liq config ma'lumotnomasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initdan-keyin-configni-ozgartirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Init'dan keyin config'ni o'zgartirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-providerlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Provider'lar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Provider&#39;lar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic (Claude)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI (GPT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-lokal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama (lokal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kop-provayderli-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ko'p provayderli failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ovoz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Ovoz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Ovoz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ovoz-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ovoz rejimlari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muxlisauz-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muxlisa.uz (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotibai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KotibAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aisha-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aisha AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Whisper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bir-nechta-voice-provider-ishlatish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bir nechta voice provider ishlatish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stt-tilini-majburlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STT tilini majburlash
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model routing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qanday-ishlaydi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qanday ishlaydi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguratsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfiguratsiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xarajat-tejash-misollari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xarajat tejash misollari
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-xavfsizlik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Xavfsizlik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Xavfsizlik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bajarish-xavfsizlik-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bajarish xavfsizlik rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bajarish xavfsizlik rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cautious" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cautious
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        strict
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#har-doim-bloklangan-buyruqlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Har doim bloklangan buyruqlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secretref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecretRef
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fayl-qafasi-file-jail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fayl qafasi (File Jail)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-xotira" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Xotira
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Xotira">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wal-protocol-write-ahead-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAL Protocol (Write-Ahead Log)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fayl-tuzilishi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fayl tuzilishi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memorymd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MEMORY.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kunlik-yozuvlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kunlik yozuvlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontekst-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontekst compaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-qanday-organadi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent qanday o'rganadi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. RAG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. RAG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qanday-ishlaydi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qanday ishlaydi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-provider-zanjiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding provider zanjiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfiguratsiya_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfiguratsiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-embedding-sozlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini embedding sozlash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-embedding-sozlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama embedding sozlash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nima-indekslanadi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nima indekslanadi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-kop-agentli-tizim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Ko'p agentli tizim
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Ko&#39;p agentli tizim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-tarifi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent ta'rifi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-maydonlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent maydonlari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ozaro-tasir-shakllari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O'zaro ta'sir shakllari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O&#39;zaro ta&#39;sir shakllari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-delegate_to_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. delegate_to_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-converse_with_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. converse_with_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spawn_sub_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. spawn_sub_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#umumiy-loyiha-taxtasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Umumiy loyiha taxtasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kirish-nazorati" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kirish nazorati
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yoqish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yoqish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-endpointlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API endpoint'lar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misol-bot-holatini-tekshirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misol: bot holatini tekshirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cli-malumotnomasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. CLI ma'lumotnomasi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. CLI ma&#39;lumotnomasi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buyruqlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buyruqlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muhit-ozgaruvchilari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muhit o'zgaruvchilari
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-yol-aniqlash-tartibi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config yo'l aniqlash tartibi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-muammolarni-hal-qilish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Muammolarni hal qilish
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Muammolarni hal qilish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bot-ishga-tushmayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot ishga tushmayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Config file not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-kalit-notogri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API kalit noto'g'ri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontekst-tolib-ketishi-kontekst-toldi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kontekst to'lib ketishi / "Kontekst to'ldi"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovoz-ishlamayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ovoz ishlamayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-sekin-javob-beryapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot sekin javob beryapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag-xotiralarni-topa-olmayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG xotiralarni topa olmayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-loopda-qolib-ketyapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot loop'da qolib ketyapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eskirgan-sessiyalar-yuqori-disk-ishlatilishi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eskirgan sessiyalar / yuqori disk ishlatilishi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-yuklanmayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin yuklanmayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-rejimi-ishlamayapti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook rejimi ishlamayapti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="qanot-ai-v20-foydalanuvchi-qollanmasi">Qanot AI v2.0 foydalanuvchi qo'llanmasi<a class="headerlink" href="#qanot-ai-v20-foydalanuvchi-qollanmasi" title="Permanent link">&para;</a></h1>
+<p>Telegram botlar uchun yengil Python agent framework. O'zbekiston bozori uchun yaratilgan.</p>
+<hr />
+<h2 id="mundarija">Mundarija<a class="headerlink" href="#mundarija" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-tez-boshlash">Tez boshlash</a></li>
+<li><a href="#2-konfiguratsiya">Konfiguratsiya</a></li>
+<li><a href="#3-provayderlar">Provider'lar</a></li>
+<li><a href="#4-ovoz">Ovoz</a></li>
+<li><a href="#5-model-routing">Model routing</a></li>
+<li><a href="#6-xavfsizlik">Xavfsizlik</a></li>
+<li><a href="#7-xotira">Xotira</a></li>
+<li><a href="#8-rag">RAG</a></li>
+<li><a href="#9-kop-agentli-tizim">Ko'p agentli tizim</a></li>
+<li><a href="#10-dashboard">Dashboard</a></li>
+<li><a href="#11-cli-malumotnomasi">CLI ma'lumotnomasi</a></li>
+<li><a href="#12-muammolarni-hal-qilish">Muammolarni hal qilish</a></li>
+</ol>
+<hr />
+<h2 id="1-tez-boshlash">1. Tez boshlash<a class="headerlink" href="#1-tez-boshlash" title="Permanent link">&para;</a></h2>
+<p>Uch qadam bilan ishlaydigan bot.</p>
+<h3 id="1-qadam-ornatish">1-qadam: O'rnatish<a class="headerlink" href="#1-qadam-ornatish" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>qanot
+</code></pre></div>
+<h3 id="2-qadam-initsializatsiya">2-qadam: Initsializatsiya<a class="headerlink" href="#2-qadam-initsializatsiya" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>qanot<span class="w"> </span>init
+</code></pre></div>
+<p>Interaktiv sozlash sihrbozi sizni quyidagilar bo'yicha yo'naltiradi:</p>
+<ul>
+<li>Telegram bot token (<a href="https://t.me/BotFather">@BotFather</a> dan)</li>
+<li>AI provider tanlash (Anthropic, OpenAI, Gemini, Groq yoki Ollama)</li>
+<li>API kalit tekshiruvi</li>
+<li>Ovoz qo'llab-quvvatlash (ixtiyoriy)</li>
+<li>Web search (ixtiyoriy)</li>
+</ul>
+<p>U <code>config.json</code>, standart <code>SOUL.md</code> bilan <code>workspace/</code> papkasini va <code>sessions/</code>, <code>cron/</code>, <code>plugins/</code> papkalarini yaratadi.</p>
+<h3 id="3-qadam-ishga-tushirish">3-qadam: Ishga tushirish<a class="headerlink" href="#3-qadam-ishga-tushirish" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>qanot<span class="w"> </span>start
+</code></pre></div>
+<p>Bot o'zini OS xizmati sifatida o'rnatadi (macOS'da launchd, Linux'da systemd) va fon rejimida ishga tushadi. Birinchi xabar yuborgan odam egasi bo'ladi.</p>
+<p>Oldingi rejimda ishga tushirish (Docker yoki debugging uchun foydali):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>qanot<span class="w"> </span>start<span class="w"> </span>-f
+</code></pre></div>
+<hr />
+<h2 id="2-konfiguratsiya">2. Konfiguratsiya<a class="headerlink" href="#2-konfiguratsiya" title="Permanent link">&para;</a></h2>
+<p>Barcha konfiguratsiya <code>config.json</code> da joylashadi. <code>qanot init</code> sihrbozi uni yaratadi, lekin qo'lda ham tahrirlash mumkin.</p>
+<h3 id="toliq-config-malumotnomasi">To'liq config ma'lumotnomasi<a class="headerlink" href="#toliq-config-malumotnomasi" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  // ── Asosiy ──
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  &quot;bot_token&quot;: &quot;123456:ABC...&quot;,        // @BotFather dan Telegram bot token
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  &quot;provider&quot;: &quot;anthropic&quot;,             // Asosiy provider: anthropic|openai|gemini|groq
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  &quot;model&quot;: &quot;claude-sonnet-4-6&quot;,        // Asosiy model
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  &quot;api_key&quot;: &quot;sk-ant-...&quot;,             // Asosiy API kalit
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  // ── Ko&#39;p provayderli (ixtiyoriy) ──
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  &quot;providers&quot;: [                       // Failover uchun qo&#39;shimcha provider&#39;lar
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    {
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>      &quot;name&quot;: &quot;anthropic-main&quot;,
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>      &quot;provider&quot;: &quot;anthropic&quot;,
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>      &quot;model&quot;: &quot;claude-sonnet-4-6&quot;,
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>      &quot;api_key&quot;: &quot;sk-ant-...&quot;
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    },
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    {
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>      &quot;name&quot;: &quot;gemini-backup&quot;,
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>      &quot;provider&quot;: &quot;gemini&quot;,
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>      &quot;model&quot;: &quot;gemini-2.5-flash&quot;,
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>      &quot;api_key&quot;: &quot;AIza...&quot;
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    }
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>  ],
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  // ── Identifikatsiya ──
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>  &quot;owner_name&quot;: &quot;Sirojiddin&quot;,          // Ismingiz (bot suhbatda ishlatadi)
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>  &quot;bot_name&quot;: &quot;Qanot&quot;,                 // Bot shaxsi nomi
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>  &quot;timezone&quot;: &quot;Asia/Tashkent&quot;,         // IANA timezone
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>  // ── Yo&#39;llar ──
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>  &quot;workspace_dir&quot;: &quot;/data/workspace&quot;,  // SOUL.md, MEMORY.md, kunlik yozuvlar
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>  &quot;sessions_dir&quot;: &quot;/data/sessions&quot;,    // JSONL sessiya loglari
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>  &quot;cron_dir&quot;: &quot;/data/cron&quot;,            // Rejali vazifalar (jobs.json)
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>  &quot;plugins_dir&quot;: &quot;/data/plugins&quot;,      // Plugin papkalari
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>  // ── Kontekst ──
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>  &quot;max_context_tokens&quot;: 200000,        // Maksimal kontekst oynasi (modelga bog&#39;liq)
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>  &quot;compaction_mode&quot;: &quot;safeguard&quot;,      // &quot;safeguard&quot; = 60% da auto-compact
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>  &quot;max_memory_injection_chars&quot;: 4000,  // RAG/compaction&#39;dan inject qilinadigan maks belgilar
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>  &quot;history_limit&quot;: 50,                 // Qayta ishga tushirishda tiklanadigan maks navbatlar
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>  // ── Telegram ──
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>  &quot;response_mode&quot;: &quot;stream&quot;,           // &quot;stream&quot;|&quot;partial&quot;|&quot;blocked&quot;
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>  &quot;stream_flush_interval&quot;: 0.8,        // Draft yangilanishlari orasidagi soniyalar (stream rejimi)
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>  &quot;telegram_mode&quot;: &quot;polling&quot;,          // &quot;polling&quot;|&quot;webhook&quot;
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>  &quot;webhook_url&quot;: &quot;&quot;,                   // telegram_mode &quot;webhook&quot; bo&#39;lsa kerak
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>  &quot;webhook_port&quot;: 8443,                // Webhook server uchun lokal port
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>  &quot;max_concurrent&quot;: 4,                 // Maksimal bir vaqtda xabar qayta ishlash
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>  // ── Kirish nazorati ──
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>  &quot;allowed_users&quot;: [],                 // Telegram user ID&#39;lar (bo&#39;sh = ommaviy)
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>  // ── Ovoz ──
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>  &quot;voice_provider&quot;: &quot;muxlisa&quot;,         // &quot;muxlisa&quot;|&quot;kotib&quot;|&quot;aisha&quot;|&quot;whisper&quot;
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>  &quot;voice_api_key&quot;: &quot;&quot;,                 // Standart ovoz API kaliti (fallback)
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>  &quot;voice_api_keys&quot;: {                  // Provider bo&#39;yicha kalitlar
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>    &quot;muxlisa&quot;: &quot;&quot;,
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>    &quot;kotib&quot;: &quot;&quot;
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>  },
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>  &quot;voice_mode&quot;: &quot;inbound&quot;,             // &quot;off&quot;|&quot;inbound&quot;|&quot;always&quot;
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>  &quot;voice_name&quot;: &quot;&quot;,                    // TTS ovoz nomi
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>  &quot;voice_language&quot;: &quot;&quot;,                // STT tilini majburlash (uz/ru/en), bo&#39;sh = auto
+<a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>
+<a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>  // ── RAG ──
+<a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>  &quot;rag_enabled&quot;: true,                 // RAG orqali xotira qidiruvini yoqish
+<a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>  &quot;rag_mode&quot;: &quot;auto&quot;,                  // &quot;auto&quot;|&quot;agentic&quot;|&quot;always&quot;
+<a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>
+<a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>  // ── Web Search ──
+<a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>  &quot;brave_api_key&quot;: &quot;&quot;,                 // Brave Search API kaliti (bepul: 2000 so&#39;rov/oy)
+<a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>
+<a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>  // ── UX ──
+<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>  &quot;reactions_enabled&quot;: false,          // Xabarlarga emoji reaktsiyalar yuborish
+<a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>  &quot;reply_mode&quot;: &quot;coalesced&quot;,           // &quot;off&quot;|&quot;coalesced&quot;|&quot;always&quot;
+<a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>  &quot;group_mode&quot;: &quot;mention&quot;,              // &quot;off&quot;|&quot;mention&quot;|&quot;all&quot;
+<a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>
+<a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>  // ── O&#39;z-o&#39;zini tiklash ──
+<a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>  &quot;heartbeat_enabled&quot;: true,           // Davriy o&#39;z-o&#39;zini tekshirishni yoqish
+<a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>  &quot;heartbeat_interval&quot;: &quot;0 */4 * * *&quot;, // Har 4 soatda
+<a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>
+<a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>  // ── Kunlik brifing ──
+<a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a>  &quot;briefing_enabled&quot;: true,            // Ertalabki xulosa
+<a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>  &quot;briefing_schedule&quot;: &quot;0 8 * * *&quot;,    // Har kuni 8:00 da
+<a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>
+<a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>  // ── Kengaytirilgan fikrlash (Claude) ──
+<a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>  &quot;thinking_level&quot;: &quot;off&quot;,             // &quot;off&quot;|&quot;low&quot;|&quot;medium&quot;|&quot;high&quot;
+<a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>  &quot;thinking_budget&quot;: 10000,            // Maksimal fikrlash tokenlari
+<a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>
+<a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>  // ── Bajarish xavfsizligi ──
+<a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>  &quot;exec_security&quot;: &quot;open&quot;,             // &quot;open&quot;|&quot;cautious&quot;|&quot;strict&quot;
+<a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>  &quot;exec_allowlist&quot;: [],                // strict rejimda ruxsat berilgan buyruqlar
+<a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>
+<a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>  // ── Model routing ──
+<a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>  &quot;routing_enabled&quot;: false,            // Oddiy xabarlarni arzonroq modelga yo&#39;naltirish
+<a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>  &quot;routing_model&quot;: &quot;claude-haiku-4-5-20251001&quot;,  // Salomlashishlar uchun arzon model
+<a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>  &quot;routing_mid_model&quot;: &quot;claude-sonnet-4-6&quot;,       // O&#39;rta darajali model
+<a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>  &quot;routing_threshold&quot;: 0.3,            // Murakkablik chegarasi (0.0-1.0)
+<a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>
+<a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>  // ── Rasm generatsiyasi ──
+<a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>  &quot;image_api_key&quot;: &quot;&quot;,                 // Rasm generatsiyasi uchun Gemini kaliti
+<a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>  &quot;image_model&quot;: &quot;gemini-3-pro-image-preview&quot;,
+<a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
+<a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>  // ── Dashboard ──
+<a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>  &quot;dashboard_enabled&quot;: true,           // :8765 portda web UI
+<a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>  &quot;dashboard_port&quot;: 8765,
+<a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>
+<a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>  // ── Backup ──
+<a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>  &quot;backup_enabled&quot;: true,              // Ishga tushirishda avtomatik backup
+<a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>
+<a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a>  // ── Ko&#39;p agentli ──
+<a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>  &quot;agents&quot;: [],                        // Agent ta&#39;riflari (Ko&#39;p agentli bo&#39;limga qarang)
+<a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>  &quot;monitor_group_id&quot;: 0,               // Agent monitoring uchun Telegram guruh ID
+<a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a>
+<a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a>  // ── Plugin&#39;lar ──
+<a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>  &quot;plugins&quot;: []                        // Plugin konfiguratsiyalari
+<a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>}
+</code></pre></div>
+<h3 id="initdan-keyin-configni-ozgartirish">Init'dan keyin config'ni o'zgartirish<a class="headerlink" href="#initdan-keyin-configni-ozgartirish" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Joriy config&#39;ni ko&#39;rsatish</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>qanot<span class="w"> </span>config<span class="w"> </span>show
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Qiymatni o&#39;zgartirish</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>qanot<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>model<span class="w"> </span>claude-opus-4-6
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>qanot<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>response_mode<span class="w"> </span>partial
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>qanot<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>exec_security<span class="w"> </span>cautious
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Zaxira provider qo&#39;shish (interaktiv)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>qanot<span class="w"> </span>config<span class="w"> </span>add-provider
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># O&#39;zgarishlar kuchga kirishi uchun qayta ishga tushirish</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>qanot<span class="w"> </span>restart
+</code></pre></div>
+<hr />
+<h2 id="3-providerlar">3. Provider'lar<a class="headerlink" href="#3-providerlar" title="Permanent link">&para;</a></h2>
+<p>Qanot beshta AI provider'ni qo'llab-quvvatlaydi. Failover uchun bir nechta provider sozlash mumkin.</p>
+<h3 id="anthropic-claude">Anthropic (Claude)<a class="headerlink" href="#anthropic-claude" title="Permanent link">&para;</a></h3>
+<p>Standart API kalitlar va OAuth tokenlarni (Claude Code'dan) qo'llab-quvvatlaydi.</p>
+<p><strong>Standart API kalit:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-api03-...&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>OAuth token (Claude Code):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-oat01-...&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>OAuth tokenlar avtomatik Claude Code identifikatsiya headerlarini yoqadi — bu Opus va Sonnet modellariga kirish imkonini beradi. Provider <code>sk-ant-oat</code> prefiksini aniqlaydi va headerlarni shunga mos sozlaydi.</p>
+<p><strong>Mavjud modellar:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Qachon ishlatish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>claude-sonnet-4-6</code></td>
+<td>Tez, ko'p vazifalar uchun tavsiya etiladi</td>
+</tr>
+<tr>
+<td><code>claude-opus-4-6</code></td>
+<td>Eng qobiliyatli, murakkab fikrlash uchun</td>
+</tr>
+<tr>
+<td><code>claude-haiku-4-5-20251001</code></td>
+<td>Eng arzon, oddiy so'rovlar uchun</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kengaytirilgan fikrlash:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;thinking_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;thinking_budget&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Darajalar: <code>off</code>, <code>low</code>, <code>medium</code>, <code>high</code>. Faqat Anthropic bilan ishlaydi.</p>
+<h3 id="openai-gpt">OpenAI (GPT)<a class="headerlink" href="#openai-gpt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4.1&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-proj-...&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Mavjud modellar:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Qachon ishlatish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpt-4.1</code></td>
+<td>Eng yangi, tavsiya etiladi</td>
+</tr>
+<tr>
+<td><code>gpt-4.1-mini</code></td>
+<td>Tez va arzon</td>
+</tr>
+<tr>
+<td><code>gpt-4o</code></td>
+<td>Ko'p modal</td>
+</tr>
+<tr>
+<td><code>gpt-4o-mini</code></td>
+<td>Eng arzon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="google-gemini">Google Gemini<a class="headerlink" href="#google-gemini" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Gemini ichki OpenAI-mos endpoint ishlatadi (<code>https://generativelanguage.googleapis.com/v1beta/openai/</code>). RAG uchun bepul embedding ham taqdim etadi.</p>
+<p><strong>Mavjud modellar:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Qachon ishlatish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gemini-2.5-flash</code></td>
+<td>Tez, tavsiya etiladi</td>
+</tr>
+<tr>
+<td><code>gemini-2.5-pro</code></td>
+<td>Eng qobiliyatli</td>
+</tr>
+<tr>
+<td><code>gemini-2.0-flash</code></td>
+<td>Eng arzon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="groq">Groq<a class="headerlink" href="#groq" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groq&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llama-3.3-70b-versatile&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gsk_...&quot;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Groq OpenAI-mos API ishlatadi (<code>https://api.groq.com/openai/v1</code>).</p>
+<p><strong>Mavjud modellar:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Qachon ishlatish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>llama-3.3-70b-versatile</code></td>
+<td>Tavsiya etiladi</td>
+</tr>
+<tr>
+<td><code>llama-3.1-8b-instant</code></td>
+<td>Eng tez</td>
+</tr>
+<tr>
+<td><code>qwen/qwen3-32b</code></td>
+<td>Qwen 3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ollama-lokal">Ollama (lokal)<a class="headerlink" href="#ollama-lokal" title="Permanent link">&para;</a></h3>
+<p>Bepul va maxfiy. Lokal ishlaydi, API kalit shart emas.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ollama-main&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qwen3.5:35b&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ollama&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="nt">&quot;base_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:11434/v1&quot;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Ollama <code>"provider": "openai"</code> ishlatishiga e'tibor bering — chunki u OpenAI-mos API gaplashadi. Framework Ollama'ni <code>base_url</code> dagi <code>11434</code> port orqali aniqlaydi va avtomatik:</p>
+<ul>
+<li>Qwen modellari uchun thinking rejimni o'chiradi (30x tezroq)</li>
+<li><code>think=false</code> bilan native Ollama API ishlatadi</li>
+<li>VRAM ziddiyatini oldini olish uchun RAG embedding uchun FastEmbed (CPU) ishlatadi</li>
+</ul>
+<p><strong>Ollama'ni o'rnatish va ishga tushirish:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://ollama.com/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>ollama<span class="w"> </span>pull<span class="w"> </span>qwen3.5:35b
+</code></pre></div>
+<h3 id="kop-provayderli-failover">Ko'p provayderli failover<a class="headerlink" href="#kop-provayderli-failover" title="Permanent link">&para;</a></h3>
+<p>Bir nechta provider sozlang. Qanot avval asosiyni sinaydi, keyin zaxiraga o'tadi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-...&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic-main&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-...&quot;</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-backup&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="4-ovoz">4. Ovoz<a class="headerlink" href="#4-ovoz" title="Permanent link">&para;</a></h2>
+<p>Qanot ovozdan matnga (STT) va matndan ovozga (TTS) uchun to'rtta voice provider'ni qo'llab-quvvatlaydi.</p>
+<h3 id="ovoz-rejimlari">Ovoz rejimlari<a class="headerlink" href="#ovoz-rejimlari" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Rejim</th>
+<th>Xatti-harakat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td>Ovozli xabarlar e'tiborsiz qoldiriladi</td>
+</tr>
+<tr>
+<td><code>inbound</code></td>
+<td>Kiruvchi ovozni transkripsiya qiladi; mos bo'lganda ovoz bilan javob beradi</td>
+</tr>
+<tr>
+<td><code>always</code></td>
+<td>Har doim ovoz bilan javob beradi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="muxlisauz-standart">Muxlisa.uz (standart)<a class="headerlink" href="#muxlisauz-standart" title="Permanent link">&para;</a></h3>
+<p>Mahalliy o'zbek provider'i. OGG ni to'g'ridan-to'g'ri qabul qiladi (STT uchun ffmpeg konvertatsiya shart emas).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;muxlisa&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nt">&quot;muxlisa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-muxlisa-api-key&quot;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="nt">&quot;voice_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;maftuna&quot;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Ovozlar:</strong> <code>maftuna</code>, <code>asomiddin</code></p>
+<p>API kalitni <a href="https://muxlisa.uz">muxlisa.uz</a> dan oling.</p>
+<h3 id="kotibai">KotibAI<a class="headerlink" href="#kotibai" title="Permanent link">&para;</a></h3>
+<p>6 ta ovoz, ko'p tilli qo'llab-quvvatlash, avtomatik til aniqlash.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kotib&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">&quot;kotib&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-jwt-token&quot;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">  </span><span class="nt">&quot;voice_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aziza&quot;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Ovozlar:</strong> <code>aziza</code>, <code>sherzod</code> va yana 4 ta</p>
+<p>JWT tokenni <a href="https://developer.kotib.ai">developer.kotib.ai</a> dan oling.</p>
+<h3 id="aisha-ai">Aisha AI<a class="headerlink" href="#aisha-ai" title="Permanent link">&para;</a></h3>
+<p>STT + TTS kayfiyat aniqlash bilan. O'zbek, ingliz va rus tillarini qo'llab-quvvatlaydi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aisha&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">&quot;aisha&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-aisha-api-key&quot;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Ovozlar:</strong> <code>Gulnoza</code>, <code>Jaxongir</code></p>
+<p>API kalitni <a href="https://aisha.group">aisha.group</a> dan oling.</p>
+<h3 id="openai-whisper">OpenAI Whisper<a class="headerlink" href="#openai-whisper" title="Permanent link">&para;</a></h3>
+<p>Faqat STT (TTS yo'q). Yuqori aniqlik, 50+ til.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;whisper&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&quot;whisper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-proj-...&quot;</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>API kalitni <a href="https://platform.openai.com">platform.openai.com</a> dan oling.</p>
+<h3 id="bir-nechta-voice-provider-ishlatish">Bir nechta voice provider ishlatish<a class="headerlink" href="#bir-nechta-voice-provider-ishlatish" title="Permanent link">&para;</a></h3>
+<p>Bir nechta provider sozlash va har biriga alohida kalit berish mumkin:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;muxlisa&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nt">&quot;muxlisa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;key-for-muxlisa&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="nt">&quot;kotib&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jwt-for-kotib&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="nt">&quot;whisper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-proj-for-whisper&quot;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="stt-tilini-majburlash">STT tilini majburlash<a class="headerlink" href="#stt-tilini-majburlash" title="Permanent link">&para;</a></h3>
+<p>Standart holda til avtomatik aniqlanadi. Muayyan tilni majburlash uchun:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;voice_language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uz&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Variantlar: <code>uz</code>, <code>ru</code>, <code>en</code> yoki avtomatik aniqlash uchun bo'sh qoldiring.</p>
+<hr />
+<h2 id="5-model-routing">5. Model routing<a class="headerlink" href="#5-model-routing" title="Permanent link">&para;</a></h2>
+<p>3 bosqichli model routing oddiy xabarlarni arzonroq modellarga yuborib pul tejaydi.</p>
+<h3 id="qanday-ishlaydi">Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>1-bosqich (arzon):</strong> Salomlashishlar, rahmatlar, oddiy savollar <code>routing_model</code> ga (masalan, Haiku)</li>
+<li><strong>2-bosqich (o'rta):</strong> Oddiy suhbat <code>routing_mid_model</code> ga (masalan, Sonnet)</li>
+<li><strong>3-bosqich (to'liq):</strong> Murakkab vazifalar, tool ishlatish, fikrlash asosiy <code>model</code> da qoladi</li>
+</ol>
+<p>Agent har bir kiruvchi xabarni murakkablik bo'yicha baholaydi (0.0 dan 1.0 gacha). <code>routing_threshold</code> dan past xabarlar arzon bosqichga yo'naltiriladi.</p>
+<h3 id="konfiguratsiya">Konfiguratsiya<a class="headerlink" href="#konfiguratsiya" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;routing_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">&quot;routing_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-haiku-4-5-20251001&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nt">&quot;routing_mid_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">&quot;routing_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-opus-4-6&quot;</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="xarajat-tejash-misollari">Xarajat tejash misollari<a class="headerlink" href="#xarajat-tejash-misollari" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Xabar</th>
+<th>Murakkablik</th>
+<th>Qayerga yo'naltiriladi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Salom!"</td>
+<td>0.05</td>
+<td>Haiku ($0.80/MTok)</td>
+</tr>
+<tr>
+<td>"Bugun ob-havo qanday?"</td>
+<td>0.15</td>
+<td>Haiku</td>
+</tr>
+<tr>
+<td>"Loyiha strukturasini tushuntir"</td>
+<td>0.45</td>
+<td>Sonnet ($3/MTok)</td>
+</tr>
+<tr>
+<td>"Bu kodni refaktor qil va testlar yoz"</td>
+<td>0.85</td>
+<td>Opus ($15/MTok)</td>
+</tr>
+</tbody>
+</table>
+<p>Routing yoqilganda, odatiy botlar 40-60% xarajat kamayishini ko'rishadi.</p>
+<hr />
+<h2 id="6-xavfsizlik">6. Xavfsizlik<a class="headerlink" href="#6-xavfsizlik" title="Permanent link">&para;</a></h2>
+<h3 id="bajarish-xavfsizlik-rejimlari">Bajarish xavfsizlik rejimlari<a class="headerlink" href="#bajarish-xavfsizlik-rejimlari" title="Permanent link">&para;</a></h3>
+<p><code>run_command</code> tool'i shell buyruqlarini bajarish uchun uchta xavfsizlik darajasiga ega.</p>
+<h4 id="open-standart">open (standart)<a class="headerlink" href="#open-standart" title="Permanent link">&para;</a></h4>
+<p>Faqat xavfli buyruqlar bloklanadi (rm -rf /, fork bomb'lar, disk to'ldirish hujumlari va h.k.). Qolgan hamma narsa erkin ishlaydi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;exec_security&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;open&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="cautious">cautious<a class="headerlink" href="#cautious" title="Permanent link">&para;</a></h4>
+<p>Xavfli buyruqlar bloklanadi. Xatarli buyruqlar (pip install, curl, sudo, docker, git push va h.k.) inline tugma yoki matnli tasdiqlash orqali foydalanuvchi ruxsatini talab qiladi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">&quot;exec_security&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cautious&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Bot so'raydi: "Bu buyruqni bajarishga ruxsat berasizmi: <code>pip install requests</code>?" va tasdiqlashni kutadi.</p>
+<h4 id="strict">strict<a class="headerlink" href="#strict" title="Permanent link">&para;</a></h4>
+<p>Faqat oq ro'yxatdagi buyruqlarga ruxsat beriladi. Qolganlarning barchasi rad etiladi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">&quot;exec_security&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;strict&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nt">&quot;exec_allowlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="s2">&quot;git status&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="s2">&quot;git log&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="s2">&quot;git diff&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span><span class="s2">&quot;ls&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">    </span><span class="s2">&quot;cat&quot;</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Oq ro'yxat yozuvlari prefiks bo'yicha mos keladi: <code>"git"</code> <code>git status</code>, <code>git log</code> va boshqalarga ruxsat beradi.</p>
+<h3 id="har-doim-bloklangan-buyruqlar">Har doim bloklangan buyruqlar<a class="headerlink" href="#har-doim-bloklangan-buyruqlar" title="Permanent link">&para;</a></h3>
+<p>Bular barcha rejimlarda (shu jumladan <code>open</code>) bloklanadi:</p>
+<ul>
+<li><code>rm -rf /</code> va variantlari (root/home'ni rekursiv o'chirish)</li>
+<li><code>mkfs</code>, <code>dd</code>, <code>shred</code> (diskni buzish)</li>
+<li><code>shutdown</code>, <code>reboot</code>, <code>poweroff</code></li>
+<li><code>chmod 777 /</code>, <code>chown root</code></li>
+<li>Tarmoq hujum tool'lari (nmap, sqlmap, hydra, metasploit)</li>
+<li><code>curl | sh</code>, <code>wget | sh</code> (masofaviy kod bajarish)</li>
+<li>Fork bomb'lar, disk to'ldirish hujumlari</li>
+</ul>
+<h3 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
+<p>Parallel xabar qayta ishlashni cheklash uchun <code>max_concurrent</code> dan foydalaning:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Botni kim ishlata olishini cheklash uchun <code>allowed_users</code> dan foydalaning:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">&quot;allowed_users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="mi">987654321</span><span class="p">]</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Bo'sh massiv botni ommaviy qiladi. Birinchi xabar yuborgan foydalanuvchi avtomatik egasi bo'ladi.</p>
+<h3 id="secretref">SecretRef<a class="headerlink" href="#secretref" title="Permanent link">&para;</a></h3>
+<p>API kalitlarni hech qachon <code>config.json</code> da ochiq matn sifatida saqlamang. Ularni muhit o'zgaruvchilari yoki fayllardan yuklash uchun SecretRef dan foydalaning.</p>
+<p><strong>Muhit o'zgaruvchisidan:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ANTHROPIC_API_KEY&quot;</span><span class="p">},</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TELEGRAM_BOT_TOKEN&quot;</span><span class="p">},</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span><span class="nt">&quot;brave_api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BRAVE_API_KEY&quot;</span><span class="p">}</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Fayldan:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/run/secrets/anthropic_key&quot;</span><span class="p">},</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/run/secrets/bot_token&quot;</span><span class="p">}</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Faylga asoslangan sirlar xavfsizlik tekshiruvlariga ega:
+- Symlink'lar rad etiladi (escape hujumlarini oldini oladi)
+- Barchaga o'qish mumkin fayllar ogohlantirish chiqaradi (<code>chmod 600</code> tavsiya etiladi)
+- Maksimal 64 KB fayl hajmi</p>
+<p>SecretRef quyidagilar uchun ishlaydi: <code>api_key</code>, <code>bot_token</code>, <code>brave_api_key</code>, <code>voice_api_key</code>, <code>image_api_key</code>, barcha provider <code>api_key</code> maydonlari va <code>voice_api_keys</code> qiymatlari.</p>
+<h3 id="fayl-qafasi-file-jail">Fayl qafasi (File Jail)<a class="headerlink" href="#fayl-qafasi-file-jail" title="Permanent link">&para;</a></h3>
+<p><code>write_file</code> tool'i tizim papkalariga yozishni bloklaydi:</p>
+<ul>
+<li><code>/etc</code>, <code>/usr</code>, <code>/bin</code>, <code>/sbin</code>, <code>/lib</code>, <code>/boot</code>, <code>/proc</code>, <code>/sys</code>, <code>/dev</code></li>
+<li><code>/System</code>, <code>/Library</code> (macOS)</li>
+<li><code>C:\Windows</code>, <code>C:\Program Files</code> (Windows)</li>
+</ul>
+<p>Papka traversalini oldini olish uchun symlink yozuvlari ham bloklanadi.</p>
+<hr />
+<h2 id="7-xotira">7. Xotira<a class="headerlink" href="#7-xotira" title="Permanent link">&para;</a></h2>
+<p>Qanot'da botga suhbatlar orasida o'rganish va eslab qolish imkonini beradigan uch bosqichli xotira tizimi bor.</p>
+<h3 id="wal-protocol-write-ahead-log">WAL Protocol (Write-Ahead Log)<a class="headerlink" href="#wal-protocol-write-ahead-log" title="Permanent link">&para;</a></h3>
+<p>Har bir user xabar LLM javob berishdan OLDIN skanerlanadi. WAL quyidagilarni aniqlaydi:</p>
+<table>
+<thead>
+<tr>
+<th>Kategoriya</th>
+<th>Trigger misollari (inglizcha)</th>
+<th>Trigger misollari (o'zbekcha)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuzatishlar</td>
+<td>"actually", "no, I meant"</td>
+<td>"aslida", "to'g'ri emas"</td>
+</tr>
+<tr>
+<td>Atoqli otlar</td>
+<td>"my name is Ahmad"</td>
+<td>"mening ismim Ahmad"</td>
+</tr>
+<tr>
+<td>Afzalliklar</td>
+<td>"I like Python", "I prefer dark mode"</td>
+<td>"men Python yoqtiraman"</td>
+</tr>
+<tr>
+<td>Qarorlar</td>
+<td>"let's use React"</td>
+<td>"keling React ishlataylik"</td>
+</tr>
+<tr>
+<td>Aniq qiymatlar</td>
+<td>URL'lar, sanalar, katta raqamlar</td>
+<td>Xuddi shunday</td>
+</tr>
+<tr>
+<td>Eslab qolish</td>
+<td>"remember this", "don't forget"</td>
+<td>"eslab qol", "unutma"</td>
+</tr>
+</tbody>
+</table>
+<p>Aniqlangan yozuvlar <code>SESSION-STATE.md</code> ga (faol ishchi xotira) yoziladi. Doimiy faktlar (ismlar, afzalliklar, aniq "eslab qol" so'rovlari) <code>MEMORY.md</code> ga ham saqlanadi.</p>
+<h3 id="fayl-tuzilishi">Fayl tuzilishi<a class="headerlink" href="#fayl-tuzilishi" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>workspace/
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  MEMORY.md           # Uzoq muddatli saralangan faktlar
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  SESSION-STATE.md    # Faol sessiya ishchi xotirasi (WAL yozuvlari)
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>  memory/
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    2026-03-15.md     # Kunlik yozuvlar (suhbat xulosalari)
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    2026-03-14.md
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    ...
+</code></pre></div>
+<h3 id="memorymd">MEMORY.md<a class="headerlink" href="#memorymd" title="Permanent link">&para;</a></h3>
+<p>Bot har doim eslab turishi kerak bo'lgan faktlarning uzoq muddatli saqlash joyi. Doimiy kategoriyalar uchun WAL tomonidan avtomatik yoziladi va compaction (xotira tozalash) davomida agent tomonidan yoziladi.</p>
+<p>Misol:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gh"># MEMORY.md - Long-Term Memory</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="gu">## Auto-captured</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="k">-</span><span class="w"> </span><span class="gs">**proper_noun**</span>: [user:123] mening ismim Ahmad
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="k">-</span><span class="w"> </span><span class="gs">**preference**</span>: [user:123] I prefer Python over JavaScript
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="k">-</span><span class="w"> </span><span class="gs">**remember**</span>: [user:123] remember this: project deadline is March 30
+</code></pre></div>
+<h3 id="kunlik-yozuvlar">Kunlik yozuvlar<a class="headerlink" href="#kunlik-yozuvlar" title="Permanent link">&para;</a></h3>
+<p>Kontekst compact qilinganda, agent suhbat xulosalarini <code>memory/YYYY-MM-DD.md</code> ga saqlaydi. Bular <code>memory_search</code> tool orqali qidirish mumkin va RAG tomonidan indekslanadi.</p>
+<h3 id="kontekst-compaction">Kontekst compaction<a class="headerlink" href="#kontekst-compaction" title="Permanent link">&para;</a></h3>
+<p>Kontekst 60% ishlatilganda working buffer faollashadi. Kontekst to'lib ketganda, Qanot:</p>
+<ol>
+<li>Xotira tozalash ishga tushiradi (agent muhim faktlarni fayllarga saqlaydi)</li>
+<li>Suhbatni xulosaleydi</li>
+<li>Eski xabarlarni xulosa bilan almashtiradi</li>
+<li>Yangi kontekst bilan davom etadi</li>
+</ol>
+<p><code>compaction_mode: "safeguard"</code> sozlamasi buni avtomatik ta'minlaydi.</p>
+<h3 id="agent-qanday-organadi">Agent qanday o'rganadi<a class="headerlink" href="#agent-qanday-organadi" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>User xabar --&gt; WAL scan --&gt; Faktlarni aniqlash --&gt; SESSION-STATE.md / MEMORY.md ga yozish
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>                                                ↓
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>LLM javob --&gt; Tool chaqiruvlar --&gt; Kunlik yozuvlar --&gt; memory/2026-03-15.md
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>                                                ↓
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>Kontekst to&#39;lishi --&gt; Compact --&gt; Xulosa --&gt; Inject qilingan xotiralar bilan yangi kontekst
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>                                                ↓
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>Keyingi xabar --&gt; RAG search --&gt; Tegishli xotiralarni inject qilish --&gt; LLM to&#39;liq kontekstni ko&#39;radi
+</code></pre></div>
+<hr />
+<h2 id="8-rag">8. RAG<a class="headerlink" href="#8-rag" title="Permanent link">&para;</a></h2>
+<p>RAG (Retrieval-Augmented Generation) botning xotira qidiruvini semantik tushunish bilan kuchaytiradi.</p>
+<h3 id="qanday-ishlaydi_1">Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi_1" title="Permanent link">&para;</a></h3>
+<p>Qanot gibrid qidiruvni qo'llaydi:</p>
+<ol>
+<li><strong>FTS5</strong> (SQLite to'liq matn qidiruv) -- kalit so'z mosligi, har doim mavjud</li>
+<li><strong>Vektor embedding'lar</strong> -- semantik o'xshashlik, embedding provider kerak</li>
+</ol>
+<p>Natijalar reciprocal rank fusion va vaqt bo'yicha so'nish (yaqindagi xotiralar yuqoriroq) yordamida birlashtiriladi.</p>
+<h3 id="embedding-provider-zanjiri">Embedding provider zanjiri<a class="headerlink" href="#embedding-provider-zanjiri" title="Permanent link">&para;</a></h3>
+<p>Qanot mavjud config'dan eng yaxshi embedder'ni avtomatik aniqlaydi. Qo'shimcha API kalit shart emas.</p>
+<table>
+<thead>
+<tr>
+<th>Ustuvorlik</th>
+<th>Provider</th>
+<th>O'lchamlar</th>
+<th>Narx</th>
+<th>Qachon ishlatiladi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>FastEmbed (CPU)</td>
+<td>768</td>
+<td>Bepul</td>
+<td>Ollama sozlashlari (VRAM ziddiyati yo'q)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Gemini</td>
+<td>3072</td>
+<td>Bepul daraja</td>
+<td>Gemini API kaliti mavjud bo'lganda</td>
+</tr>
+<tr>
+<td>2</td>
+<td>OpenAI</td>
+<td>1536</td>
+<td>$0.02/MTok</td>
+<td>OpenAI API kaliti mavjud bo'lganda</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Faqat FTS</td>
+<td>-</td>
+<td>Bepul</td>
+<td>Embedder mavjud bo'lmaganda fallback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="konfiguratsiya_1">Konfiguratsiya<a class="headerlink" href="#konfiguratsiya_1" title="Permanent link">&para;</a></h3>
+<p>RAG standart holda yoqilgan. Gemini yoki OpenAI kalitingiz bo'lsa, qo'shimcha konfiguratsiya shart emas.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">&quot;rag_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="nt">&quot;rag_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;auto&quot;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>RAG rejimlari:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rejim</th>
+<th>Xatti-harakat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto</code></td>
+<td>Tegishli bo'lganda RAG avtomatik qidiradi</td>
+</tr>
+<tr>
+<td><code>agentic</code></td>
+<td>Agent <code>memory_search</code> tool orqali qachon qidirish kerakligini hal qiladi</td>
+</tr>
+<tr>
+<td><code>always</code></td>
+<td>Har doim RAG natijalarini kontekstga inject qiladi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gemini-embedding-sozlash">Gemini embedding sozlash<a class="headerlink" href="#gemini-embedding-sozlash" title="Permanent link">&para;</a></h3>
+<p>Gemini API kalitingiz bo'lsa (hatto asosiy bo'lmagan provider sifatida), embedding'lar avtomatik ishlaydi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">{</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-embed&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Framework <code>gemini-embedding-001</code> (3072 o'lcham) ni o'zgarmagan kontentni qayta embedding qilishni oldini olish uchun embedding keshi bilan ishlatadi.</p>
+<h3 id="ollama-embedding-sozlash">Ollama embedding sozlash<a class="headerlink" href="#ollama-embedding-sozlash" title="Permanent link">&para;</a></h3>
+<p>Ollama foydalanuvchilari uchun CPU asosidagi embedding uchun FastEmbed'ni o'rnating (VRAM ziddiyatini oldini oladi):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>pip<span class="w"> </span>install<span class="w"> </span>fastembed
+</code></pre></div>
+<p>Agar FastEmbed o'rnatilmagan bo'lsa, Ollama <code>nomic-embed-text</code> modeli orqali o'z embedding'iga qaytadi.</p>
+<h3 id="nima-indekslanadi">Nima indekslanadi<a class="headerlink" href="#nima-indekslanadi" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>MEMORY.md</code> -- uzoq muddatli faktlar</li>
+<li><code>SESSION-STATE.md</code> -- faol sessiya holati</li>
+<li><code>memory/*.md</code> -- kunlik yozuvlar (oxirgi 30 ta fayl)</li>
+</ul>
+<p>Fayllar kontenti o'zgarganda qayta indekslanadi (hash asosidagi deduplikatsiya).</p>
+<hr />
+<h2 id="9-kop-agentli-tizim">9. Ko'p agentli tizim<a class="headerlink" href="#9-kop-agentli-tizim" title="Permanent link">&para;</a></h2>
+<p>Qanot uchta o'zaro ta'sir shakli bilan ko'p agentli hamkorlikni qo'llab-quvvatlaydi.</p>
+<h3 id="agent-tarifi">Agent ta'rifi<a class="headerlink" href="#agent-tarifi" title="Permanent link">&para;</a></h3>
+<p>Agent'larni <code>config.json</code> da aniqlang:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deep-researcher&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chuqur Tadqiqotchi&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">      </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a deep research agent. Use web_search and web_fetch extensively. Investigate topics thoroughly with multiple sources. Always cite your sources.&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-opus-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">      </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">      </span><span class="nt">&quot;tools_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;web_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;web_fetch&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;memory_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;read_file&quot;</span><span class="p">],</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">      </span><span class="nt">&quot;tools_deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">      </span><span class="nt">&quot;max_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fast-coder&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tezkor Dasturchi&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="w">      </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a fast coding agent. Write clean, working code quickly. Follow existing project conventions.&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-haiku-4-5-20251001&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a><span class="w">      </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="w">      </span><span class="nt">&quot;tools_deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;web_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;web_fetch&quot;</span><span class="p">],</span>
+<a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;deep-researcher&quot;</span><span class="p">],</span>
+<a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="agent-maydonlari">Agent maydonlari<a class="headerlink" href="#agent-maydonlari" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Maydon</th>
+<th>Tavsif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Noyob identifikator (masalan, <code>"researcher"</code>, <code>"coder"</code>)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Inson o'qiy oladigan nom (masalan, <code>"Tadqiqotchi"</code>)</td>
+</tr>
+<tr>
+<td><code>prompt</code></td>
+<td>Tizim prompt / shaxsiyat</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>Model almashtirish (bo'sh = asosiy modelni ishlatish)</td>
+</tr>
+<tr>
+<td><code>provider</code></td>
+<td>Provider almashtirish (bo'sh = asosiy provider'ni ishlatish)</td>
+</tr>
+<tr>
+<td><code>api_key</code></td>
+<td>API kalit almashtirish (bo'sh = asosiy kalitni ishlatish)</td>
+</tr>
+<tr>
+<td><code>bot_token</code></td>
+<td>Alohida Telegram bot token (bo'sh = faqat ichki agent)</td>
+</tr>
+<tr>
+<td><code>tools_allow</code></td>
+<td>Tool oq ro'yxati (bo'sh = barcha tool'larga ruxsat)</td>
+</tr>
+<tr>
+<td><code>tools_deny</code></td>
+<td>Tool qora ro'yxati</td>
+</tr>
+<tr>
+<td><code>delegate_allow</code></td>
+<td>Bu agent qaysi boshqa agent'larga delegatsiya qila olishi (bo'sh = barchasi)</td>
+</tr>
+<tr>
+<td><code>max_iterations</code></td>
+<td>Maksimal tool-use loop'lar (standart: 15)</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>Timeout oldidan soniyalar (standart: 120)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ozaro-tasir-shakllari">O'zaro ta'sir shakllari<a class="headerlink" href="#ozaro-tasir-shakllari" title="Permanent link">&para;</a></h3>
+<h4 id="1-delegate_to_agent">1. delegate_to_agent<a class="headerlink" href="#1-delegate_to_agent" title="Permanent link">&para;</a></h4>
+<p>Bir martalik vazifa topshirish. Asosiy agent vazifa yuboradi, sub-agent uni bajaradi va natijani qaytaradi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>User: &quot;Bu mavzu haqida chuqur tadqiqot qil&quot;
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Bot: [deep-researcher agent&#39;ga delegatsiya qiladi]
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>     [deep-researcher web search&#39;lar ishlatadi, manbalarni o&#39;qiydi]
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>     [topilmalarni asosiy agent&#39;ga qaytaradi]
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>Bot: &quot;Tadqiqot natijalari: ...&quot;
+</code></pre></div>
+<h4 id="2-converse_with_agent">2. converse_with_agent<a class="headerlink" href="#2-converse_with_agent" title="Permanent link">&para;</a></h4>
+<p>Agent'lar orasida ko'p navbatli ping-pong suhbat (5 ta navbatgacha). Agent'lar yechim ustida ishlashi kerak bo'lganda foydali.</p>
+<h4 id="3-spawn_sub_agent">3. spawn_sub_agent<a class="headerlink" href="#3-spawn_sub_agent" title="Permanent link">&para;</a></h4>
+<p>Mustaqil ishlaydigan fon agent'ini yaratadi. Natijalar umumiy loyiha taxtasiga joylashtiriladi.</p>
+<h3 id="umumiy-loyiha-taxtasi">Umumiy loyiha taxtasi<a class="headerlink" href="#umumiy-loyiha-taxtasi" title="Permanent link">&para;</a></h3>
+<p>Agent'lar boshqa agent'lar o'qiy oladigan umumiy taxtaga natijalar joylashtirilishi mumkin. Bu to'g'ridan-to'g'ri xabar almashishsiz asinxron hamkorlikni ta'minlaydi.</p>
+<h3 id="agent-monitoring">Agent monitoring<a class="headerlink" href="#agent-monitoring" title="Permanent link">&para;</a></h3>
+<p>Barcha agent suhbatlarini monitoring uchun Telegram guruhga ko'chirish:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">{</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="nt">&quot;monitor_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1001234567890</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="kirish-nazorati">Kirish nazorati<a class="headerlink" href="#kirish-nazorati" title="Permanent link">&para;</a></h3>
+<p>Qaysi agent'lar bir-biri bilan gaplasha olishini boshqarish uchun <code>delegate_allow</code> dan foydalaning:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">{</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">  </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;coder&quot;</span><span class="p">,</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;researcher&quot;</span><span class="p">]</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;researcher&quot;</span><span class="p">,</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Bu yerda <code>coder</code> <code>researcher</code> ga delegatsiya qila oladi, lekin <code>researcher</code> hech kimga delegatsiya qila olmaydi. Cheksiz loop'larni oldini olish uchun maksimal delegatsiya chuqurligi 2.</p>
+<hr />
+<h2 id="10-dashboard">10. Dashboard<a class="headerlink" href="#10-dashboard" title="Permanent link">&para;</a></h2>
+<p>Qanot real-time monitoring uchun web dashboard o'z ichiga oladi.</p>
+<h3 id="yoqish">Yoqish<a class="headerlink" href="#yoqish" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="p">{</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">  </span><span class="nt">&quot;dashboard_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">  </span><span class="nt">&quot;dashboard_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8765</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Dashboard bot bilan birga avtomatik ishga tushadi. <code>http://localhost:8765</code> da kiring.</p>
+<h3 id="api-endpointlar">API endpoint'lar<a class="headerlink" href="#api-endpointlar" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Tavsif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /</code></td>
+<td>Web UI (HTML dashboard)</td>
+</tr>
+<tr>
+<td><code>GET /api/status</code></td>
+<td>Bot holati: uptime, kontekst %, token soni, faol suhbatlar</td>
+</tr>
+<tr>
+<td><code>GET /api/config</code></td>
+<td>Joriy konfiguratsiya (sirlarsiz)</td>
+</tr>
+<tr>
+<td><code>GET /api/costs</code></td>
+<td>Har bir foydalanuvchi uchun xarajat kuzatuvi</td>
+</tr>
+<tr>
+<td><code>GET /api/memory</code></td>
+<td>Xotira fayllar ro'yxati</td>
+</tr>
+<tr>
+<td><code>GET /api/memory/{filename}</code></td>
+<td>Muayyan xotira faylini o'qish</td>
+</tr>
+<tr>
+<td><code>GET /api/tools</code></td>
+<td>Ro'yxatga olingan tool'lar ro'yxati</td>
+</tr>
+<tr>
+<td><code>GET /api/routing</code></td>
+<td>Model routing statistikasi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="misol-bot-holatini-tekshirish">Misol: bot holatini tekshirish<a class="headerlink" href="#misol-bot-holatini-tekshirish" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>curl<span class="w"> </span>http://localhost:8765/api/status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">{</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">  </span><span class="nt">&quot;bot_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Qanot&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">  </span><span class="nt">&quot;uptime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2h 15m 30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">  </span><span class="nt">&quot;context_percent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">23.5</span><span class="p">,</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">  </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45200</span><span class="p">,</span>
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">  </span><span class="nt">&quot;turn_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">  </span><span class="nt">&quot;api_calls&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">  </span><span class="nt">&quot;buffer_active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="w">  </span><span class="nt">&quot;active_conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="11-cli-malumotnomasi">11. CLI ma'lumotnomasi<a class="headerlink" href="#11-cli-malumotnomasi" title="Permanent link">&para;</a></h2>
+<h3 id="buyruqlar">Buyruqlar<a class="headerlink" href="#buyruqlar" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Buyruq</th>
+<th>Tavsif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>qanot init [dir]</code></td>
+<td>Interaktiv sozlash sihrbozi. config.json va workspace yaratadi.</td>
+</tr>
+<tr>
+<td><code>qanot start [path]</code></td>
+<td>Botni OS xizmati (launchd/systemd) orqali ishga tushiradi.</td>
+</tr>
+<tr>
+<td><code>qanot start -f</code></td>
+<td>Oldingi rejimda ishga tushirish (Docker, systemd, debugging uchun).</td>
+</tr>
+<tr>
+<td><code>qanot stop [path]</code></td>
+<td>Botni to'xtatadi.</td>
+</tr>
+<tr>
+<td><code>qanot restart [path]</code></td>
+<td>Botni qayta ishga tushiradi (stop + start).</td>
+</tr>
+<tr>
+<td><code>qanot status [path]</code></td>
+<td>Bot ishlayotganligini tekshiradi.</td>
+</tr>
+<tr>
+<td><code>qanot logs [path]</code></td>
+<td>Bot loglarini ko'rsatadi (<code>-n50</code> qator soni uchun).</td>
+</tr>
+<tr>
+<td><code>qanot doctor [path]</code></td>
+<td>O'rnatishda salomatlik tekshiruvlarini bajaradi.</td>
+</tr>
+<tr>
+<td><code>qanot doctor --fix</code></td>
+<td>Aniqlangan muammolarni avtomatik tuzatadi.</td>
+</tr>
+<tr>
+<td><code>qanot backup [path]</code></td>
+<td>workspace/sessions/cron'ni <code>.tar.gz</code> ga eksport qiladi.</td>
+</tr>
+<tr>
+<td><code>qanot config show</code></td>
+<td>Joriy konfiguratsiyani ko'rsatadi.</td>
+</tr>
+<tr>
+<td><code>qanot config set &lt;key&gt; &lt;value&gt;</code></td>
+<td>Config qiymatini o'rnatadi.</td>
+</tr>
+<tr>
+<td><code>qanot config add-provider</code></td>
+<td>Zaxira AI provider qo'shadi (interaktiv).</td>
+</tr>
+<tr>
+<td><code>qanot config remove-provider</code></td>
+<td>AI provider'ni olib tashlaydi.</td>
+</tr>
+<tr>
+<td><code>qanot plugin new &lt;name&gt;</code></td>
+<td>Yangi plugin papkasi yaratadi.</td>
+</tr>
+<tr>
+<td><code>qanot plugin list</code></td>
+<td>O'rnatilgan plugin'larni ko'rsatadi.</td>
+</tr>
+<tr>
+<td><code>qanot update</code></td>
+<td>PyPI'dan eng yangi versiyaga yangilaydi + qayta ishga tushiradi.</td>
+</tr>
+<tr>
+<td><code>qanot version</code></td>
+<td>O'rnatilgan versiyani ko'rsatadi.</td>
+</tr>
+<tr>
+<td><code>qanot help</code></td>
+<td>Yordam ko'rsatadi.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="muhit-ozgaruvchilari">Muhit o'zgaruvchilari<a class="headerlink" href="#muhit-ozgaruvchilari" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>O'zgaruvchi</th>
+<th>Tavsif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QANOT_CONFIG</code></td>
+<td>config.json ga yo'l (standart qidiruvni bekor qiladi).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="config-yol-aniqlash-tartibi">Config yo'l aniqlash tartibi<a class="headerlink" href="#config-yol-aniqlash-tartibi" title="Permanent link">&para;</a></h3>
+<p>CLI <code>config.json</code> ni shu tartibda qidiradi:</p>
+<ol>
+<li>Pozitsion argument (fayl yoki papka)</li>
+<li><code>QANOT_CONFIG</code> muhit o'zgaruvchisi</li>
+<li><code>./config.json</code> (joriy papka)</li>
+<li><code>/data/config.json</code> (Docker standarti)</li>
+</ol>
+<hr />
+<h2 id="12-muammolarni-hal-qilish">12. Muammolarni hal qilish<a class="headerlink" href="#12-muammolarni-hal-qilish" title="Permanent link">&para;</a></h2>
+<h3 id="bot-ishga-tushmayapti">Bot ishga tushmayapti<a class="headerlink" href="#bot-ishga-tushmayapti" title="Permanent link">&para;</a></h3>
+<p><strong>Belgi:</strong> <code>qanot start</code> hech narsa yoki xato ko'rsatmaydi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1"># Holatni tekshirish</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>qanot<span class="w"> </span>status
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="c1"># Loglarni tekshirish</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>qanot<span class="w"> </span>logs
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="c1"># Xatolarni ko&#39;rish uchun oldingi rejimda ishga tushirish</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>qanot<span class="w"> </span>start<span class="w"> </span>-f
+</code></pre></div>
+<p><strong>Keng tarqalgan sabablar:</strong></p>
+<ul>
+<li>Noto'g'ri <code>bot_token</code> -- @BotFather bilan tekshiring</li>
+<li>Noto'g'ri <code>api_key</code> -- provider dashboard'ni tekshiring</li>
+<li><code>webhook_port</code> yoki <code>dashboard_port</code> da port ziddiyati</li>
+</ul>
+<h3 id="config-file-not-found">"Config file not found"<a class="headerlink" href="#config-file-not-found" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># Config mavjudligini tekshirish</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>ls<span class="w"> </span>config.json
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="c1"># To&#39;g&#39;ri joyni ko&#39;rsatish</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">QANOT_CONFIG</span><span class="o">=</span>/path/to/config.json
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>qanot<span class="w"> </span>start
+</code></pre></div>
+<p>Yoki yangi config yaratish uchun <code>qanot init</code> ni ishga tushiring.</p>
+<h3 id="api-kalit-notogri">API kalit noto'g'ri<a class="headerlink" href="#api-kalit-notogri" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># Salomatlik tekshiruvlarini ishga tushirish</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>qanot<span class="w"> </span>doctor
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="c1"># Doctor bot token va API kalitlarni tekshiradi</span>
+</code></pre></div>
+<p>Agar SecretRef ishlatayotgan bo'lsangiz:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># Muhit o&#39;zgaruvchisi o&#39;rnatilganligini tekshirish</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$ANTHROPIC_API_KEY</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># Fayl mavjud va o&#39;qish mumkinligini tekshirish</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>cat<span class="w"> </span>/run/secrets/anthropic_key
+</code></pre></div>
+<h3 id="kontekst-tolib-ketishi-kontekst-toldi">Kontekst to'lib ketishi / "Kontekst to'ldi"<a class="headerlink" href="#kontekst-tolib-ketishi-kontekst-toldi" title="Permanent link">&para;</a></h3>
+<p>Bot 60% kontekst ishlatilishida avtomatik compact qiladi. Agar tez-tez compaction ko'rsangiz:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="nt">&quot;max_context_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200000</span><span class="p">,</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">  </span><span class="nt">&quot;history_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">  </span><span class="nt">&quot;max_memory_injection_chars&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Modelingiz qo'llab-quvvatlasa <code>max_context_tokens</code> ni oshiring</li>
+<li>Qayta ishga tushirishda kamroq navbat tiklash uchun <code>history_limit</code> ni kamaytiring</li>
+<li>Kamroq RAG kontekst inject qilish uchun <code>max_memory_injection_chars</code> ni kamaytiring</li>
+</ul>
+<h3 id="ovoz-ishlamayapti">Ovoz ishlamayapti<a class="headerlink" href="#ovoz-ishlamayapti" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>qanot<span class="w"> </span>doctor
+</code></pre></div>
+<p>Doctor natijasidagi "Voice" bo'limini tekshiring. Keng tarqalgan muammolar:</p>
+<ul>
+<li><strong>API kalit yo'q:</strong> <code>voice_api_keys.muxlisa</code> (yoki boshqa provider'ingiz) ni o'rnating</li>
+<li><strong>ffmpeg o'rnatilmagan:</strong> KotibAI va Whisper uchun kerak (Muxlisa OGG ni to'g'ridan-to'g'ri qabul qiladi)</li>
+<li><strong>Noto'g'ri voice_mode:</strong> <code>"inbound"</code> yoki <code>"always"</code> bo'lishi kerak, <code>"off"</code> emas</li>
+</ul>
+<p>ffmpeg'ni o'rnatish:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1"># macOS</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="c1"># Ubuntu/Debian</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ffmpeg
+</code></pre></div>
+<h3 id="bot-sekin-javob-beryapti">Bot sekin javob beryapti<a class="headerlink" href="#bot-sekin-javob-beryapti" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Javob rejimini tekshiring:</strong> <code>"stream"</code> eng tez (Telegram Bot API 9.5 <code>sendMessageDraft</code> ishlatadi)</li>
+<li><strong>Routing'ni yoqing:</strong> Oddiy xabarlarni arzonroq/tezroq modellarga yo'naltiring</li>
+<li><strong>Modelni tekshiring:</strong> Haiku/Flash modellari Opus/Pro'dan tezroq javob beradi</li>
+<li><strong>Bir vaqtdalik limitni tekshiring:</strong> Ko'p foydalanuvchi bo'lsa <code>max_concurrent</code> ni oshiring</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="p">{</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="nt">&quot;response_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="nt">&quot;routing_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">  </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="rag-xotiralarni-topa-olmayapti">RAG xotiralarni topa olmayapti<a class="headerlink" href="#rag-xotiralarni-topa-olmayapti" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="c1"># RAG yoqilganligini tekshirish</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>qanot<span class="w"> </span>config<span class="w"> </span>show
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="c1"># Embedder initsializatsiyasi uchun loglarni tekshirish</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>qanot<span class="w"> </span>logs<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;embedder\|rag&quot;</span>
+</code></pre></div>
+<p>Agar "FTS-only mode" ko'rsangiz, embedding provider topilmagan. Bepul vektor qidiruv uchun Gemini kalit qo'shing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="p">{</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-embed&quot;</span><span class="p">,</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="bot-loopda-qolib-ketyapti">Bot loop'da qolib ketyapti<a class="headerlink" href="#bot-loopda-qolib-ketyapti" title="Permanent link">&para;</a></h3>
+<p>Circuit breaker 3 ta bir xil ketma-ket tool chaqiruvdan keyin (<code>MAX_SAME_ACTION = 3</code>) botni to'xtatadi. Agar bot qotib qolgandek ko'rinsa:</p>
+<ul>
+<li>Tool'ning deterministik xatolar qaytarayotganligini tekshiring (agent doimiy xatolar uchun <code>_hint</code> inject qiladi)</li>
+<li>Har bir navbat uchun maksimal 25 iteratsiya (<code>MAX_ITERATIONS = 25</code>)</li>
+<li>Delegatsiya tool'lari uchun timeout 5 daqiqa (<code>LONG_TOOL_TIMEOUT = 300</code>)</li>
+</ul>
+<h3 id="eskirgan-sessiyalar-yuqori-disk-ishlatilishi">Eskirgan sessiyalar / yuqori disk ishlatilishi<a class="headerlink" href="#eskirgan-sessiyalar-yuqori-disk-ishlatilishi" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c1"># Doctor&#39;ni avtomatik tuzatish bilan ishga tushirish</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>qanot<span class="w"> </span>doctor<span class="w"> </span>--fix
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="c1"># Yoki qo&#39;lda backup yaratish va tozalash</span>
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>qanot<span class="w"> </span>backup
+</code></pre></div>
+<p>Doctor 30 kundan eski sessiyalarni avtomatik arxivlaydi va sessiya fayllari 100 MB dan oshganda ogohlantiradi.</p>
+<h3 id="plugin-yuklanmayapti">Plugin yuklanmayapti<a class="headerlink" href="#plugin-yuklanmayapti" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># Plugin&#39;larni va ularning holatini ko&#39;rsatish</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>qanot<span class="w"> </span>plugin<span class="w"> </span>list
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="c1"># Doctor natijasini tekshirish</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>qanot<span class="w"> </span>doctor
+</code></pre></div>
+<p>Plugin quyidagilarga mos kelishiga ishonch hosil qiling:
+1. <code>plugins_dir</code> papkasida joylashgan
+2. <code>QanotPlugin</code> class'ga ega <code>plugin.py</code> fayli bor
+3. <code>config.json</code> dagi <code>plugins</code> massivida ro'yxatga olingan
+4. <code>"enabled": true</code> o'rnatilgan</p>
+<h3 id="webhook-rejimi-ishlamayapti">Webhook rejimi ishlamayapti<a class="headerlink" href="#webhook-rejimi-ishlamayapti" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="p">{</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="nt">&quot;telegram_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">  </span><span class="nt">&quot;webhook_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://bot.example.com/webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">  </span><span class="nt">&quot;webhook_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8443</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Talablar:
+- <code>webhook_url</code> haqiqiy sertifikat bilan HTTPS bo'lishi kerak
+- Port quyidagilardan biri bo'lishi kerak: 443, 80, 88 yoki 8443
+- Server Telegram'ning IP diapazonlaridan yetib borish mumkin bo'lishi kerak</p>
+<p>Ishonchingiz komil bo'lmasa, <code>"telegram_mode": "polling"</code> (standart) ishlating.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        © 2026 Qanot AI — Powered by <a href="https://t.me/qanot_bot" target="_blank">Qanot</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

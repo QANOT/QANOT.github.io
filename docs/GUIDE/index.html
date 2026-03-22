@@ -1,0 +1,4355 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Qanot AI — lightweight Python agent framework">
+      
+      
+      
+        <link rel="canonical" href="https://qanot.github.io/docs/GUIDE/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../configuration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Guide - Qanot AI Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qanot-ai-v20-user-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Qanot AI Docs" class="md-header__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qanot AI Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Qanot AI Docs" class="md-nav__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qanot AI Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-initialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Initialize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-config-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Config Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-config-after-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing Config After Init
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic (Claude)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI (GPT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama (Local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-provider-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Provider Failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-voice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Voice
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Voice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voice-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muxlisauz-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muxlisa.uz (Default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotibai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KotibAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aisha-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aisha AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Whisper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-multiple-voice-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Multiple Voice Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-stt-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force STT Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model Routing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-cost-savings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Cost Savings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-security-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Security Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Security Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open (Default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cautious" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cautious
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        strict
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-blocked-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Always-Blocked Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secretref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecretRef
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-jail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Jail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wal-protocol-write-ahead-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAL Protocol (Write-Ahead Log)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memorymd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MEMORY.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daily-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Compaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-agent-learns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Agent Learns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. RAG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. RAG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-provider-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding Provider Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-embedding-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini Embedding Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-embedding-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama Embedding Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-indexed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Indexed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-multi-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Multi-Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Multi-Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interaction-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interaction Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-delegate_to_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. delegate_to_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-converse_with_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. converse_with_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spawn_sub_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. spawn_sub_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-project-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Project Board
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-check-bot-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Check Bot Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. CLI Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. CLI Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-path-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Path Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bot-not-starting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot Not Starting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Config file not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-key-invalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Key Invalid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-overflow-kontekst-toldi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Overflow / "Kontekst to'ldi"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voice-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-responds-slowly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot Responds Slowly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag-not-finding-memories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG Not Finding Memories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-stuck-in-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot Stuck in Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stale-sessions-high-disk-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale Sessions / High Disk Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-not-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Not Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-mode-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook Mode Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O'zbekcha
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O'zbekcha
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosh sahifa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boshlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qo'llanma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sozlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arxitektura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providerlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toollar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pluginlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xotira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Install
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-initialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Initialize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-config-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Config Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-config-after-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing Config After Init
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic (Claude)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI (GPT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama (Local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-provider-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Provider Failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-voice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Voice
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Voice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voice-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muxlisauz-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muxlisa.uz (Default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotibai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KotibAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aisha-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aisha AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-whisper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Whisper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-multiple-voice-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Multiple Voice Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-stt-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force STT Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-model-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Model Routing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Model Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-cost-savings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Cost Savings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-security-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Security Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Security Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open (Default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cautious" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cautious
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        strict
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-blocked-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Always-Blocked Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secretref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SecretRef
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-jail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Jail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wal-protocol-write-ahead-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAL Protocol (Write-Ahead Log)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memorymd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MEMORY.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daily-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Compaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-agent-learns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Agent Learns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. RAG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. RAG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-provider-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedding Provider Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-embedding-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini Embedding Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-embedding-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama Embedding Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-indexed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Indexed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-multi-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Multi-Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Multi-Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interaction-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interaction Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-delegate_to_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. delegate_to_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-converse_with_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. converse_with_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spawn_sub_agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. spawn_sub_agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-project-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Project Board
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-check-bot-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Check Bot Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. CLI Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. CLI Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-path-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Path Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bot-not-starting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot Not Starting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Config file not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-key-invalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Key Invalid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-overflow-kontekst-toldi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Overflow / "Kontekst to'ldi"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voice-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-responds-slowly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot Responds Slowly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag-not-finding-memories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG Not Finding Memories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-stuck-in-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot Stuck in Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stale-sessions-high-disk-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale Sessions / High Disk Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-not-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Not Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-mode-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook Mode Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="qanot-ai-v20-user-guide">Qanot AI v2.0 User Guide<a class="headerlink" href="#qanot-ai-v20-user-guide" title="Permanent link">&para;</a></h1>
+<p>Lightweight Python agent framework for Telegram bots. Built for the Uzbekistan market.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-quick-start">Quick Start</a></li>
+<li><a href="#2-configuration">Configuration</a></li>
+<li><a href="#3-providers">Providers</a></li>
+<li><a href="#4-voice">Voice</a></li>
+<li><a href="#5-model-routing">Model Routing</a></li>
+<li><a href="#6-security">Security</a></li>
+<li><a href="#7-memory">Memory</a></li>
+<li><a href="#8-rag">RAG</a></li>
+<li><a href="#9-multi-agent">Multi-Agent</a></li>
+<li><a href="#10-dashboard">Dashboard</a></li>
+<li><a href="#11-cli-reference">CLI Reference</a></li>
+<li><a href="#12-troubleshooting">Troubleshooting</a></li>
+</ol>
+<hr />
+<h2 id="1-quick-start">1. Quick Start<a class="headerlink" href="#1-quick-start" title="Permanent link">&para;</a></h2>
+<p>Three steps to a running bot.</p>
+<h3 id="step-1-install">Step 1: Install<a class="headerlink" href="#step-1-install" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>qanot
+</code></pre></div>
+<h3 id="step-2-initialize">Step 2: Initialize<a class="headerlink" href="#step-2-initialize" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>qanot<span class="w"> </span>init
+</code></pre></div>
+<p>The interactive wizard walks you through:</p>
+<ul>
+<li>Telegram bot token (from <a href="https://t.me/BotFather">@BotFather</a>)</li>
+<li>AI provider selection (Anthropic, OpenAI, Gemini, Groq, or Ollama)</li>
+<li>API key validation</li>
+<li>Voice support (optional)</li>
+<li>Web search (optional)</li>
+</ul>
+<p>It creates a <code>config.json</code>, a <code>workspace/</code> directory with a default <code>SOUL.md</code>, and the <code>sessions/</code>, <code>cron/</code>, and <code>plugins/</code> directories.</p>
+<h3 id="step-3-start">Step 3: Start<a class="headerlink" href="#step-3-start" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>qanot<span class="w"> </span>start
+</code></pre></div>
+<p>The bot installs itself as an OS service (launchd on macOS, systemd on Linux) and starts in the background. The first person to message the bot becomes the owner.</p>
+<p>To run in the foreground (useful for Docker or debugging):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>qanot<span class="w"> </span>start<span class="w"> </span>-f
+</code></pre></div>
+<hr />
+<h2 id="2-configuration">2. Configuration<a class="headerlink" href="#2-configuration" title="Permanent link">&para;</a></h2>
+<p>All configuration lives in <code>config.json</code>. The <code>qanot init</code> wizard generates it, but you can edit it manually.</p>
+<h3 id="full-config-reference">Full Config Reference<a class="headerlink" href="#full-config-reference" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  // ── Core ──
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  &quot;bot_token&quot;: &quot;123456:ABC...&quot;,        // Telegram bot token from @BotFather
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  &quot;provider&quot;: &quot;anthropic&quot;,             // Primary provider: anthropic|openai|gemini|groq
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  &quot;model&quot;: &quot;claude-sonnet-4-6&quot;,        // Primary model
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  &quot;api_key&quot;: &quot;sk-ant-...&quot;,             // Primary API key
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  // ── Multi-provider (optional) ──
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  &quot;providers&quot;: [                       // Additional providers for failover
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    {
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>      &quot;name&quot;: &quot;anthropic-main&quot;,
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>      &quot;provider&quot;: &quot;anthropic&quot;,
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>      &quot;model&quot;: &quot;claude-sonnet-4-6&quot;,
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>      &quot;api_key&quot;: &quot;sk-ant-...&quot;
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    },
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    {
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>      &quot;name&quot;: &quot;gemini-backup&quot;,
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>      &quot;provider&quot;: &quot;gemini&quot;,
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>      &quot;model&quot;: &quot;gemini-2.5-flash&quot;,
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>      &quot;api_key&quot;: &quot;AIza...&quot;
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    }
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>  ],
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  // ── Identity ──
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>  &quot;owner_name&quot;: &quot;Sirojiddin&quot;,          // Your name (bot uses it in conversation)
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>  &quot;bot_name&quot;: &quot;Qanot&quot;,                 // Bot persona name
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>  &quot;timezone&quot;: &quot;Asia/Tashkent&quot;,         // IANA timezone
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>  // ── Paths ──
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>  &quot;workspace_dir&quot;: &quot;/data/workspace&quot;,  // SOUL.md, MEMORY.md, daily notes
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>  &quot;sessions_dir&quot;: &quot;/data/sessions&quot;,    // JSONL session logs
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>  &quot;cron_dir&quot;: &quot;/data/cron&quot;,            // Scheduled jobs (jobs.json)
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>  &quot;plugins_dir&quot;: &quot;/data/plugins&quot;,      // Plugin directories
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>  // ── Context ──
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>  &quot;max_context_tokens&quot;: 200000,        // Max context window (depends on model)
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>  &quot;compaction_mode&quot;: &quot;safeguard&quot;,      // &quot;safeguard&quot; = auto-compact at 60%
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>  &quot;max_memory_injection_chars&quot;: 4000,  // Max chars injected from RAG/compaction
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>  &quot;history_limit&quot;: 50,                 // Max turns restored from session on restart
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>  // ── Telegram ──
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>  &quot;response_mode&quot;: &quot;stream&quot;,           // &quot;stream&quot;|&quot;partial&quot;|&quot;blocked&quot;
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>  &quot;stream_flush_interval&quot;: 0.8,        // Seconds between draft updates (stream mode)
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>  &quot;telegram_mode&quot;: &quot;polling&quot;,          // &quot;polling&quot;|&quot;webhook&quot;
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>  &quot;webhook_url&quot;: &quot;&quot;,                   // Required if telegram_mode is &quot;webhook&quot;
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>  &quot;webhook_port&quot;: 8443,                // Local port for webhook server
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>  &quot;max_concurrent&quot;: 4,                 // Max concurrent message processing
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>  // ── Access Control ──
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>  &quot;allowed_users&quot;: [],                 // Telegram user IDs (empty = public)
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>  // ── Voice ──
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>  &quot;voice_provider&quot;: &quot;muxlisa&quot;,         // &quot;muxlisa&quot;|&quot;kotib&quot;|&quot;aisha&quot;|&quot;whisper&quot;
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>  &quot;voice_api_key&quot;: &quot;&quot;,                 // Default voice API key (fallback)
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>  &quot;voice_api_keys&quot;: {                  // Per-provider keys
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>    &quot;muxlisa&quot;: &quot;&quot;,
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>    &quot;kotib&quot;: &quot;&quot;
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>  },
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>  &quot;voice_mode&quot;: &quot;inbound&quot;,             // &quot;off&quot;|&quot;inbound&quot;|&quot;always&quot;
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>  &quot;voice_name&quot;: &quot;&quot;,                    // TTS voice name
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>  &quot;voice_language&quot;: &quot;&quot;,                // Force STT language (uz/ru/en), empty = auto
+<a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>
+<a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>  // ── RAG ──
+<a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>  &quot;rag_enabled&quot;: true,                 // Enable memory search via RAG
+<a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>  &quot;rag_mode&quot;: &quot;auto&quot;,                  // &quot;auto&quot;|&quot;agentic&quot;|&quot;always&quot;
+<a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>
+<a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>  // ── Web Search ──
+<a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>  &quot;brave_api_key&quot;: &quot;&quot;,                 // Brave Search API key (free: 2000 queries/month)
+<a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>
+<a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>  // ── UX ──
+<a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>  &quot;reactions_enabled&quot;: false,          // Send emoji reactions on messages
+<a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>  &quot;reply_mode&quot;: &quot;coalesced&quot;,           // &quot;off&quot;|&quot;coalesced&quot;|&quot;always&quot;
+<a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>  &quot;group_mode&quot;: &quot;mention&quot;,              // &quot;off&quot;|&quot;mention&quot;|&quot;all&quot;
+<a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>
+<a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>  // ── Self-Healing ──
+<a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>  &quot;heartbeat_enabled&quot;: true,           // Enable periodic self-check
+<a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>  &quot;heartbeat_interval&quot;: &quot;0 */4 * * *&quot;, // Every 4 hours
+<a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>
+<a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>  // ── Daily Briefing ──
+<a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a>  &quot;briefing_enabled&quot;: true,            // Morning summary
+<a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>  &quot;briefing_schedule&quot;: &quot;0 8 * * *&quot;,    // 8:00 AM daily
+<a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>
+<a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>  // ── Extended Thinking (Claude) ──
+<a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>  &quot;thinking_level&quot;: &quot;off&quot;,             // &quot;off&quot;|&quot;low&quot;|&quot;medium&quot;|&quot;high&quot;
+<a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>  &quot;thinking_budget&quot;: 10000,            // Max thinking tokens
+<a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>
+<a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>  // ── Execution Security ──
+<a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>  &quot;exec_security&quot;: &quot;open&quot;,             // &quot;open&quot;|&quot;cautious&quot;|&quot;strict&quot;
+<a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>  &quot;exec_allowlist&quot;: [],                // Commands allowed in strict mode
+<a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>
+<a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>  // ── Model Routing ──
+<a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>  &quot;routing_enabled&quot;: false,            // Route simple messages to cheaper model
+<a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>  &quot;routing_model&quot;: &quot;claude-haiku-4-5-20251001&quot;,  // Cheap model for greetings
+<a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>  &quot;routing_mid_model&quot;: &quot;claude-sonnet-4-6&quot;,       // Mid-tier model
+<a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>  &quot;routing_threshold&quot;: 0.3,            // Complexity threshold (0.0-1.0)
+<a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>
+<a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>  // ── Image Generation ──
+<a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>  &quot;image_api_key&quot;: &quot;&quot;,                 // Gemini key for image generation
+<a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>  &quot;image_model&quot;: &quot;gemini-3-pro-image-preview&quot;,
+<a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
+<a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>  // ── Dashboard ──
+<a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>  &quot;dashboard_enabled&quot;: true,           // Web UI at :8765
+<a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>  &quot;dashboard_port&quot;: 8765,
+<a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>
+<a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>  // ── Backup ──
+<a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>  &quot;backup_enabled&quot;: true,              // Auto-backup on startup
+<a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>
+<a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a>  // ── Multi-Agent ──
+<a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>  &quot;agents&quot;: [],                        // Agent definitions (see Multi-Agent section)
+<a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>  &quot;monitor_group_id&quot;: 0,               // Telegram group ID for agent monitoring
+<a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a>
+<a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a>  // ── Plugins ──
+<a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>  &quot;plugins&quot;: []                        // Plugin configurations
+<a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>}
+</code></pre></div>
+<h3 id="changing-config-after-init">Changing Config After Init<a class="headerlink" href="#changing-config-after-init" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Show current config</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>qanot<span class="w"> </span>config<span class="w"> </span>show
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Change a value</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>qanot<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>model<span class="w"> </span>claude-opus-4-6
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>qanot<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>response_mode<span class="w"> </span>partial
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>qanot<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>exec_security<span class="w"> </span>cautious
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Add a backup provider (interactive)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>qanot<span class="w"> </span>config<span class="w"> </span>add-provider
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># Restart for changes to take effect</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>qanot<span class="w"> </span>restart
+</code></pre></div>
+<hr />
+<h2 id="3-providers">3. Providers<a class="headerlink" href="#3-providers" title="Permanent link">&para;</a></h2>
+<p>Qanot supports five AI providers. You can configure multiple providers for failover.</p>
+<h3 id="anthropic-claude">Anthropic (Claude)<a class="headerlink" href="#anthropic-claude" title="Permanent link">&para;</a></h3>
+<p>Supports both standard API keys and OAuth tokens (from Claude Code).</p>
+<p><strong>Standard API key:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-api03-...&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>OAuth token (Claude Code):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-oat01-...&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>OAuth tokens automatically enable Claude Code identity headers, which gives access to Opus and Sonnet models. The provider detects <code>sk-ant-oat</code> prefix and configures headers accordingly.</p>
+<p><strong>Available models:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>claude-sonnet-4-6</code></td>
+<td>Fast, recommended for most tasks</td>
+</tr>
+<tr>
+<td><code>claude-opus-4-6</code></td>
+<td>Most capable, best for complex reasoning</td>
+</tr>
+<tr>
+<td><code>claude-haiku-4-5-20251001</code></td>
+<td>Cheapest, good for simple queries</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Extended thinking:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;thinking_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;thinking_budget&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Levels: <code>off</code>, <code>low</code>, <code>medium</code>, <code>high</code>. Only works with Anthropic.</p>
+<h3 id="openai-gpt">OpenAI (GPT)<a class="headerlink" href="#openai-gpt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4.1&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-proj-...&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Available models:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpt-4.1</code></td>
+<td>Latest, recommended</td>
+</tr>
+<tr>
+<td><code>gpt-4.1-mini</code></td>
+<td>Fast and cheap</td>
+</tr>
+<tr>
+<td><code>gpt-4o</code></td>
+<td>Multimodal</td>
+</tr>
+<tr>
+<td><code>gpt-4o-mini</code></td>
+<td>Cheapest</td>
+</tr>
+</tbody>
+</table>
+<h3 id="google-gemini">Google Gemini<a class="headerlink" href="#google-gemini" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Gemini uses the OpenAI-compatible endpoint internally (<code>https://generativelanguage.googleapis.com/v1beta/openai/</code>). It also provides free embedding for RAG.</p>
+<p><strong>Available models:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gemini-2.5-flash</code></td>
+<td>Fast, recommended</td>
+</tr>
+<tr>
+<td><code>gemini-2.5-pro</code></td>
+<td>Most capable</td>
+</tr>
+<tr>
+<td><code>gemini-2.0-flash</code></td>
+<td>Cheapest</td>
+</tr>
+</tbody>
+</table>
+<h3 id="groq">Groq<a class="headerlink" href="#groq" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groq&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llama-3.3-70b-versatile&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gsk_...&quot;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Groq uses the OpenAI-compatible API (<code>https://api.groq.com/openai/v1</code>).</p>
+<p><strong>Available models:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>llama-3.3-70b-versatile</code></td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><code>llama-3.1-8b-instant</code></td>
+<td>Fastest</td>
+</tr>
+<tr>
+<td><code>qwen/qwen3-32b</code></td>
+<td>Qwen 3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ollama-local">Ollama (Local)<a class="headerlink" href="#ollama-local" title="Permanent link">&para;</a></h3>
+<p>Free and private. Runs locally, no API key needed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ollama-main&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qwen3.5:35b&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ollama&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="nt">&quot;base_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:11434/v1&quot;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Note that Ollama uses <code>"provider": "openai"</code> because it speaks the OpenAI-compatible API. The framework detects Ollama by the <code>11434</code> port in <code>base_url</code> and automatically:</p>
+<ul>
+<li>Disables thinking mode for Qwen models (30x faster)</li>
+<li>Uses the native Ollama API with <code>think=false</code></li>
+<li>Uses FastEmbed (CPU) for RAG embeddings to avoid VRAM conflict</li>
+</ul>
+<p><strong>Install and run Ollama:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://ollama.com/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>ollama<span class="w"> </span>pull<span class="w"> </span>qwen3.5:35b
+</code></pre></div>
+<h3 id="multi-provider-failover">Multi-Provider Failover<a class="headerlink" href="#multi-provider-failover" title="Permanent link">&para;</a></h3>
+<p>Configure multiple providers. Qanot tries the primary first, then falls back:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-...&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic-main&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-...&quot;</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-backup&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="4-voice">4. Voice<a class="headerlink" href="#4-voice" title="Permanent link">&para;</a></h2>
+<p>Qanot supports four voice providers for speech-to-text (STT) and text-to-speech (TTS).</p>
+<h3 id="voice-modes">Voice Modes<a class="headerlink" href="#voice-modes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td>Voice messages ignored</td>
+</tr>
+<tr>
+<td><code>inbound</code></td>
+<td>Transcribes incoming voice; replies with voice when appropriate</td>
+</tr>
+<tr>
+<td><code>always</code></td>
+<td>Always replies with voice</td>
+</tr>
+</tbody>
+</table>
+<h3 id="muxlisauz-default">Muxlisa.uz (Default)<a class="headerlink" href="#muxlisauz-default" title="Permanent link">&para;</a></h3>
+<p>Native Uzbek provider. Accepts OGG directly (no ffmpeg conversion for STT).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;muxlisa&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nt">&quot;muxlisa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-muxlisa-api-key&quot;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="nt">&quot;voice_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;maftuna&quot;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Voices:</strong> <code>maftuna</code>, <code>asomiddin</code></p>
+<p>Get an API key at <a href="https://muxlisa.uz">muxlisa.uz</a>.</p>
+<h3 id="kotibai">KotibAI<a class="headerlink" href="#kotibai" title="Permanent link">&para;</a></h3>
+<p>6 voices, multi-language support, auto language detection.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kotib&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">&quot;kotib&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-jwt-token&quot;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">  </span><span class="nt">&quot;voice_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aziza&quot;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Voices:</strong> <code>aziza</code>, <code>sherzod</code>, and 4 more</p>
+<p>Get a JWT token at <a href="https://developer.kotib.ai">developer.kotib.ai</a>.</p>
+<h3 id="aisha-ai">Aisha AI<a class="headerlink" href="#aisha-ai" title="Permanent link">&para;</a></h3>
+<p>STT + TTS with mood detection. Supports Uzbek, English, and Russian.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aisha&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">&quot;aisha&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-aisha-api-key&quot;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Voices:</strong> <code>Gulnoza</code>, <code>Jaxongir</code></p>
+<p>Get an API key at <a href="https://aisha.group">aisha.group</a>.</p>
+<h3 id="openai-whisper">OpenAI Whisper<a class="headerlink" href="#openai-whisper" title="Permanent link">&para;</a></h3>
+<p>STT only (no TTS). High accuracy, 50+ languages.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;whisper&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&quot;whisper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-proj-...&quot;</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Get an API key at <a href="https://platform.openai.com">platform.openai.com</a>.</p>
+<h3 id="using-multiple-voice-providers">Using Multiple Voice Providers<a class="headerlink" href="#using-multiple-voice-providers" title="Permanent link">&para;</a></h3>
+<p>You can configure multiple providers and set per-provider keys:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">&quot;voice_provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;muxlisa&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&quot;voice_api_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nt">&quot;muxlisa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;key-for-muxlisa&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="nt">&quot;kotib&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jwt-for-kotib&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="nt">&quot;whisper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-proj-for-whisper&quot;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="nt">&quot;voice_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inbound&quot;</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="force-stt-language">Force STT Language<a class="headerlink" href="#force-stt-language" title="Permanent link">&para;</a></h3>
+<p>By default, language is auto-detected. To force a specific language:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;voice_language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uz&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Options: <code>uz</code>, <code>ru</code>, <code>en</code>, or empty for auto-detection.</p>
+<hr />
+<h2 id="5-model-routing">5. Model Routing<a class="headerlink" href="#5-model-routing" title="Permanent link">&para;</a></h2>
+<p>3-tier model routing saves money by sending simple messages to cheaper models.</p>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Tier 1 (Cheap):</strong> Greetings, thanks, simple questions go to <code>routing_model</code> (e.g., Haiku)</li>
+<li><strong>Tier 2 (Mid):</strong> General conversation goes to <code>routing_mid_model</code> (e.g., Sonnet)</li>
+<li><strong>Tier 3 (Full):</strong> Complex tasks, tool use, reasoning stay on the primary <code>model</code></li>
+</ol>
+<p>The agent scores each incoming message for complexity (0.0 to 1.0). Messages below <code>routing_threshold</code> go to the cheap tier.</p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;routing_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">&quot;routing_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-haiku-4-5-20251001&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nt">&quot;routing_mid_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">&quot;routing_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-opus-4-6&quot;</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="example-cost-savings">Example Cost Savings<a class="headerlink" href="#example-cost-savings" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Complexity</th>
+<th>Routed To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Salom!"</td>
+<td>0.05</td>
+<td>Haiku ($0.80/MTok)</td>
+</tr>
+<tr>
+<td>"Bugun ob-havo qanday?"</td>
+<td>0.15</td>
+<td>Haiku</td>
+</tr>
+<tr>
+<td>"Loyiha strukturasini tushuntir"</td>
+<td>0.45</td>
+<td>Sonnet ($3/MTok)</td>
+</tr>
+<tr>
+<td>"Bu kodni refaktor qil va testlar yoz"</td>
+<td>0.85</td>
+<td>Opus ($15/MTok)</td>
+</tr>
+</tbody>
+</table>
+<p>With routing enabled, typical bots see a 40-60% cost reduction.</p>
+<hr />
+<h2 id="6-security">6. Security<a class="headerlink" href="#6-security" title="Permanent link">&para;</a></h2>
+<h3 id="execution-security-modes">Execution Security Modes<a class="headerlink" href="#execution-security-modes" title="Permanent link">&para;</a></h3>
+<p>The <code>run_command</code> tool has three security levels for shell command execution.</p>
+<h4 id="open-default">open (Default)<a class="headerlink" href="#open-default" title="Permanent link">&para;</a></h4>
+<p>Only dangerous commands are blocked (rm -rf /, fork bombs, disk fill attacks, etc.). Everything else runs freely.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;exec_security&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;open&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="cautious">cautious<a class="headerlink" href="#cautious" title="Permanent link">&para;</a></h4>
+<p>Dangerous commands are blocked. Risky commands (pip install, curl, sudo, docker, git push, etc.) require user approval via inline button or text confirmation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">&quot;exec_security&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cautious&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The bot will ask: "Bu buyruqni bajarishga ruxsat berasizmi: <code>pip install requests</code>?" and wait for approval.</p>
+<h4 id="strict">strict<a class="headerlink" href="#strict" title="Permanent link">&para;</a></h4>
+<p>Only allowlisted commands are permitted. Everything else is rejected.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">&quot;exec_security&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;strict&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nt">&quot;exec_allowlist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="s2">&quot;git status&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="s2">&quot;git log&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="s2">&quot;git diff&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span><span class="s2">&quot;ls&quot;</span><span class="p">,</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">    </span><span class="s2">&quot;cat&quot;</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Allowlist entries are prefix-matched: <code>"git"</code> allows <code>git status</code>, <code>git log</code>, etc.</p>
+<h3 id="always-blocked-commands">Always-Blocked Commands<a class="headerlink" href="#always-blocked-commands" title="Permanent link">&para;</a></h3>
+<p>These are blocked in all modes (including <code>open</code>):</p>
+<ul>
+<li><code>rm -rf /</code> and variants (recursive delete of root/home)</li>
+<li><code>mkfs</code>, <code>dd</code>, <code>shred</code> (disk destruction)</li>
+<li><code>shutdown</code>, <code>reboot</code>, <code>poweroff</code></li>
+<li><code>chmod 777 /</code>, <code>chown root</code></li>
+<li>Network attack tools (nmap, sqlmap, hydra, metasploit)</li>
+<li><code>curl | sh</code>, <code>wget | sh</code> (remote code execution)</li>
+<li>Fork bombs, disk fill attacks</li>
+</ul>
+<h3 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
+<p>Use <code>max_concurrent</code> to limit parallel message processing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Use <code>allowed_users</code> to restrict who can use the bot:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">&quot;allowed_users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="mi">987654321</span><span class="p">]</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Empty array means the bot is public. The first user to message becomes the owner automatically.</p>
+<h3 id="secretref">SecretRef<a class="headerlink" href="#secretref" title="Permanent link">&para;</a></h3>
+<p>Never store API keys as plain text in <code>config.json</code>. Use SecretRef to load them from environment variables or files.</p>
+<p><strong>From environment variable:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ANTHROPIC_API_KEY&quot;</span><span class="p">},</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TELEGRAM_BOT_TOKEN&quot;</span><span class="p">},</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span><span class="nt">&quot;brave_api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BRAVE_API_KEY&quot;</span><span class="p">}</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>From file:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/run/secrets/anthropic_key&quot;</span><span class="p">},</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/run/secrets/bot_token&quot;</span><span class="p">}</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>File-based secrets have security checks:
+- Symlinks are rejected (prevents escape attacks)
+- World-readable files produce a warning (recommend <code>chmod 600</code>)
+- Maximum 64 KB file size</p>
+<p>SecretRef works for: <code>api_key</code>, <code>bot_token</code>, <code>brave_api_key</code>, <code>voice_api_key</code>, <code>image_api_key</code>, all provider <code>api_key</code> fields, and <code>voice_api_keys</code> values.</p>
+<h3 id="file-jail">File Jail<a class="headerlink" href="#file-jail" title="Permanent link">&para;</a></h3>
+<p>The <code>write_file</code> tool blocks writes to system directories:</p>
+<ul>
+<li><code>/etc</code>, <code>/usr</code>, <code>/bin</code>, <code>/sbin</code>, <code>/lib</code>, <code>/boot</code>, <code>/proc</code>, <code>/sys</code>, <code>/dev</code></li>
+<li><code>/System</code>, <code>/Library</code> (macOS)</li>
+<li><code>C:\Windows</code>, <code>C:\Program Files</code> (Windows)</li>
+</ul>
+<p>Symlink writes are also blocked to prevent directory traversal.</p>
+<hr />
+<h2 id="7-memory">7. Memory<a class="headerlink" href="#7-memory" title="Permanent link">&para;</a></h2>
+<p>Qanot has a three-tier memory system that lets the bot learn and remember across conversations.</p>
+<h3 id="wal-protocol-write-ahead-log">WAL Protocol (Write-Ahead Log)<a class="headerlink" href="#wal-protocol-write-ahead-log" title="Permanent link">&para;</a></h3>
+<p>Every user message is scanned BEFORE the LLM responds. The WAL detects:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Trigger Examples (English)</th>
+<th>Trigger Examples (Uzbek)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corrections</td>
+<td>"actually", "no, I meant"</td>
+<td>"aslida", "to'g'ri emas"</td>
+</tr>
+<tr>
+<td>Proper nouns</td>
+<td>"my name is Ahmad"</td>
+<td>"mening ismim Ahmad"</td>
+</tr>
+<tr>
+<td>Preferences</td>
+<td>"I like Python", "I prefer dark mode"</td>
+<td>"men Python yoqtiraman"</td>
+</tr>
+<tr>
+<td>Decisions</td>
+<td>"let's use React"</td>
+<td>"keling React ishlataylik"</td>
+</tr>
+<tr>
+<td>Specific values</td>
+<td>URLs, dates, large numbers</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>Remember</td>
+<td>"remember this", "don't forget"</td>
+<td>"eslab qol", "unutma"</td>
+</tr>
+</tbody>
+</table>
+<p>Detected entries are written to <code>SESSION-STATE.md</code> (active working memory). Durable facts (names, preferences, explicit "remember" requests) are also saved to <code>MEMORY.md</code>.</p>
+<h3 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>workspace/
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  MEMORY.md           # Long-term curated facts
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  SESSION-STATE.md    # Active session working memory (WAL entries)
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>  memory/
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    2026-03-15.md     # Daily notes (conversation summaries)
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    2026-03-14.md
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    ...
+</code></pre></div>
+<h3 id="memorymd">MEMORY.md<a class="headerlink" href="#memorymd" title="Permanent link">&para;</a></h3>
+<p>Long-term storage for facts the bot should always remember. Written automatically by WAL for durable categories, and by the agent during compaction (memory flush).</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gh"># MEMORY.md - Long-Term Memory</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="gu">## Auto-captured</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="k">-</span><span class="w"> </span><span class="gs">**proper_noun**</span>: [user:123] mening ismim Ahmad
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="k">-</span><span class="w"> </span><span class="gs">**preference**</span>: [user:123] I prefer Python over JavaScript
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="k">-</span><span class="w"> </span><span class="gs">**remember**</span>: [user:123] remember this: project deadline is March 30
+</code></pre></div>
+<h3 id="daily-notes">Daily Notes<a class="headerlink" href="#daily-notes" title="Permanent link">&para;</a></h3>
+<p>When context is compacted, the agent saves conversation summaries to <code>memory/YYYY-MM-DD.md</code>. These are searchable via the <code>memory_search</code> tool and indexed by RAG.</p>
+<h3 id="context-compaction">Context Compaction<a class="headerlink" href="#context-compaction" title="Permanent link">&para;</a></h3>
+<p>At 60% context usage, the working buffer activates. When context overflows, Qanot:</p>
+<ol>
+<li>Runs a memory flush (agent saves important facts to files)</li>
+<li>Summarizes the conversation</li>
+<li>Replaces old messages with the summary</li>
+<li>Continues with fresh context</li>
+</ol>
+<p>The <code>compaction_mode: "safeguard"</code> setting ensures this happens automatically.</p>
+<h3 id="how-the-agent-learns">How the Agent Learns<a class="headerlink" href="#how-the-agent-learns" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>User message → WAL scan → Detect facts → Write SESSION-STATE.md / MEMORY.md
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>                                        ↓
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>LLM response → Tool calls → Daily notes → memory/2026-03-15.md
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>                                        ↓
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>Context overflow → Compact → Summary → Fresh context with injected memories
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>                                        ↓
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>Next message → RAG search → Inject relevant memories → LLM sees full context
+</code></pre></div>
+<hr />
+<h2 id="8-rag">8. RAG<a class="headerlink" href="#8-rag" title="Permanent link">&para;</a></h2>
+<p>RAG (Retrieval-Augmented Generation) enhances the bot's memory search with semantic understanding.</p>
+<h3 id="how-it-works_1">How It Works<a class="headerlink" href="#how-it-works_1" title="Permanent link">&para;</a></h3>
+<p>Qanot uses hybrid search combining:</p>
+<ol>
+<li><strong>FTS5</strong> (SQLite full-text search) -- keyword matching, always available</li>
+<li><strong>Vector embeddings</strong> -- semantic similarity, requires an embedding provider</li>
+</ol>
+<p>Results are fused using reciprocal rank fusion with temporal decay (recent memories rank higher).</p>
+<h3 id="embedding-provider-chain">Embedding Provider Chain<a class="headerlink" href="#embedding-provider-chain" title="Permanent link">&para;</a></h3>
+<p>Qanot auto-detects the best available embedder from your existing config. No extra API keys required.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Provider</th>
+<th>Dimensions</th>
+<th>Cost</th>
+<th>When Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>FastEmbed (CPU)</td>
+<td>768</td>
+<td>Free</td>
+<td>Ollama setups (no VRAM conflict)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Gemini</td>
+<td>3072</td>
+<td>Free tier</td>
+<td>When Gemini API key available</td>
+</tr>
+<tr>
+<td>2</td>
+<td>OpenAI</td>
+<td>1536</td>
+<td>$0.02/MTok</td>
+<td>When OpenAI API key available</td>
+</tr>
+<tr>
+<td>-</td>
+<td>FTS-only</td>
+<td>-</td>
+<td>Free</td>
+<td>Fallback when no embedder available</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h3>
+<p>RAG is enabled by default. No additional configuration needed if you have a Gemini or OpenAI key.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">&quot;rag_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="nt">&quot;rag_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;auto&quot;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>RAG modes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto</code></td>
+<td>RAG searches automatically when relevant</td>
+</tr>
+<tr>
+<td><code>agentic</code></td>
+<td>Agent decides when to search via <code>memory_search</code> tool</td>
+</tr>
+<tr>
+<td><code>always</code></td>
+<td>Always injects RAG results into context</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gemini-embedding-setup">Gemini Embedding Setup<a class="headerlink" href="#gemini-embedding-setup" title="Permanent link">&para;</a></h3>
+<p>If you have a Gemini API key (even as a non-primary provider), embeddings work automatically:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">{</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-embed&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>The framework uses <code>gemini-embedding-001</code> (3072 dimensions) with an embedding cache to avoid re-embedding unchanged content.</p>
+<h3 id="ollama-embedding-setup">Ollama Embedding Setup<a class="headerlink" href="#ollama-embedding-setup" title="Permanent link">&para;</a></h3>
+<p>For Ollama users, install FastEmbed for CPU-based embedding (avoids VRAM conflict):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>pip<span class="w"> </span>install<span class="w"> </span>fastembed
+</code></pre></div>
+<p>If FastEmbed is not installed, Ollama falls back to its own embedding via the <code>nomic-embed-text</code> model.</p>
+<h3 id="what-gets-indexed">What Gets Indexed<a class="headerlink" href="#what-gets-indexed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>MEMORY.md</code> -- long-term facts</li>
+<li><code>SESSION-STATE.md</code> -- active session state</li>
+<li><code>memory/*.md</code> -- daily notes (last 30 files)</li>
+</ul>
+<p>Files are re-indexed when their content changes (hash-based deduplication).</p>
+<hr />
+<h2 id="9-multi-agent">9. Multi-Agent<a class="headerlink" href="#9-multi-agent" title="Permanent link">&para;</a></h2>
+<p>Qanot supports multi-agent collaboration with three interaction patterns.</p>
+<h3 id="agent-definition">Agent Definition<a class="headerlink" href="#agent-definition" title="Permanent link">&para;</a></h3>
+<p>Define agents in <code>config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deep-researcher&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chuqur Tadqiqotchi&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">      </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a deep research agent. Use web_search and web_fetch extensively. Investigate topics thoroughly with multiple sources. Always cite your sources.&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-opus-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">      </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">      </span><span class="nt">&quot;tools_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;web_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;web_fetch&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;memory_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;read_file&quot;</span><span class="p">],</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">      </span><span class="nt">&quot;tools_deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">      </span><span class="nt">&quot;max_iterations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fast-coder&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tezkor Dasturchi&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="w">      </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a fast coding agent. Write clean, working code quickly. Follow existing project conventions.&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-haiku-4-5-20251001&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a><span class="w">      </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="w">      </span><span class="nt">&quot;tools_deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;web_search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;web_fetch&quot;</span><span class="p">],</span>
+<a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;deep-researcher&quot;</span><span class="p">],</span>
+<a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="agent-fields">Agent Fields<a class="headerlink" href="#agent-fields" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Unique identifier (e.g., <code>"researcher"</code>, <code>"coder"</code>)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Human-readable name (e.g., <code>"Tadqiqotchi"</code>)</td>
+</tr>
+<tr>
+<td><code>prompt</code></td>
+<td>System prompt / personality</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>Model override (empty = use main model)</td>
+</tr>
+<tr>
+<td><code>provider</code></td>
+<td>Provider override (empty = use main provider)</td>
+</tr>
+<tr>
+<td><code>api_key</code></td>
+<td>API key override (empty = use main key)</td>
+</tr>
+<tr>
+<td><code>bot_token</code></td>
+<td>Separate Telegram bot token (empty = internal agent only)</td>
+</tr>
+<tr>
+<td><code>tools_allow</code></td>
+<td>Tool whitelist (empty = all tools allowed)</td>
+</tr>
+<tr>
+<td><code>tools_deny</code></td>
+<td>Tool blacklist</td>
+</tr>
+<tr>
+<td><code>delegate_allow</code></td>
+<td>Which other agents this one can delegate to (empty = all)</td>
+</tr>
+<tr>
+<td><code>max_iterations</code></td>
+<td>Max tool-use loops (default: 15)</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>Seconds before timeout (default: 120)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interaction-patterns">Interaction Patterns<a class="headerlink" href="#interaction-patterns" title="Permanent link">&para;</a></h3>
+<h4 id="1-delegate_to_agent">1. delegate_to_agent<a class="headerlink" href="#1-delegate_to_agent" title="Permanent link">&para;</a></h4>
+<p>One-shot task handoff. The main agent sends a task, the sub-agent completes it and returns the result.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>User: &quot;Bu mavzu haqida chuqur tadqiqot qil&quot;
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Bot: [delegates to deep-researcher agent]
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>     [deep-researcher runs web searches, reads sources]
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>     [returns findings to main agent]
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>Bot: &quot;Tadqiqot natijalari: ...&quot;
+</code></pre></div>
+<h4 id="2-converse_with_agent">2. converse_with_agent<a class="headerlink" href="#2-converse_with_agent" title="Permanent link">&para;</a></h4>
+<p>Multi-turn ping-pong conversation between agents (up to 5 turns). Useful when agents need to iterate on a solution.</p>
+<h4 id="3-spawn_sub_agent">3. spawn_sub_agent<a class="headerlink" href="#3-spawn_sub_agent" title="Permanent link">&para;</a></h4>
+<p>Creates a background agent that runs independently. Results are posted to a shared project board.</p>
+<h3 id="shared-project-board">Shared Project Board<a class="headerlink" href="#shared-project-board" title="Permanent link">&para;</a></h3>
+<p>Agents can post results to a shared board that other agents can read. This enables asynchronous collaboration without direct message passing.</p>
+<h3 id="agent-monitoring">Agent Monitoring<a class="headerlink" href="#agent-monitoring" title="Permanent link">&para;</a></h3>
+<p>Mirror all agent conversations to a Telegram group for monitoring:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">{</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="nt">&quot;monitor_group_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1001234567890</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
+<p>Use <code>delegate_allow</code> to control which agents can talk to each other:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">{</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">  </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;coder&quot;</span><span class="p">,</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;researcher&quot;</span><span class="p">]</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;researcher&quot;</span><span class="p">,</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="w">      </span><span class="nt">&quot;delegate_allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Here, <code>coder</code> can delegate to <code>researcher</code>, but <code>researcher</code> cannot delegate to anyone. Maximum delegation depth is 2 to prevent infinite loops.</p>
+<hr />
+<h2 id="10-dashboard">10. Dashboard<a class="headerlink" href="#10-dashboard" title="Permanent link">&para;</a></h2>
+<p>Qanot includes a web dashboard for real-time monitoring.</p>
+<h3 id="enable">Enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="p">{</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">  </span><span class="nt">&quot;dashboard_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">  </span><span class="nt">&quot;dashboard_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8765</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>The dashboard starts automatically with the bot. Access it at <code>http://localhost:8765</code>.</p>
+<h3 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /</code></td>
+<td>Web UI (HTML dashboard)</td>
+</tr>
+<tr>
+<td><code>GET /api/status</code></td>
+<td>Bot status: uptime, context %, token count, active conversations</td>
+</tr>
+<tr>
+<td><code>GET /api/config</code></td>
+<td>Current configuration (no secrets)</td>
+</tr>
+<tr>
+<td><code>GET /api/costs</code></td>
+<td>Per-user cost tracking</td>
+</tr>
+<tr>
+<td><code>GET /api/memory</code></td>
+<td>Memory file listing</td>
+</tr>
+<tr>
+<td><code>GET /api/memory/{filename}</code></td>
+<td>Read a specific memory file</td>
+</tr>
+<tr>
+<td><code>GET /api/tools</code></td>
+<td>Registered tools list</td>
+</tr>
+<tr>
+<td><code>GET /api/routing</code></td>
+<td>Model routing statistics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-check-bot-status">Example: Check Bot Status<a class="headerlink" href="#example-check-bot-status" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>curl<span class="w"> </span>http://localhost:8765/api/status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">{</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">  </span><span class="nt">&quot;bot_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Qanot&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">  </span><span class="nt">&quot;uptime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2h 15m 30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">  </span><span class="nt">&quot;context_percent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">23.5</span><span class="p">,</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">  </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45200</span><span class="p">,</span>
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">  </span><span class="nt">&quot;turn_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">  </span><span class="nt">&quot;api_calls&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">  </span><span class="nt">&quot;buffer_active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="w">  </span><span class="nt">&quot;active_conversations&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="11-cli-reference">11. CLI Reference<a class="headerlink" href="#11-cli-reference" title="Permanent link">&para;</a></h2>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>qanot init [dir]</code></td>
+<td>Interactive setup wizard. Creates config.json and workspace.</td>
+</tr>
+<tr>
+<td><code>qanot start [path]</code></td>
+<td>Start the bot via OS service (launchd/systemd).</td>
+</tr>
+<tr>
+<td><code>qanot start -f</code></td>
+<td>Start in foreground (for Docker, systemd, debugging).</td>
+</tr>
+<tr>
+<td><code>qanot stop [path]</code></td>
+<td>Stop the bot.</td>
+</tr>
+<tr>
+<td><code>qanot restart [path]</code></td>
+<td>Restart the bot (stop + start).</td>
+</tr>
+<tr>
+<td><code>qanot status [path]</code></td>
+<td>Check if the bot is running.</td>
+</tr>
+<tr>
+<td><code>qanot logs [path]</code></td>
+<td>Tail bot logs (<code>-n50</code> for line count).</td>
+</tr>
+<tr>
+<td><code>qanot doctor [path]</code></td>
+<td>Run health checks on the installation.</td>
+</tr>
+<tr>
+<td><code>qanot doctor --fix</code></td>
+<td>Auto-repair detected issues.</td>
+</tr>
+<tr>
+<td><code>qanot backup [path]</code></td>
+<td>Export workspace/sessions/cron to <code>.tar.gz</code>.</td>
+</tr>
+<tr>
+<td><code>qanot config show</code></td>
+<td>Show current configuration.</td>
+</tr>
+<tr>
+<td><code>qanot config set &lt;key&gt; &lt;value&gt;</code></td>
+<td>Set a config value.</td>
+</tr>
+<tr>
+<td><code>qanot config add-provider</code></td>
+<td>Add a backup AI provider (interactive).</td>
+</tr>
+<tr>
+<td><code>qanot config remove-provider</code></td>
+<td>Remove an AI provider.</td>
+</tr>
+<tr>
+<td><code>qanot plugin new &lt;name&gt;</code></td>
+<td>Scaffold a new plugin directory.</td>
+</tr>
+<tr>
+<td><code>qanot plugin list</code></td>
+<td>List installed plugins.</td>
+</tr>
+<tr>
+<td><code>qanot update</code></td>
+<td>Update to latest version from PyPI + restart.</td>
+</tr>
+<tr>
+<td><code>qanot version</code></td>
+<td>Show installed version.</td>
+</tr>
+<tr>
+<td><code>qanot help</code></td>
+<td>Show help.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QANOT_CONFIG</code></td>
+<td>Path to config.json (overrides default lookup).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="config-path-resolution">Config Path Resolution<a class="headerlink" href="#config-path-resolution" title="Permanent link">&para;</a></h3>
+<p>The CLI searches for <code>config.json</code> in this order:</p>
+<ol>
+<li>Positional argument (file or directory)</li>
+<li><code>QANOT_CONFIG</code> environment variable</li>
+<li><code>./config.json</code> (current directory)</li>
+<li><code>/data/config.json</code> (Docker default)</li>
+</ol>
+<hr />
+<h2 id="12-troubleshooting">12. Troubleshooting<a class="headerlink" href="#12-troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="bot-not-starting">Bot Not Starting<a class="headerlink" href="#bot-not-starting" title="Permanent link">&para;</a></h3>
+<p><strong>Symptom:</strong> <code>qanot start</code> shows no output or errors.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1"># Check status</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>qanot<span class="w"> </span>status
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="c1"># Check logs</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>qanot<span class="w"> </span>logs
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="c1"># Run in foreground to see errors</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>qanot<span class="w"> </span>start<span class="w"> </span>-f
+</code></pre></div>
+<p><strong>Common causes:</strong></p>
+<ul>
+<li>Invalid <code>bot_token</code> -- verify with @BotFather</li>
+<li>Invalid <code>api_key</code> -- check provider dashboard</li>
+<li>Port conflict on <code>webhook_port</code> or <code>dashboard_port</code></li>
+</ul>
+<h3 id="config-file-not-found">"Config file not found"<a class="headerlink" href="#config-file-not-found" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># Check if config exists</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>ls<span class="w"> </span>config.json
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="c1"># Point to the right location</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">QANOT_CONFIG</span><span class="o">=</span>/path/to/config.json
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>qanot<span class="w"> </span>start
+</code></pre></div>
+<p>Or run <code>qanot init</code> to create a new config.</p>
+<h3 id="api-key-invalid">API Key Invalid<a class="headerlink" href="#api-key-invalid" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># Run health checks</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>qanot<span class="w"> </span>doctor
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="c1"># The doctor validates bot token and API keys</span>
+</code></pre></div>
+<p>If using SecretRef:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># Check that the env var is set</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$ANTHROPIC_API_KEY</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># Check that the file exists and is readable</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>cat<span class="w"> </span>/run/secrets/anthropic_key
+</code></pre></div>
+<h3 id="context-overflow-kontekst-toldi">Context Overflow / "Kontekst to'ldi"<a class="headerlink" href="#context-overflow-kontekst-toldi" title="Permanent link">&para;</a></h3>
+<p>The bot auto-compacts at 60% context usage. If you see frequent compaction:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="nt">&quot;max_context_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200000</span><span class="p">,</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">  </span><span class="nt">&quot;history_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">  </span><span class="nt">&quot;max_memory_injection_chars&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Increase <code>max_context_tokens</code> if your model supports it</li>
+<li>Decrease <code>history_limit</code> to restore fewer turns on restart</li>
+<li>Decrease <code>max_memory_injection_chars</code> to inject less RAG context</li>
+</ul>
+<h3 id="voice-not-working">Voice Not Working<a class="headerlink" href="#voice-not-working" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>qanot<span class="w"> </span>doctor
+</code></pre></div>
+<p>Check the "Voice" section in doctor output. Common issues:</p>
+<ul>
+<li><strong>Missing API key:</strong> Set <code>voice_api_keys.muxlisa</code> (or your provider)</li>
+<li><strong>ffmpeg not installed:</strong> Required for KotibAI and Whisper (Muxlisa accepts OGG directly)</li>
+<li><strong>Wrong voice_mode:</strong> Must be <code>"inbound"</code> or <code>"always"</code>, not <code>"off"</code></li>
+</ul>
+<p>Install ffmpeg:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1"># macOS</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="c1"># Ubuntu/Debian</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ffmpeg
+</code></pre></div>
+<h3 id="bot-responds-slowly">Bot Responds Slowly<a class="headerlink" href="#bot-responds-slowly" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Check response mode:</strong> <code>"stream"</code> is fastest (uses Telegram Bot API 9.5 <code>sendMessageDraft</code>)</li>
+<li><strong>Enable routing:</strong> Route simple messages to cheaper/faster models</li>
+<li><strong>Check model:</strong> Haiku/Flash models respond faster than Opus/Pro</li>
+<li><strong>Check concurrent limit:</strong> Increase <code>max_concurrent</code> if many users</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="p">{</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="nt">&quot;response_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="nt">&quot;routing_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">  </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="rag-not-finding-memories">RAG Not Finding Memories<a class="headerlink" href="#rag-not-finding-memories" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="c1"># Check if RAG is enabled</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>qanot<span class="w"> </span>config<span class="w"> </span>show
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="c1"># Check logs for embedder initialization</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>qanot<span class="w"> </span>logs<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;embedder\|rag&quot;</span>
+</code></pre></div>
+<p>If you see "FTS-only mode", no embedding provider was found. Add a Gemini key for free vector search:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="p">{</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">  </span><span class="nt">&quot;providers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-embed&quot;</span><span class="p">,</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini&quot;</span><span class="p">,</span>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="w">      </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AIza...&quot;</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="bot-stuck-in-loop">Bot Stuck in Loop<a class="headerlink" href="#bot-stuck-in-loop" title="Permanent link">&para;</a></h3>
+<p>The circuit breaker stops the bot after 3 identical consecutive tool calls (<code>MAX_SAME_ACTION = 3</code>). If the bot seems stuck:</p>
+<ul>
+<li>Check if a tool is returning deterministic errors (the agent injects <code>_hint</code> for permanent failures)</li>
+<li>Maximum 25 iterations per turn (<code>MAX_ITERATIONS = 25</code>)</li>
+<li>For delegation tools, timeout is 5 minutes (<code>LONG_TOOL_TIMEOUT = 300</code>)</li>
+</ul>
+<h3 id="stale-sessions-high-disk-usage">Stale Sessions / High Disk Usage<a class="headerlink" href="#stale-sessions-high-disk-usage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c1"># Run doctor with auto-fix</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>qanot<span class="w"> </span>doctor<span class="w"> </span>--fix
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="c1"># Or manually create a backup and clean up</span>
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>qanot<span class="w"> </span>backup
+</code></pre></div>
+<p>Doctor auto-archives sessions older than 30 days and warns when session files exceed 100 MB.</p>
+<h3 id="plugin-not-loading">Plugin Not Loading<a class="headerlink" href="#plugin-not-loading" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># List plugins and their status</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>qanot<span class="w"> </span>plugin<span class="w"> </span>list
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="c1"># Check doctor output</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>qanot<span class="w"> </span>doctor
+</code></pre></div>
+<p>Ensure the plugin is:
+1. In the <code>plugins_dir</code> directory
+2. Has a <code>plugin.py</code> file with a <code>QanotPlugin</code> class
+3. Listed in <code>config.json</code> <code>plugins</code> array
+4. Has <code>"enabled": true</code></p>
+<h3 id="webhook-mode-not-working">Webhook Mode Not Working<a class="headerlink" href="#webhook-mode-not-working" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="p">{</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="nt">&quot;telegram_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">  </span><span class="nt">&quot;webhook_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://bot.example.com/webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">  </span><span class="nt">&quot;webhook_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8443</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Requirements:
+- <code>webhook_url</code> must be HTTPS with a valid certificate
+- Port must be one of: 443, 80, 88, or 8443
+- The server must be reachable from Telegram's IP ranges</p>
+<p>If unsure, use <code>"telegram_mode": "polling"</code> (the default).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        © 2026 Qanot AI — Powered by <a href="https://t.me/qanot_bot" target="_blank">Qanot</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2093 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Qanot AI — lightweight Python agent framework">
+      
+      
+      
+        <link rel="canonical" href="https://qanot.github.io/docs/uz/telegram/">
+      
+      
+        <link rel="prev" href="../rag/">
+      
+      
+        <link rel="next" href="../scheduler/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Telegram - Qanot AI Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#telegram-integratsiyasi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Qanot AI Docs" class="md-header__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qanot AI Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Telegram
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Qanot AI Docs" class="md-nav__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qanot AI Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O'zbekcha
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O'zbekcha
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosh sahifa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boshlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qo'llanma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sozlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arxitektura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providerlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toollar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pluginlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xotira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javob-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Javob rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Javob rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stream (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        partial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        blocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transport rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polling-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xabar-boshqaruvi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xabar boshqaruvi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Xabar boshqaruvi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matnli-xabarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matnli xabarlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rasmlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rasmlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hujjatlar-fayl-yuklash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hujjatlar (fayl yuklash)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xabar-formatlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xabar formatlash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Xabar formatlash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xabar-bolish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xabar bo'lish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-call-tozalash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool call tozalash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foydalanuvchi-nazorati" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foydalanuvchi nazorati
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bir-vaqtdalik-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bir vaqtdalik (Concurrency)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proaktiv-xabarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proaktiv xabarlar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xato-boshqaruvi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xato boshqaruvi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guruh-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guruh chat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ovozli-xabarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ovozli xabarlar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reaktsiyalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reaktsiyalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javob-rejimi-reply-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Javob rejimi (Reply Mode)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yozish-indikatori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yozish indikatori
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#javob-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Javob rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Javob rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stream (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        partial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        blocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-rejimlari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport rejimlari
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transport rejimlari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polling-standart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling (standart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xabar-boshqaruvi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xabar boshqaruvi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Xabar boshqaruvi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matnli-xabarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matnli xabarlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rasmlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rasmlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hujjatlar-fayl-yuklash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hujjatlar (fayl yuklash)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xabar-formatlash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xabar formatlash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Xabar formatlash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xabar-bolish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xabar bo'lish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-call-tozalash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool call tozalash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foydalanuvchi-nazorati" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foydalanuvchi nazorati
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bir-vaqtdalik-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bir vaqtdalik (Concurrency)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proaktiv-xabarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proaktiv xabarlar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xato-boshqaruvi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Xato boshqaruvi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guruh-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guruh chat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ovozli-xabarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ovozli xabarlar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reaktsiyalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reaktsiyalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javob-rejimi-reply-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Javob rejimi (Reply Mode)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yozish-indikatori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yozish indikatori
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="telegram-integratsiyasi">Telegram integratsiyasi<a class="headerlink" href="#telegram-integratsiyasi" title="Permanent link">&para;</a></h1>
+<p>Qanot AI Telegram bot aloqasi uchun <a href="https://docs.aiogram.dev/">aiogram 3.x</a> ishlatadi. U uchta javob rejimi, ikkita transport rejimi, fayl yuklash va foydalanuvchi nazoratini qo'llab-quvvatlaydi.</p>
+<h2 id="javob-rejimlari">Javob rejimlari<a class="headerlink" href="#javob-rejimlari" title="Permanent link">&para;</a></h2>
+<p>Javob rejimini config'da o'rnating:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;response_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stream&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="stream-standart">stream (standart)<a class="headerlink" href="#stream-standart" title="Permanent link">&para;</a></h3>
+<p>Telegram Bot API 9.5 <code>sendMessageDraft</code> orqali real-time harfma-harf streaming qiladi.</p>
+<p><strong>Qanday ishlaydi:</strong></p>
+<ol>
+<li>Agent LLM dan tokenlarni stream qila boshlaydi</li>
+<li>Yig'ilgan matn <code>stream_flush_interval</code> oralig'ida draft sifatida yuboriladi (standart 0.8s)</li>
+<li>Tool bajarilayotganda drafting to'xtatiladi — race condition'larni oldini oladi</li>
+<li>Tool natijalari kelgandan keyin drafting yangi matn bilan davom etadi</li>
+<li>Oxirgi <code>sendMessage</code> to'liq formatlangan javobni yuboradi</li>
+</ol>
+<p><strong>Afzalliklari:</strong> Eng past seziluvchi kutish. Foydalanuvchilar matnni real-time ko'rishadi.
+<strong>Kamchiliklari:</strong> <code>sendMessageDraft</code> ni qo'llab-quvvatlaydigan yangi Telegram versiyasi kerak.</p>
+<p><strong>Race condition boshqaruvi:</strong> Agent tool chaqirganda draft yangilanishi to'xtatiladi. Bu draft yangilanishi va tool natijasi bir vaqtda kelishi muammosini oldini oladi — bu rendering artefaktlariga olib kelishi mumkin edi. Oxirgi draft matni kuzatiladi — ortiqcha yangilanishlar yuborilmaydi.</p>
+<h3 id="partial">partial<a class="headerlink" href="#partial" title="Permanent link">&para;</a></h3>
+<p><code>editMessageText</code> orqali yuborilgan xabarni vaqti-vaqti bilan yangilab turadi.</p>
+<p><strong>Qanday ishlaydi:</strong></p>
+<ol>
+<li>Birinchi matn qismi boshlang'ich xabar sifatida yuboriladi</li>
+<li>Keyingi matn yig'ilib, xabar oraliq bilan tahrirlanadi</li>
+<li>Oxirgi tahrir HTML formatlashni qo'llaydi</li>
+<li>Agar javob Telegram xabar limitidan (4,000 belgi) oshsa, qo'shimcha qismlar alohida xabar sifatida yuboriladi</li>
+</ol>
+<p><strong>Afzalliklari:</strong> Barcha Telegram klientlarda ishlaydi. Eski Bot API versiyalariga mos.
+<strong>Kamchiliklari:</strong> Foydalanuvchilar xabar tahrirlanishini ko'rishadi (yalt-yult qiladi), streaming'ga qaraganda kamroq silliq.</p>
+<h3 id="blocked">blocked<a class="headerlink" href="#blocked" title="Permanent link">&para;</a></h3>
+<p>To'liq javobni kutadi, keyin bitta xabar yuboradi.</p>
+<p><strong>Qanday ishlaydi:</strong></p>
+<ol>
+<li>Qayta ishlash davomida yozish indikatori ko'rsatiladi</li>
+<li>Agent loop'i to'liq bajariladi</li>
+<li>Tayyor javob formatlangan xabar sifatida yuboriladi</li>
+</ol>
+<p><strong>Afzalliklari:</strong> Eng oddiy rejim. Qisman yangilanishlar yoki draftlar yo'q.
+<strong>Kamchiliklari:</strong> Foydalanuvchilar hech narsa ko'rmasdan kutishadi. Uzun javoblar sezilarli kechikish qiladi.</p>
+<h2 id="transport-rejimlari">Transport rejimlari<a class="headerlink" href="#transport-rejimlari" title="Permanent link">&para;</a></h2>
+<h3 id="polling-standart">Polling (standart)<a class="headerlink" href="#polling-standart" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;telegram_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polling&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Long polling — bot Telegram serverlariga ulanadi va yangilanishlarni kutadi. Ommaviy URL shart emas. Development va oddiy deploy uchun eng mos.</p>
+<p>Ishga tushganda kutilayotgan yangilanishlar tashlanadi (<code>drop_pending_updates=True</code>) — eskirgan xabarlarni qayta ishlashni oldini oladi.</p>
+<h3 id="webhook">Webhook<a class="headerlink" href="#webhook" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;telegram_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;webhook_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://bot.example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;webhook_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8443</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Telegram'dan yangilanishlarni qabul qiladigan aiohttp web server ishlatadi. Ommaviy HTTPS URL kerak.</p>
+<p>Webhook endpoint'i <code>{webhook_url}/webhook</code>. Qanot:</p>
+<ol>
+<li>Ishga tushganda Telegram'ga webhook URL'ni o'rnatadi</li>
+<li><code>0.0.0.0:{webhook_port}</code> da aiohttp serverni ishga tushiradi</li>
+<li>Kiruvchi yangilanishlarni o'sha dispatcher orqali qayta ishlaydi</li>
+<li>O'chirilganda webhook'ni o'chiradi</li>
+</ol>
+<p><strong>Reverse proxy bilan standart sozlash:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Internet --&gt; nginx (443) --&gt; Qanot (8443)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">location</span><span class="w"> </span><span class="s">/webhook</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8443</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="xabar-boshqaruvi">Xabar boshqaruvi<a class="headerlink" href="#xabar-boshqaruvi" title="Permanent link">&para;</a></h2>
+<p>Adapter uch turdagi xabarlarni qayta ishlaydi:</p>
+<h3 id="matnli-xabarlar">Matnli xabarlar<a class="headerlink" href="#matnli-xabarlar" title="Permanent link">&para;</a></h3>
+<p>Oddiy matnli xabarlar to'g'ridan-to'g'ri agent'ga yuboriladi.</p>
+<h3 id="rasmlar">Rasmlar<a class="headerlink" href="#rasmlar" title="Permanent link">&para;</a></h3>
+<p>Rasmlar <code>[Photo received]</code> prefiksi bilan qayd qilinadi. Caption (agar bo'lsa) qo'shiladi. Rasm kontenti qayta ishlanmaydi (hozirgi versiyada vision qo'llab-quvvatlanmaydi).</p>
+<h3 id="hujjatlar-fayl-yuklash">Hujjatlar (fayl yuklash)<a class="headerlink" href="#hujjatlar-fayl-yuklash" title="Permanent link">&para;</a></h3>
+<p>Hujjatlar avtomatik workspace'ga yuklab olinadi:</p>
+<ol>
+<li>Fayl <code>{workspace_dir}/uploads/{filename}</code> ga yuklab olinadi</li>
+<li>Xabar <code>[Fayl yuklandi: uploads/{filename}]</code> prefiksi bilan belgilanadi</li>
+<li>Agent keyin <code>read_file</code> tool orqali faylni o'qiy oladi</li>
+</ol>
+<p>Agar yuklab olish muvaffaqiyatsiz bo'lsa, xabarda shu qayd qilinadi va agent suhbatni davom ettiradi.</p>
+<h2 id="xabar-formatlash">Xabar formatlash<a class="headerlink" href="#xabar-formatlash" title="Permanent link">&para;</a></h2>
+<p>Agent javoblari yuborishdan oldin Markdown'dan Telegram HTML'ga o'giriladi:</p>
+<table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>HTML natijasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**bold**</code></td>
+<td><code>&lt;b&gt;bold&lt;/b&gt;</code></td>
+</tr>
+<tr>
+<td><code>`code`</code></td>
+<td><code>&lt;code&gt;code&lt;/code&gt;</code></td>
+</tr>
+<tr>
+<td><code>```code block```</code></td>
+<td><code>&lt;pre&gt;code block&lt;/pre&gt;</code></td>
+</tr>
+<tr>
+<td><code># Heading</code></td>
+<td><code>&lt;b&gt;Heading&lt;/b&gt;</code></td>
+</tr>
+<tr>
+<td>Jadvallar (<code>\|...\|</code>)</td>
+<td><code>&lt;pre&gt;table&lt;/pre&gt;</code></td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td>Gorizontal chiziq (Unicode)</td>
+</tr>
+</tbody>
+</table>
+<p>HTML maxsus belgilari (<code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>) konvertatsiyadan oldin escape qilinadi — injection'ni oldini oladi.</p>
+<p>Agar HTML parsing xabar yuborishda muvaffaqiyatsiz bo'lsa, adapter oddiy matnga qaytadi.</p>
+<h3 id="xabar-bolish">Xabar bo'lish<a class="headerlink" href="#xabar-bolish" title="Permanent link">&para;</a></h3>
+<p>Telegram'da bitta xabar uchun 4,096 belgi limiti bor (Qanot 4,000 belgilik ish limitini ishlatadi). Uzun javoblar satr chegaralarida bo'linadi va oralarda 100ms kechikish bilan bir nechta xabar sifatida yuboriladi.</p>
+<h2 id="tool-call-tozalash">Tool call tozalash<a class="headerlink" href="#tool-call-tozalash" title="Permanent link">&para;</a></h2>
+<p>Ba'zi LLM provayderlar (ayniqsa Groq orqali Llama modellari) ba'zan tool call sintaksisini strukturalangan tool call o'rniga matn sifatida chiqaradi. Adapter bu artefaktlarni olib tashlaydi:</p>
+<ul>
+<li><code>&lt;function&gt;...&lt;/function&gt;</code> teglar</li>
+<li><code>&lt;tool_call&gt;...&lt;/tool_call&gt;</code> teglar</li>
+<li>Xom JSON tool call obyektlari</li>
+</ul>
+<p>Bu foydalanuvchilarning bot javoblarida ichki tool call sintaksisini ko'rishini oldini oladi.</p>
+<h2 id="foydalanuvchi-nazorati">Foydalanuvchi nazorati<a class="headerlink" href="#foydalanuvchi-nazorati" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;allowed_users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="mi">987654321</span><span class="p">]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>allowed_users</code> o'rnatilganda, faqat shu Telegram user ID'lar bot bilan muloqot qila oladi. Boshqa foydalanuvchilarning xabarlari jimgina e'tiborsiz qoldiriladi.</p>
+<p><code>allowed_users</code> bo'sh bo'lganda (standart), barcha foydalanuvchilar bot bilan muloqot qila oladi.</p>
+<p>Telegram user ID'ingizni bilish uchun <a href="https://t.me/userinfobot">@userinfobot</a> ga xabar yuboring.</p>
+<h2 id="bir-vaqtdalik-concurrency">Bir vaqtdalik (Concurrency)<a class="headerlink" href="#bir-vaqtdalik-concurrency" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Adapter bir vaqtda qayta ishlanadigan xabarlar sonini cheklash uchun asyncio semaphore ishlatadi. Agar 4 ta xabar bir vaqtda qayta ishlanayotgan bo'lsa, qo'shimcha xabarlar slot ochilguncha kutadi. Bu LLM provider'ni haddan tashqari ko'p parallel so'rovlar bilan bosib ketishni oldini oladi.</p>
+<h2 id="proaktiv-xabarlar">Proaktiv xabarlar<a class="headerlink" href="#proaktiv-xabarlar" title="Permanent link">&para;</a></h2>
+<p>Telegram adapter'i scheduler'ning xabar navbatini tekshiradigan proaktiv xabar loop'ini ishga tushiradi. Cron job natija berganda:</p>
+<ul>
+<li><strong><code>proactive</code> xabarlar:</strong> Barcha ruxsat etilgan foydalanuvchilarga yuboriladi</li>
+<li><strong><code>system_event</code> xabarlar:</strong> Asosiy agent'ning suhbatiga inject qilinadi</li>
+</ul>
+<p>Batafsil: <a href="../scheduler/">Scheduler</a></p>
+<h2 id="xato-boshqaruvi">Xato boshqaruvi<a class="headerlink" href="#xato-boshqaruvi" title="Permanent link">&para;</a></h2>
+<p>Adapter agent xatolarini ushlaydi va foydalanuvchiga do'stona xabar yuboradi:</p>
+<ul>
+<li><strong>Rate limit xatolari:</strong> "Limitga yetdik. Iltimos, 20-30 soniya kutib qayta yozing."</li>
+<li><strong>Boshqa xatolar:</strong> "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."</li>
+</ul>
+<p>Xatolar debugging uchun to'liq stack trace bilan loglanadi, lekin foydalanuvchilar faqat do'stona xabarni ko'rishadi.</p>
+<h2 id="guruh-chat">Guruh chat<a class="headerlink" href="#guruh-chat" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;group_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mention&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>group_mode</code> sozlamasi botning guruh va superguruh chatlardagi xatti-harakatini boshqaradi. Standart qiymat <code>"mention"</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Rejim</th>
+<th>Xatti-harakat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td>Bot barcha guruh xabarlarini e'tiborsiz qoldiradi</td>
+</tr>
+<tr>
+<td><code>mention</code></td>
+<td>Bot faqat username bilan @mention qilinganda yoki bot'ning o'z xabariga javob berilganda javob beradi</td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td>Bot guruhdagi har bir xabarga javob beradi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mention rejimi qanday ishlaydi:</strong></p>
+<ol>
+<li>Bot ishga tushganda o'z username'ini keshga oladi</li>
+<li>Guruh xabari kelganda, xabar matnida yoki caption'da <code>@bot_username</code> bor-yo'qligini tekshiradi</li>
+<li>Shuningdek xabar botning o'z xabariga javob ekanligini tekshiradi</li>
+<li>Agar ikkala shart ham bajarilmasa, xabar jimgina e'tiborsiz qoldiriladi</li>
+</ol>
+<p><strong>Guruh suhbat izolatsiyasi:</strong> Guruh chatlarda barcha a'zolar <code>group_{chat_id}</code> bilan kalitlangan bitta suhbatni baham ko'rishadi. Ya'ni bot har bir guruh uchun bitta suhbat kontekstini saqlaydi, har bir foydalanuvchi uchun emas. DM'larda suhbatlar odatdagidek user ID bilan kalitlanadi.</p>
+<p><strong>Yuboruvchi identifikatsiyasi:</strong> Guruh xabarlari yuboruvchi ismi bilan prefikslangan (masalan, <code>[Ahmad]: xabar matni</code>) — agent guruh a'zolarini ajrata olishi uchun. <code>@bot_username</code> mention'i qayta ishlashdan oldin matndan olib tashlanadi.</p>
+<h2 id="ovozli-xabarlar">Ovozli xabarlar<a class="headerlink" href="#ovozli-xabarlar" title="Permanent link">&para;</a></h2>
+<p>Ovozli xabarlar va video yozuvlar voice API kaliti sozlanganda avtomatik transkripsiya qilinadi.</p>
+<p><strong>Qayta ishlash oqimi:</strong></p>
+<ol>
+<li>Ovozli xabar yoki video yozuv keladi</li>
+<li>Bot darhol yozish indikatorini yuboradi</li>
+<li>Audio vaqtinchalik faylga yuklab olinadi</li>
+<li>Audio sozlangan <code>voice_provider</code> yordamida transkripsiya qilinadi</li>
+<li>Transkripsiya qilingan matn ovozli xabar kontentini almashtiradi</li>
+<li>Navbat odatdagidek qayta ishlanadi, <code>voice_request</code> bayrog'i o'rnatiladi</li>
+</ol>
+<p><strong>Audio format boshqaruvi:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>OGG qabul qiladi</th>
+<th>Konvertatsiya kerak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muxlisa</td>
+<td>Ha (native)</td>
+<td>Yo'q</td>
+</tr>
+<tr>
+<td>Whisper</td>
+<td>Ha</td>
+<td>Yo'q</td>
+</tr>
+<tr>
+<td>KotibAI</td>
+<td>Yo'q</td>
+<td>OGG dan MP3 ga ffmpeg orqali</td>
+</tr>
+<tr>
+<td>Aisha</td>
+<td>Yo'q</td>
+<td>OGG dan MP3 ga ffmpeg orqali</td>
+</tr>
+</tbody>
+</table>
+<p>Video yozuvlar uchun audio ffmpeg orqali chiqariladi (Muxlisa uchun OGG, boshqalar uchun MP3).</p>
+<p><strong>TTS ovozli javoblar:</strong></p>
+<p><code>voice_mode</code> <code>"always"</code> bo'lganda yoki <code>"inbound"</code> bo'lib foydalanuvchi ovozli xabar yuborganda, bot matnli javobdan keyin TTS ovozli javob yuboradi. Oqim:</p>
+<ol>
+<li>"Ovoz yozayapti" indikatori ko'rsatiladi</li>
+<li>Oxirgi assistant javob matni TTS provider'ga yuboriladi</li>
+<li>Qaytarilgan audio (WAV yoki URL) Telegram uchun OGG Opus'ga konvertatsiya qilinadi</li>
+<li>Ovozli xabar <code>bot.send_voice()</code> orqali yuboriladi</li>
+</ol>
+<p><strong>To'rtta voice provider:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>STT</th>
+<th>TTS</th>
+<th>Ovozlar</th>
+<th>Eslatmalar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muxlisa (standart)</td>
+<td>Ha</td>
+<td>Ha</td>
+<td>maftuna, asomiddin</td>
+<td>Native OGG, STT uchun ffmpeg shart emas</td>
+</tr>
+<tr>
+<td>KotibAI</td>
+<td>Ha</td>
+<td>Ha</td>
+<td>aziza, nargiza, soliha, sherzod, rachel, arnold</td>
+<td>6 ta ovoz, ko'p tilli</td>
+</tr>
+<tr>
+<td>Aisha</td>
+<td>Ha</td>
+<td>Ha</td>
+<td>gulnoza, jaxongir</td>
+<td>Kayfiyat boshqaruvi (happy/sad/neutral)</td>
+</tr>
+<tr>
+<td>Whisper</td>
+<td>Ha</td>
+<td>Yo'q</td>
+<td>Yo'q</td>
+<td>OpenAI, 50+ til, faqat STT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Iqtibos qilingan ovozli xabarlar:</strong> Foydalanuvchi ovozli xabarga javob berganida, iqtibos qilingan ovoz ham transkripsiya qilinadi va javob izohida <code>[voice: transkripsiya qilingan matn]</code> sifatida qo'shiladi.</p>
+<h2 id="reaktsiyalar">Reaktsiyalar<a class="headerlink" href="#reaktsiyalar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;reactions_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>reactions_enabled</code> <code>true</code> bo'lganda, bot qayta ishlash holatini ko'rsatish uchun xabarlarga emoji reaktsiyalar yuboradi:</p>
+<table>
+<thead>
+<tr>
+<th>Emoji</th>
+<th>Qachon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eyes</code></td>
+<td>Xabar qabul qilindi, qayta ishlash boshlandi</td>
+</tr>
+<tr>
+<td><code>white_check_mark</code></td>
+<td>Qayta ishlash muvaffaqiyatli yakunlandi</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>Qayta ishlash davomida xato yuz berdi</td>
+</tr>
+</tbody>
+</table>
+<p>Xabarlar birlashtirilganda (bir nechta tez xabarlar bitta navbatga jamlanganda), oldingi xabarlarga <code>white_check_mark</code> reaktsiyasi qo'yiladi — ular qo'shilganini ko'rsatish uchun.</p>
+<p>Reaktsiyalar <code>SetMessageReaction</code> API metodi orqali yuboriladi. Agar chatda reaktsiyalar qo'llab-quvvatlanmasa (masalan, eski guruhlar), xatolar jimgina e'tiborsiz qoldiriladi.</p>
+<p>Standart qiymati <code>false</code> (reaktsiyalar yuborilmaydi).</p>
+<h2 id="javob-rejimi-reply-mode">Javob rejimi (Reply Mode)<a class="headerlink" href="#javob-rejimi-reply-mode" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;reply_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;coalesced&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Bot'ning Telegram reply-to funksiyasini qachon ishlatishini boshqaradi.</p>
+<table>
+<thead>
+<tr>
+<th>Rejim</th>
+<th>Xatti-harakat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td>Hech qachon reply-to qilmaydi; javoblar mustaqil xabar sifatida yuboriladi</td>
+</tr>
+<tr>
+<td><code>coalesced</code></td>
+<td>Faqat bir nechta tez xabarlar bitta navbatga birlashtirilganda reply-to qiladi</td>
+</tr>
+<tr>
+<td><code>always</code></td>
+<td>Har doim trigger xabarga reply-to qiladi</td>
+</tr>
+</tbody>
+</table>
+<p>Standart qiymati <code>"coalesced"</code>.</p>
+<h2 id="yozish-indikatori">Yozish indikatori<a class="headerlink" href="#yozish-indikatori" title="Permanent link">&para;</a></h2>
+<p>Qayta ishlash davomida bot har 4 soniyada yozish indikatorini yuboradi — javob tayyor bo'lguncha. Telegram klientda "Bot yozyapti..." sifatida ko'rinadi. Birinchi streaming draft yuborilishi bilanoq yozish loop'i bekor qilinadi.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        © 2026 Qanot AI — Powered by <a href="https://t.me/qanot_bot" target="_blank">Qanot</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

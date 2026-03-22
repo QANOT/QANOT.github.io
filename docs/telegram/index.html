@@ -1,0 +1,2093 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Qanot AI — lightweight Python agent framework">
+      
+      
+      
+        <link rel="canonical" href="https://qanot.github.io/docs/telegram/">
+      
+      
+        <link rel="prev" href="../rag/">
+      
+      
+        <link rel="next" href="../scheduler/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Telegram - Qanot AI Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#telegram-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Qanot AI Docs" class="md-header__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qanot AI Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Telegram
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Qanot AI Docs" class="md-nav__button md-logo" aria-label="Qanot AI Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qanot AI Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QANOT/qanot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    QANOT/qanot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#response-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stream (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        partial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        blocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transport Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polling-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Photos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documents-file-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents (File Uploads)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Formatting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Formatting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-splitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Splitting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-call-sanitization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Call Sanitization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Access Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proactive-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proactive Messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group Chat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voice-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice Messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reactions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reply-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reply Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typing-indicator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typing Indicator
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O'zbekcha
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    O'zbekcha
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosh sahifa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boshlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qo'llanma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sozlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arxitektura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Providerlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toollar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pluginlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xotira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telegram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uz/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#response-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stream (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        partial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        blocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transport Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polling-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polling (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Photos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documents-file-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documents (File Uploads)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Formatting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Formatting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-splitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Splitting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-call-sanitization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Call Sanitization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Access Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proactive-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proactive Messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group Chat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voice-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice Messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reactions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reply-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reply Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typing-indicator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typing Indicator
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="telegram-integration">Telegram Integration<a class="headerlink" href="#telegram-integration" title="Permanent link">&para;</a></h1>
+<p>Qanot AI uses <a href="https://docs.aiogram.dev/">aiogram 3.x</a> for Telegram bot communication. It supports three response modes, two transport modes, file uploads, and user access control.</p>
+<h2 id="response-modes">Response Modes<a class="headerlink" href="#response-modes" title="Permanent link">&para;</a></h2>
+<p>Set the response mode in config:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;response_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stream&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="stream-default">stream (default)<a class="headerlink" href="#stream-default" title="Permanent link">&para;</a></h3>
+<p>Uses Telegram Bot API 9.5 <code>sendMessageDraft</code> for real-time character-by-character streaming.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>The agent starts streaming tokens from the LLM</li>
+<li>Accumulated text is sent as drafts at <code>stream_flush_interval</code> intervals (default 0.8s)</li>
+<li>During tool execution, drafting pauses to avoid race conditions</li>
+<li>After tool results, drafting resumes with new text</li>
+<li>A final <code>sendMessage</code> sends the complete formatted response</li>
+</ol>
+<p><strong>Pros:</strong> Lowest perceived latency. Users see text appearing in real time.
+<strong>Cons:</strong> Requires recent Telegram client versions that support <code>sendMessageDraft</code>.</p>
+<p><strong>Race condition handling:</strong> When the agent calls a tool, draft updates are paused. This prevents the situation where a draft update and a tool result arrive simultaneously, which can cause rendering artifacts. The last draft text is tracked to avoid redundant updates.</p>
+<h3 id="partial">partial<a class="headerlink" href="#partial" title="Permanent link">&para;</a></h3>
+<p>Uses <code>editMessageText</code> to periodically update a sent message with accumulated text.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>First text delta sends an initial message</li>
+<li>Subsequent text is accumulated and the message is edited at intervals</li>
+<li>The final edit applies HTML formatting</li>
+<li>If the response exceeds the Telegram message limit (4,000 chars), additional chunks are sent as separate messages</li>
+</ol>
+<p><strong>Pros:</strong> Works on all Telegram clients. Compatible with older Bot API versions.
+<strong>Cons:</strong> Users see message edits (flashing), which is less smooth than streaming.</p>
+<h3 id="blocked">blocked<a class="headerlink" href="#blocked" title="Permanent link">&para;</a></h3>
+<p>Waits for the complete response, then sends a single message.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Typing indicator is shown while processing</li>
+<li>The full agent loop runs to completion</li>
+<li>The final response is sent as a formatted message</li>
+</ol>
+<p><strong>Pros:</strong> Simplest mode. No partial updates or drafts.
+<strong>Cons:</strong> Users wait with no visible progress. Long responses cause a noticeable delay.</p>
+<h2 id="transport-modes">Transport Modes<a class="headerlink" href="#transport-modes" title="Permanent link">&para;</a></h2>
+<h3 id="polling-default">Polling (default)<a class="headerlink" href="#polling-default" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;telegram_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;polling&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Long polling -- the bot connects to Telegram servers and waits for updates. No public URL needed. Best for development and simple deployments.</p>
+<p>Pending updates are dropped on startup (<code>drop_pending_updates=True</code>) to avoid processing stale messages.</p>
+<h3 id="webhook">Webhook<a class="headerlink" href="#webhook" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;telegram_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;webhook_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://bot.example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;webhook_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8443</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Runs an aiohttp web server that receives updates from Telegram. Requires a public HTTPS URL.</p>
+<p>The webhook endpoint is <code>{webhook_url}/webhook</code>. Qanot:</p>
+<ol>
+<li>Sets the webhook URL with Telegram on startup</li>
+<li>Starts an aiohttp server on <code>0.0.0.0:{webhook_port}</code></li>
+<li>Processes incoming updates via the same dispatcher</li>
+<li>Deletes the webhook on shutdown</li>
+</ol>
+<p><strong>Typical setup with a reverse proxy:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Internet --&gt; nginx (443) --&gt; Qanot (8443)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">location</span><span class="w"> </span><span class="s">/webhook</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8443</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="message-handling">Message Handling<a class="headerlink" href="#message-handling" title="Permanent link">&para;</a></h2>
+<p>The adapter handles three message types:</p>
+<h3 id="text-messages">Text Messages<a class="headerlink" href="#text-messages" title="Permanent link">&para;</a></h3>
+<p>Plain text messages are forwarded directly to the agent.</p>
+<h3 id="photos">Photos<a class="headerlink" href="#photos" title="Permanent link">&para;</a></h3>
+<p>Photos are noted with a <code>[Photo received]</code> prefix. The caption (if any) is included. Photo content is not processed (no vision support in the current version).</p>
+<h3 id="documents-file-uploads">Documents (File Uploads)<a class="headerlink" href="#documents-file-uploads" title="Permanent link">&para;</a></h3>
+<p>Documents are automatically downloaded to the workspace:</p>
+<ol>
+<li>File is downloaded to <code>{workspace_dir}/uploads/{filename}</code></li>
+<li>Message is prefixed with <code>[Fayl yuklandi: uploads/{filename}]</code></li>
+<li>The agent can then read the file using the <code>read_file</code> tool</li>
+</ol>
+<p>If the download fails, the message notes the failure and the agent proceeds with the conversation.</p>
+<h2 id="message-formatting">Message Formatting<a class="headerlink" href="#message-formatting" title="Permanent link">&para;</a></h2>
+<p>Agent responses are converted from Markdown to Telegram HTML before sending:</p>
+<table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>HTML Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**bold**</code></td>
+<td><code>&lt;b&gt;bold&lt;/b&gt;</code></td>
+</tr>
+<tr>
+<td><code>`code`</code></td>
+<td><code>&lt;code&gt;code&lt;/code&gt;</code></td>
+</tr>
+<tr>
+<td><code>```code block```</code></td>
+<td><code>&lt;pre&gt;code block&lt;/pre&gt;</code></td>
+</tr>
+<tr>
+<td><code># Heading</code></td>
+<td><code>&lt;b&gt;Heading&lt;/b&gt;</code></td>
+</tr>
+<tr>
+<td>Tables (<code>\|...\|</code>)</td>
+<td><code>&lt;pre&gt;table&lt;/pre&gt;</code></td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td>Horizontal line (Unicode)</td>
+</tr>
+</tbody>
+</table>
+<p>HTML special characters (<code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>) are escaped before conversion to prevent injection.</p>
+<p>If HTML parsing fails when sending, the adapter falls back to plain text.</p>
+<h3 id="message-splitting">Message Splitting<a class="headerlink" href="#message-splitting" title="Permanent link">&para;</a></h3>
+<p>Telegram has a 4,096 character limit per message (Qanot uses a 4,000 char working limit). Long responses are split at line boundaries and sent as multiple messages with a 100ms delay between them.</p>
+<h2 id="tool-call-sanitization">Tool Call Sanitization<a class="headerlink" href="#tool-call-sanitization" title="Permanent link">&para;</a></h2>
+<p>Some LLM providers (particularly Llama models via Groq) occasionally output tool call syntax as text instead of structured tool calls. The adapter strips these leaked artifacts:</p>
+<ul>
+<li><code>&lt;function&gt;...&lt;/function&gt;</code> tags</li>
+<li><code>&lt;tool_call&gt;...&lt;/tool_call&gt;</code> tags</li>
+<li>Raw JSON tool call objects</li>
+</ul>
+<p>This prevents users from seeing internal tool call syntax in the bot's responses.</p>
+<h2 id="user-access-control">User Access Control<a class="headerlink" href="#user-access-control" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;allowed_users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">123456789</span><span class="p">,</span><span class="w"> </span><span class="mi">987654321</span><span class="p">]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>When <code>allowed_users</code> is set, only those Telegram user IDs can interact with the bot. Messages from other users are silently ignored.</p>
+<p>When <code>allowed_users</code> is empty (the default), all users can interact with the bot.</p>
+<p>To find your Telegram user ID, send a message to <a href="https://t.me/userinfobot">@userinfobot</a>.</p>
+<h2 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The adapter uses an asyncio semaphore to limit concurrent message processing. If 4 messages are being processed simultaneously, additional messages wait until a slot opens. This prevents overwhelming the LLM provider with too many parallel requests.</p>
+<h2 id="proactive-messages">Proactive Messages<a class="headerlink" href="#proactive-messages" title="Permanent link">&para;</a></h2>
+<p>The Telegram adapter runs a proactive message loop that checks the scheduler's message queue. When a cron job produces output:</p>
+<ul>
+<li><strong><code>proactive</code> messages:</strong> Sent to all allowed users</li>
+<li><strong><code>system_event</code> messages:</strong> Injected into the main agent's conversation</li>
+</ul>
+<p>See <a href="../scheduler/">Scheduler</a> for details on how cron jobs produce proactive messages.</p>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>The adapter catches agent errors and sends user-friendly messages:</p>
+<ul>
+<li><strong>Rate limit errors:</strong> "Limitga yetdik. Iltimos, 20-30 soniya kutib qayta yozing."</li>
+<li><strong>Other errors:</strong> "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."</li>
+</ul>
+<p>Errors are logged with full stack traces for debugging, but users only see the friendly message.</p>
+<h2 id="group-chat">Group Chat<a class="headerlink" href="#group-chat" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;group_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mention&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>group_mode</code> setting controls how the bot behaves in group and supergroup chats. Default is <code>"mention"</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td>Bot ignores all group messages</td>
+</tr>
+<tr>
+<td><code>mention</code></td>
+<td>Bot responds only when @mentioned by username or when someone replies to the bot's own message</td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td>Bot responds to every message in the group</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How mention mode works:</strong></p>
+<ol>
+<li>The bot caches its own username on startup</li>
+<li>When a group message arrives, it checks for <code>@bot_username</code> in the message text or caption</li>
+<li>It also checks if the message is a reply to one of the bot's own messages</li>
+<li>If neither condition is met, the message is silently ignored</li>
+</ol>
+<p><strong>Group conversation isolation:</strong> In group chats, all members share a single conversation keyed by <code>group_{chat_id}</code>. This means the bot maintains one conversation context per group, not per user. In DMs, conversations are keyed by user ID as usual.</p>
+<p><strong>Sender identification:</strong> Group messages are prefixed with the sender's name (e.g., <code>[Ahmad]: message text</code>) so the agent can distinguish between group members. The <code>@bot_username</code> mention is stripped from the text before processing.</p>
+<h2 id="voice-messages">Voice Messages<a class="headerlink" href="#voice-messages" title="Permanent link">&para;</a></h2>
+<p>Voice messages and video notes are automatically transcribed when a voice API key is configured.</p>
+<p><strong>Processing flow:</strong></p>
+<ol>
+<li>Voice message or video note arrives</li>
+<li>Bot sends a typing indicator immediately</li>
+<li>Audio is downloaded to a temporary file</li>
+<li>Audio is transcribed using the configured <code>voice_provider</code></li>
+<li>Transcribed text replaces the voice message content</li>
+<li>The turn is processed normally, with <code>voice_request</code> flag set</li>
+</ol>
+<p><strong>Audio format handling:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Accepts OGG</th>
+<th>Requires Conversion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muxlisa</td>
+<td>Yes (native)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Whisper</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>KotibAI</td>
+<td>No</td>
+<td>OGG to MP3 via ffmpeg</td>
+</tr>
+<tr>
+<td>Aisha</td>
+<td>No</td>
+<td>OGG to MP3 via ffmpeg</td>
+</tr>
+</tbody>
+</table>
+<p>For video notes, audio is extracted via ffmpeg (to OGG for Muxlisa, to MP3 for others).</p>
+<p><strong>TTS voice replies:</strong></p>
+<p>When <code>voice_mode</code> is <code>"always"</code>, or <code>"inbound"</code> and the user sent a voice message, the bot sends a TTS voice reply after the text response. The flow:</p>
+<ol>
+<li>A "recording voice" indicator is shown</li>
+<li>The last assistant response text is sent to the TTS provider</li>
+<li>The returned audio (WAV or URL) is converted to OGG Opus for Telegram</li>
+<li>The voice message is sent via <code>bot.send_voice()</code></li>
+</ol>
+<p><strong>Four voice providers:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>STT</th>
+<th>TTS</th>
+<th>Voices</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muxlisa (default)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>maftuna, asomiddin</td>
+<td>Native OGG, no ffmpeg for STT</td>
+</tr>
+<tr>
+<td>KotibAI</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>aziza, nargiza, soliha, sherzod, rachel, arnold</td>
+<td>6 voices, multi-language</td>
+</tr>
+<tr>
+<td>Aisha</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>gulnoza, jaxongir</td>
+<td>Mood control (happy/sad/neutral)</td>
+</tr>
+<tr>
+<td>Whisper</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>OpenAI, 50+ languages, STT only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quoted voice messages:</strong> When a user replies to a voice message, the quoted voice is also transcribed and included as <code>[voice: transcribed text]</code> in the reply annotation.</p>
+<h2 id="reactions">Reactions<a class="headerlink" href="#reactions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;reactions_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>When <code>reactions_enabled</code> is <code>true</code>, the bot sends emoji reactions on messages to indicate processing status:</p>
+<table>
+<thead>
+<tr>
+<th>Emoji</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eyes</code></td>
+<td>Message received, processing started</td>
+</tr>
+<tr>
+<td><code>white_check_mark</code></td>
+<td>Processing completed successfully</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>An error occurred during processing</td>
+</tr>
+</tbody>
+</table>
+<p>When messages are coalesced (multiple rapid messages batched into one turn), earlier messages in the batch receive a <code>white_check_mark</code> reaction to indicate they were included.</p>
+<p>Reactions are sent via the <code>SetMessageReaction</code> API method. If reactions are not supported in a chat (e.g., older groups), failures are silently ignored.</p>
+<p>Default is <code>false</code> (no reactions sent).</p>
+<h2 id="reply-mode">Reply Mode<a class="headerlink" href="#reply-mode" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;reply_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;coalesced&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Controls when the bot uses Telegram's reply-to feature to link its response to the user's message.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>off</code></td>
+<td>Never reply-to; responses are sent as standalone messages</td>
+</tr>
+<tr>
+<td><code>coalesced</code></td>
+<td>Reply-to only when multiple rapid messages were batched into one turn</td>
+</tr>
+<tr>
+<td><code>always</code></td>
+<td>Always reply-to the triggering message</td>
+</tr>
+</tbody>
+</table>
+<p>Default is <code>"coalesced"</code>.</p>
+<h2 id="typing-indicator">Typing Indicator<a class="headerlink" href="#typing-indicator" title="Permanent link">&para;</a></h2>
+<p>During processing, the bot sends a typing indicator every 4 seconds until the response is ready. This is visible as "Bot is typing..." in the Telegram client. The typing loop is cancelled as soon as the first streaming draft is sent.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        © 2026 Qanot AI — Powered by <a href="https://t.me/qanot_bot" target="_blank">Qanot</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
