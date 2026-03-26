@@ -1281,7 +1281,16 @@
 <li><strong>Ijro xavfsizligi</strong> -- 3 daraja (open/cautious/strict) -- sandboxed buyruq bajarish.</li>
 <li><strong>Web qidiruv</strong> -- Brave Search API, SSRF himoyali web fetch.</li>
 <li><strong>Narx kuzatuv</strong> -- har user uchun token va narx statistikasi.</li>
-<li><strong>115+ plugin toollar</strong> -- amoCRM, Bitrix24, 1C, AbsMarket va boshqalar uchun tayyor pluginlar.</li>
+<li><strong>MCP klient</strong> -- Model Context Protocol orqali 1000+ tashqi tool serverlariga ulanish.</li>
+<li><strong>Brauzer toollar</strong> -- Playwright orqali sahifalarni ko'rish, bosish, forma to'ldirish, skrinshot olish.</li>
+<li><strong>Ko'nikmalar tizimi</strong> -- agent takroriy vazifalar uchun qayta ishlatiladigan SKILL.md + skriptlar yaratadi, qayta ishga tushirmasdan hot-reload.</li>
+<li><strong>22 ta Telegram buyruqlar</strong> -- inline tugma bilan sozlamalar boshqaruvi (model, ovoz, til, routing, xavfsizlik va boshqalar).</li>
+<li><strong>Anthropic xotira tooli</strong> -- <code>/memories</code> papkasi va o'rnatilgan xotira xatti-harakati bilan ikki darajali arxitektura.</li>
+<li><strong>Server tomonida kod bajarish</strong> -- Anthropic <code>code_execution_20250825</code> orqali sandboxed Python bajarish.</li>
+<li><strong>Webhook va WebChat</strong> -- tashqi voqealar uchun webhook (GitHub, CRM, CI/CD) va WebSocket asosidagi webchat adapter.</li>
+<li><strong>Hayot sikli hooklari</strong> -- on_startup, on_shutdown, on_pre_turn, on_post_turn kengaytirish nuqtalari.</li>
+<li><strong>1M kontekst oynasi</strong> -- Opus 4.6 va Sonnet 4.6 uchun avtomatik aniqlash.</li>
+<li><strong>115+ plugin toollar</strong> -- amoCRM, Bitrix24, 1C, AbsMarket, iBox POS, Eskiz SMS va boshqalar uchun tayyor pluginlar.</li>
 </ul>
 <h2 id="openclaw-bilan-solishtirish">OpenClaw bilan solishtirish<a class="headerlink" href="#openclaw-bilan-solishtirish" title="Permanent link">&para;</a></h2>
 <table>
@@ -1295,7 +1304,7 @@
 <tbody>
 <tr>
 <td>Hajm</td>
-<td>Yengil (~30 modul)</td>
+<td>Yengil (~35 modul)</td>
 <td>Og'ir (ko'p modullar)</td>
 </tr>
 <tr>
@@ -1315,13 +1324,33 @@
 </tr>
 <tr>
 <td>Xotira</td>
-<td>WAL protocol + kunlik qaydlar</td>
+<td>WAL protocol + kunlik qaydlar + Anthropic xotira tooli</td>
 <td>Oddiy xotira</td>
 </tr>
 <tr>
 <td>Context</td>
-<td>Avto-compaction + working buffer</td>
+<td>Avto-compaction + working buffer (1M oyna)</td>
 <td>Qo'lda boshqarish</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>1000+ tool server uchun tayyor klient</td>
+<td>MCP qo'llab-quvvatlanmaydi</td>
+</tr>
+<tr>
+<td>Brauzer</td>
+<td>Playwright asosidagi browse/click/fill/screenshot</td>
+<td>Brauzer toollari yo'q</td>
+</tr>
+<tr>
+<td>Ko'nikmalar</td>
+<td>Hot-reload skriptlari bilan o'z-o'zini yaxshilaydigan agent</td>
+<td>Ko'nikmalar tizimi yo'q</td>
+</tr>
+<tr>
+<td>Buyruqlar</td>
+<td>22 ta Telegram slash buyruqlari, inline tugmalar</td>
+<td>Cheklangan buyruqlar</td>
 </tr>
 <tr>
 <td>Bozor</td>
@@ -1364,6 +1393,8 @@
 <li>Telegram bot token (<a href="https://t.me/BotFather">@BotFather</a> dan)</li>
 <li>Kamida bitta LLM API key (Anthropic, OpenAI, Gemini, yoki Groq)</li>
 <li>Ixtiyoriy: RAG vector qidiruv uchun <code>sqlite-vec</code> (<code>pip install qanot[rag]</code>)</li>
+<li>Ixtiyoriy: MCP klient -- tashqi tool serverlarga ulanish (<code>pip install qanot[mcp]</code>)</li>
+<li>Ixtiyoriy: Brauzer toollar -- Playwright orqali (<code>pip install qanot[browser]</code>)</li>
 </ul>
 
 

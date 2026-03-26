@@ -1342,37 +1342,46 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>qanot<span class="o">[</span>rag<span class="o">]</span>
 </code></pre></div>
 <p>This installs <code>sqlite-vec</code>, the SQLite extension used for vector storage.</p>
+<p>For MCP client support (connect to external tool servers):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>qanot<span class="o">[</span>mcp<span class="o">]</span>
+</code></pre></div>
+<p>For browser tools (browse URLs, click elements, fill forms, take screenshots):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>qanot<span class="o">[</span>browser<span class="o">]</span>
+</code></pre></div>
+<p>You can combine extras:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>qanot<span class="o">[</span>rag,mcp,browser<span class="o">]</span>
+</code></pre></div>
 <h2 id="creating-a-project">Creating a Project<a class="headerlink" href="#creating-a-project" title="Permanent link">&para;</a></h2>
 <p>Use the CLI to scaffold a new project:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>qanot<span class="w"> </span>init<span class="w"> </span>mybot
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>qanot<span class="w"> </span>init<span class="w"> </span>mybot
 </code></pre></div>
 <p>This creates a <code>mybot/</code> directory with a <code>config.json</code> file. The directory structure after first run looks like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mybot/
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── config.json          # Your configuration
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├── workspace/           # Agent workspace (created on first run)
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│   ├── SOUL.md          # Agent personality and instructions
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│   ├── TOOLS.md         # Tool documentation for the agent
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│   ├── IDENTITY.md      # Agent name and style
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│   ├── SKILL.md         # Proactive behaviors
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│   ├── AGENTS.md        # Operating rules
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>│   ├── MEMORY.md        # Long-term memory
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│   ├── SESSION-STATE.md # Active session state (WAL entries)
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>│   └── memory/          # Daily notes directory
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>├── sessions/            # JSONL session logs
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>├── cron/                # Cron job definitions
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>└── plugins/             # Custom plugin directory
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mybot/
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── config.json          # Your configuration
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── workspace/           # Agent workspace (created on first run)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│   ├── SOUL.md          # Agent personality and instructions
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│   ├── TOOLS.md         # Tool documentation for the agent
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│   ├── IDENTITY.md      # Agent name and style
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>│   ├── SKILL.md         # Proactive behaviors
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>│   ├── AGENTS.md        # Operating rules
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>│   ├── MEMORY.md        # Long-term memory
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>│   ├── SESSION-STATE.md # Active session state (WAL entries)
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>│   └── memory/          # Daily notes directory
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>├── sessions/            # JSONL session logs
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>├── cron/                # Cron job definitions
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>└── plugins/             # Custom plugin directory
 </code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>Open <code>config.json</code> and fill in the required fields:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456:ABC-DEF...&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-...&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">&quot;owner_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sardor&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">&quot;bot_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyAssistant&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asia/Tashkent&quot;</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456:ABC-DEF...&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;anthropic&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sk-ant-...&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">&quot;owner_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sardor&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">&quot;bot_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyAssistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asia/Tashkent&quot;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
 </code></pre></div>
 <p>At minimum, you need:</p>
 <table>
@@ -1404,37 +1413,37 @@
 <p>See the <a href="../configuration/">Configuration Reference</a> for all available fields.</p>
 <h2 id="running-the-bot">Running the Bot<a class="headerlink" href="#running-the-bot" title="Permanent link">&para;</a></h2>
 <p>Start the bot:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>qanot<span class="w"> </span>start<span class="w"> </span>mybot
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>qanot<span class="w"> </span>start<span class="w"> </span>mybot
 </code></pre></div>
 <p>You should see output like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>  ___                    _
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a> / _ \  __ _ _ __   ___ | |_
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>| | | |/ _` | &#39;_ \ / _ \| __|
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>| |_| | (_| | | | | (_) | |_
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a> \__\_\\__,_|_| |_|\___/ \__|
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Config: mybot/config.json
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>2025-01-15 10:00:00 [qanot] INFO: Config loaded: provider=anthropic, model=claude-sonnet-4-6
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>2025-01-15 10:00:00 [qanot] INFO: Provider initialized: anthropic
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>2025-01-15 10:00:00 [qanot] INFO: Tools registered: read_file, write_file, list_files, run_command, memory_search, session_status, cost_status, send_file, doctor, cron_create, cron_list, cron_delete, cron_update, web_search, web_fetch, generate_image, edit_image, rag_search, rag_index, rag_list, rag_forget
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>2025-01-15 10:00:00 [qanot] INFO: Cron scheduler started with 1 jobs
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>2025-01-15 10:00:01 [qanot.telegram] INFO: [telegram] starting — transport=polling, response=stream, flush=0.8s
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>  ___                    _
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a> / _ \  __ _ _ __   ___ | |_
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>| | | |/ _` | &#39;_ \ / _ \| __|
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>| |_| | (_| | | | | (_) | |_
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a> \__\_\\__,_|_| |_|\___/ \__|
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Config: mybot/config.json
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>2025-01-15 10:00:00 [qanot] INFO: Config loaded: provider=anthropic, model=claude-sonnet-4-6
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>2025-01-15 10:00:00 [qanot] INFO: Provider initialized: anthropic
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>2025-01-15 10:00:00 [qanot] INFO: Tools registered: read_file, write_file, list_files, run_command, memory_search, session_status, cost_status, send_file, doctor, cron_create, cron_list, cron_delete, cron_update, web_search, web_fetch, generate_image, edit_image, rag_search, rag_index, rag_list, rag_forget
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>2025-01-15 10:00:00 [qanot] INFO: Cron scheduler started with 1 jobs
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>2025-01-15 10:00:01 [qanot.telegram] INFO: [telegram] starting — transport=polling, response=stream, flush=0.8s
 </code></pre></div>
 <p>Open Telegram, find your bot, and send a message. The bot responds with streaming text.</p>
 <h2 id="alternative-run-methods">Alternative Run Methods<a class="headerlink" href="#alternative-run-methods" title="Permanent link">&para;</a></h2>
 <p><strong>Using environment variable:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">QANOT_CONFIG</span><span class="o">=</span>/path/to/config.json
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>qanot<span class="w"> </span>start
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">QANOT_CONFIG</span><span class="o">=</span>/path/to/config.json
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>qanot<span class="w"> </span>start
 </code></pre></div>
 <p><strong>Running as a Python module:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">QANOT_CONFIG</span><span class="o">=</span>mybot/config.json<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>qanot
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">QANOT_CONFIG</span><span class="o">=</span>mybot/config.json<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>qanot
 </code></pre></div>
 <p><strong>Docker (typical production setup):</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>qanot<span class="o">[</span>rag<span class="o">]</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">COPY</span><span class="w"> </span>config.json<span class="w"> </span>/data/config.json
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;qanot&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>qanot<span class="o">[</span>rag<span class="o">]</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">COPY</span><span class="w"> </span>config.json<span class="w"> </span>/data/config.json
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;qanot&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
 </code></pre></div>
 <p>When running in Docker, the default paths (<code>/data/workspace</code>, <code>/data/sessions</code>, etc.) work without modification.</p>
 <h2 id="first-interaction">First Interaction<a class="headerlink" href="#first-interaction" title="Permanent link">&para;</a></h2>

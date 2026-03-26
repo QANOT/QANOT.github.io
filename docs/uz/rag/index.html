@@ -1755,8 +1755,9 @@
 <h2 id="xotira-integratsiyasi">Xotira integratsiyasi<a class="headerlink" href="#xotira-integratsiyasi" title="Permanent link">&para;</a></h2>
 <p>RAG agentning xotira fayllarini avtomatik indekslaydi:</p>
 <ol>
-<li><strong>Ishga tushganda:</strong> <code>index_workspace()</code> MEMORY.md, SESSION-STATE.md va oxirgi 30 kunlik yozuvlarni indekslaydi</li>
+<li><strong>Ishga tushganda:</strong> <code>index_workspace()</code> MEMORY.md, SESSION-STATE.md, oxirgi 30 kunlik yozuvlar va <code>memories/</code> papkasidagi barcha fayllarni indekslaydi</li>
 <li><strong>Xotira yozilganda:</strong> WAL yozuvlari yoki kunlik yozuvlar yozilganda write hook qayta indekslashni ishga tushiradi</li>
+<li><strong><code>/memories</code> papkasi:</strong> Anthropic xotira tooli yaratgan fayllar ham avtomatik indekslanadi</li>
 <li><strong>Content-hash deduplikatsiya:</strong> Fayllar faqat mazmuni o'zgarganda qayta indekslanadi</li>
 </ol>
 <p>O'rnatilgan <code>memory_search</code> tooli avval RAG ni tekshiradi (mavjud bo'lsa), keyin substring qidiruvga qaytadi:</p>

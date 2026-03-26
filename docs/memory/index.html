@@ -704,6 +704,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#anthropic-memory-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic Memory Tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anthropic Memory Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-layer-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual-Layer Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /memories Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#file-locations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1448,6 +1498,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#anthropic-memory-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic Memory Tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anthropic Memory Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-layer-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual-Layer Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /memories Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#file-locations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1627,6 +1727,33 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">add_write_hook</span><span class="p">(</span><span class="n">on_memory_write</span><span class="p">)</span>
 </code></pre></div>
 <p>This means RAG search results include the latest memory entries without manual re-indexing.</p>
+<h2 id="anthropic-memory-tool">Anthropic Memory Tool<a class="headerlink" href="#anthropic-memory-tool" title="Permanent link">&para;</a></h2>
+<p>Qanot AI v2.0.4 adds Anthropic's trained memory tool (<code>memory_20250818</code>) with a dual-layer architecture.</p>
+<h3 id="dual-layer-architecture">Dual-Layer Architecture<a class="headerlink" href="#dual-layer-architecture" title="Permanent link">&para;</a></h3>
+<p>The memory system operates on two layers:</p>
+<ol>
+<li><strong>All providers</strong> get the <code>/memories</code> tool -- a file-based memory system in <code>workspace/memories/</code> with operations: view, create, str_replace, insert, delete, rename. This works with any LLM provider.</li>
+<li><strong>Anthropic</strong> gets the <code>memory_20250818</code> type hint, which activates trained memory behavior. The model automatically checks memories at conversation start and creates structured notes without explicit instructions.</li>
+</ol>
+<h3 id="memories-directory">/memories Directory<a class="headerlink" href="#memories-directory" title="Permanent link">&para;</a></h3>
+<p>Memory entries are stored as files in <code>workspace/memories/</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>workspace/
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  memories/
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    user-preferences.md
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    project-context.md
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    api-endpoints.md
+</code></pre></div>
+<p>The <code>/memories</code> directory is automatically indexed by RAG alongside MEMORY.md and daily notes, making all memory entries searchable via semantic search.</p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;memory_tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>When enabled:
+- The <code>memory</code> tool is registered with all six operations (view, create, str_replace, insert, delete, rename)
+- The <code>workspace/memories/</code> directory is created if it does not exist
+- RAG indexes the <code>/memories</code> directory on startup and on changes
+- For Anthropic providers, the <code>memory_20250818</code> type hint is included in tool definitions</p>
 <h2 id="file-locations">File Locations<a class="headerlink" href="#file-locations" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

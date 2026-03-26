@@ -748,6 +748,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#qanothub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QanotHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QanotHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-plugins-from-qanothub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Plugins from QanotHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1580,6 +1608,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#qanothub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QanotHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QanotHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-plugins-from-qanothub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Plugins from QanotHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1925,6 +1981,16 @@
 <td>HR system: employees, attendance, payroll</td>
 </tr>
 <tr>
+<td>iBox POS</td>
+<td>--</td>
+<td>POS system integration for iBox terminals</td>
+</tr>
+<tr>
+<td>Eskiz SMS</td>
+<td>--</td>
+<td>SMS sending via Eskiz.uz API</td>
+</tr>
+<tr>
 <td>MySQL Query</td>
 <td>1</td>
 <td>Standalone SELECT-only SQL query tool</td>
@@ -1936,6 +2002,16 @@
 </tr>
 </tbody>
 </table>
+<h2 id="qanothub">QanotHub<a class="headerlink" href="#qanothub" title="Permanent link">&para;</a></h2>
+<p>Browse and install community plugins from QanotHub: <a href="https://qanot.github.io/qanot-plugins/">https://qanot.github.io/qanot-plugins/</a></p>
+<h3 id="installing-plugins-from-qanothub">Installing Plugins from QanotHub<a class="headerlink" href="#installing-plugins-from-qanothub" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Search available plugins</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>qanot<span class="w"> </span>plugin<span class="w"> </span>search
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Install a plugin by name</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>qanot<span class="w"> </span>plugin<span class="w"> </span>install<span class="w"> </span>&lt;name&gt;
+</code></pre></div>
+<p>Installed plugins are placed in your <code>plugins_dir</code> and can be configured in <code>config.json</code> like any other plugin.</p>
 
 
 

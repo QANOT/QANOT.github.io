@@ -1525,6 +1525,13 @@
 <td>3.75</td>
 </tr>
 <tr>
+<td><code>claude-opus-4-6</code></td>
+<td>15.00</td>
+<td>75.00</td>
+<td>1.50</td>
+<td>18.75</td>
+</tr>
+<tr>
 <td><code>claude-opus-4-20250514</code></td>
 <td>15.00</td>
 <td>75.00</td>
@@ -1541,6 +1548,13 @@
 </tbody>
 </table>
 <p><strong>OAuth tokenlar:</strong> API kalit <code>sk-ant-oat</code> bilan boshlansa, Qanot avtomatik <code>anthropic-beta: oauth-2025-04-20</code> headeri bilan Bearer autentifikatsiyaga o'tadi.</p>
+<p><strong>1M kontekst oynasi:</strong> Opus 4.6 va Sonnet 4.6 modellari 1M token kontekst oynasini qo'llab-quvvatlaydi. Qanot modelni aniqlaydi va <code>max_context_tokens</code> ni avtomatik 1,000,000 ga sozlaydi.</p>
+<p><strong>Qo'shimcha imkoniyatlar (v2.0.4):</strong></p>
+<ul>
+<li><code>code_execution_20250825</code> -- server tomonida Python kod bajarish (bepul, web search bilan birga keladi)</li>
+<li><code>memory_20250818</code> -- o'rnatilgan xotira tooli (ikki darajali arxitektura)</li>
+<li><code>thinking.display: "omitted"</code> -- tezroq birinchi token uchun thinking mazmunini yashirish</li>
+</ul>
 <h3 id="openai-gpt">OpenAI (GPT)<a class="headerlink" href="#openai-gpt" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai&quot;</span><span class="p">,</span>

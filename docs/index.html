@@ -1279,7 +1279,16 @@
 <li><strong>Execution security</strong> -- 3 levels (open/cautious/strict) for sandboxed command execution.</li>
 <li><strong>Web search and fetch</strong> -- Brave Search API integration with SSRF-protected web fetching.</li>
 <li><strong>Cost tracking</strong> -- per-user token and cost tracking across providers.</li>
-<li><strong>115+ plugin tools</strong> -- ready-made plugins for amoCRM, Bitrix24, 1C, AbsMarket, and more.</li>
+<li><strong>MCP client</strong> -- connect to 1000+ external tool servers via the Model Context Protocol.</li>
+<li><strong>Browser tools</strong> -- browse URLs, click elements, fill forms, take screenshots via Playwright.</li>
+<li><strong>Skills system</strong> -- agent creates reusable SKILL.md + scripts for repetitive tasks, hot-reload without restart.</li>
+<li><strong>22 Telegram commands</strong> -- inline keyboard settings management (model, voice, language, routing, exec security, and more).</li>
+<li><strong>Anthropic memory tool</strong> -- dual-layer architecture with <code>/memories</code> directory and trained memory behavior.</li>
+<li><strong>Server-side code execution</strong> -- Anthropic <code>code_execution_20250825</code> for Python sandboxed execution.</li>
+<li><strong>Webhook and WebChat</strong> -- external event webhooks (GitHub, CRM, CI/CD) and WebSocket-based webchat adapter.</li>
+<li><strong>Lifecycle hooks</strong> -- on_startup, on_shutdown, on_pre_turn, on_post_turn extension points.</li>
+<li><strong>1M context window</strong> -- auto-detection for Opus 4.6 and Sonnet 4.6.</li>
+<li><strong>115+ plugin tools</strong> -- ready-made plugins for amoCRM, Bitrix24, 1C, AbsMarket, iBox POS, Eskiz SMS, and more.</li>
 </ul>
 <h2 id="how-it-compares-to-openclaw">How It Compares to OpenClaw<a class="headerlink" href="#how-it-compares-to-openclaw" title="Permanent link">&para;</a></h2>
 <table>
@@ -1293,7 +1302,7 @@
 <tbody>
 <tr>
 <td>Size</td>
-<td>Lightweight (~30 modules)</td>
+<td>Lightweight (~35 modules)</td>
 <td>Heavy (many modules)</td>
 </tr>
 <tr>
@@ -1313,13 +1322,33 @@
 </tr>
 <tr>
 <td>Memory</td>
-<td>WAL protocol + daily notes</td>
+<td>WAL protocol + daily notes + Anthropic memory tool</td>
 <td>Basic memory</td>
 </tr>
 <tr>
 <td>Context</td>
-<td>Auto-compaction + working buffer</td>
+<td>Auto-compaction + working buffer (1M window)</td>
 <td>Manual management</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Built-in client for 1000+ tool servers</td>
+<td>No MCP support</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Playwright-based browse/click/fill/screenshot</td>
+<td>No browser tools</td>
+</tr>
+<tr>
+<td>Skills</td>
+<td>Self-improving agent with hot-reload scripts</td>
+<td>No skill system</td>
+</tr>
+<tr>
+<td>Commands</td>
+<td>22 Telegram slash commands with inline keyboards</td>
+<td>Limited commands</td>
 </tr>
 <tr>
 <td>Market focus</td>
@@ -1362,6 +1391,8 @@
 <li>A Telegram bot token (from <a href="https://t.me/BotFather">@BotFather</a>)</li>
 <li>At least one LLM API key (Anthropic, OpenAI, Gemini, or Groq)</li>
 <li>Optional: <code>sqlite-vec</code> for RAG vector search (<code>pip install qanot[rag]</code>)</li>
+<li>Optional: MCP client for external tool servers (<code>pip install qanot[mcp]</code>)</li>
+<li>Optional: Browser tools via Playwright (<code>pip install qanot[browser]</code>)</li>
 </ul>
 
 

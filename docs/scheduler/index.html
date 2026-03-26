@@ -708,6 +708,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scheduling-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduling Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#managing-cron-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1366,6 +1377,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scheduling-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduling Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#managing-cron-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1566,11 +1588,21 @@
 <li>The outbox is cleared</li>
 </ol>
 <p>This is the only way for isolated cron jobs to communicate with users. System event jobs communicate directly through the conversation.</p>
+<h2 id="scheduling-skills">Scheduling Skills<a class="headerlink" href="#scheduling-skills" title="Permanent link">&para;</a></h2>
+<p>Skills created via the <code>create_skill</code> tool can be scheduled to run periodically using cron jobs. The cron prompt can reference the <code>run_skill_script</code> tool:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weekly-seo-check&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;schedule&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0 9 * * 1&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;isolated&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run the seo-check skill for all tracked URLs and summarize results&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>The isolated agent will use the <code>run_skill_script</code> tool to execute the skill and process the results.</p>
 <h2 id="managing-cron-jobs">Managing Cron Jobs<a class="headerlink" href="#managing-cron-jobs" title="Permanent link">&para;</a></h2>
 <h3 id="via-tools-in-conversation">Via Tools (in conversation)<a class="headerlink" href="#via-tools-in-conversation" title="Permanent link">&para;</a></h3>
 <p>The agent can manage cron jobs through natural conversation:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User: Set up a daily summary at 8pm
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Agent: [calls cron_create with name=&quot;daily-summary&quot;, schedule=&quot;0 20 * * *&quot;, ...]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>User: Set up a daily summary at 8pm
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Agent: [calls cron_create with name=&quot;daily-summary&quot;, schedule=&quot;0 20 * * *&quot;, ...]
 </code></pre></div>
 <p>Available tools: <code>cron_create</code>, <code>cron_list</code>, <code>cron_update</code>, <code>cron_delete</code>. See <a href="../tools/">Tools</a> for parameters.</p>
 <h3 id="cron_create-parameters">cron_create Parameters<a class="headerlink" href="#cron_create-parameters" title="Permanent link">&para;</a></h3>

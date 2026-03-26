@@ -858,6 +858,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#telegram-slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telegram Slash Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Telegram Slash Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Info Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-keyboard-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline Keyboard Buttons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typing-indicator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1648,6 +1709,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#telegram-slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telegram Slash Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Telegram Slash Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#info-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Info Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-keyboard-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline Keyboard Buttons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typing-indicator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2032,6 +2154,128 @@
 </tbody>
 </table>
 <p>Default is <code>"coalesced"</code>.</p>
+<h2 id="telegram-slash-commands">Telegram Slash Commands<a class="headerlink" href="#telegram-slash-commands" title="Permanent link">&para;</a></h2>
+<p>Qanot AI provides 22 slash commands for settings management, information display, and actions. Most settings commands display inline keyboard buttons for easy selection.</p>
+<h3 id="settings-commands">Settings Commands<a class="headerlink" href="#settings-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/model</code></td>
+<td>Switch the AI model. Shows inline buttons for available models (e.g., claude-sonnet-4-6, claude-opus-4-6, claude-haiku-4-5-20251001).</td>
+</tr>
+<tr>
+<td><code>/think</code></td>
+<td>Toggle extended thinking level. Inline buttons: off, low, medium, high.</td>
+</tr>
+<tr>
+<td><code>/voice</code></td>
+<td>Change TTS voice name for the current voice provider.</td>
+</tr>
+<tr>
+<td><code>/voiceprovider</code></td>
+<td>Switch voice provider. Inline buttons: Muxlisa, KotibAI, Aisha, Whisper.</td>
+</tr>
+<tr>
+<td><code>/lang</code></td>
+<td>Set STT language. Inline buttons: uz, ru, en, auto.</td>
+</tr>
+<tr>
+<td><code>/mode</code></td>
+<td>Switch response mode. Inline buttons: stream, partial, blocked.</td>
+</tr>
+<tr>
+<td><code>/routing</code></td>
+<td>Toggle 3-tier model routing on/off.</td>
+</tr>
+<tr>
+<td><code>/group</code></td>
+<td>Set group chat mode. Inline buttons: off, mention, all.</td>
+</tr>
+<tr>
+<td><code>/exec</code></td>
+<td>Set execution security level. Inline buttons: open, cautious, strict.</td>
+</tr>
+<tr>
+<td><code>/code</code></td>
+<td>Toggle Anthropic server-side code execution on/off.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="info-commands">Info Commands<a class="headerlink" href="#info-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/status</code></td>
+<td>Current bot status: uptime, context usage %, token count, active conversations.</td>
+</tr>
+<tr>
+<td><code>/usage</code></td>
+<td>Token usage and cost statistics for the current user.</td>
+</tr>
+<tr>
+<td><code>/context</code></td>
+<td>Detailed context window information: tokens used, buffer status, compaction mode.</td>
+</tr>
+<tr>
+<td><code>/config</code></td>
+<td>Show current configuration (secrets are masked).</td>
+</tr>
+<tr>
+<td><code>/id</code></td>
+<td>Show your Telegram user ID.</td>
+</tr>
+<tr>
+<td><code>/mcp</code></td>
+<td>View connected MCP servers, tool counts, and connection status.</td>
+</tr>
+<tr>
+<td><code>/plugins</code></td>
+<td>List installed plugins. Enable/disable via inline buttons.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="action-commands">Action Commands<a class="headerlink" href="#action-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/reset</code></td>
+<td>Reset conversation history. Includes a model hint in the fresh context.</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td>Force context compaction immediately (useful when context is filling up).</td>
+</tr>
+<tr>
+<td><code>/export</code></td>
+<td>Export current conversation to a file and send it via Telegram.</td>
+</tr>
+<tr>
+<td><code>/stop</code></td>
+<td>Stop the current response generation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inline-keyboard-buttons">Inline Keyboard Buttons<a class="headerlink" href="#inline-keyboard-buttons" title="Permanent link">&para;</a></h3>
+<p>Settings commands use Telegram inline keyboard buttons for selection. When you send <code>/model</code>, the bot responds with a message containing buttons for each available model. Tapping a button updates the config and confirms the change.</p>
+<p>Buttons follow the OpenClaw-style settings management pattern, making it easy to adjust settings without typing values manually.</p>
 <h2 id="typing-indicator">Typing Indicator<a class="headerlink" href="#typing-indicator" title="Permanent link">&para;</a></h2>
 <p>During processing, the bot sends a typing indicator every 4 seconds until the response is ready. This is visible as "Bot is typing..." in the Telegram client. The typing loop is cancelled as soon as the first streaming draft is sent.</p>
 

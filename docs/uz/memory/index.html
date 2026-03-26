@@ -1117,6 +1117,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#anthropic-xotira-tooli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic xotira tooli
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anthropic xotira tooli">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ikki-darajali-arxitektura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikki darajali arxitektura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories-papkasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /memories papkasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fayl-joylashuvi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1448,6 +1487,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#anthropic-xotira-tooli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic xotira tooli
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anthropic xotira tooli">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ikki-darajali-arxitektura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikki darajali arxitektura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories-papkasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /memories papkasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fayl-joylashuvi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1627,6 +1705,16 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">add_write_hook</span><span class="p">(</span><span class="n">on_memory_write</span><span class="p">)</span>
 </code></pre></div>
 <p>Bu RAG qidiruv natijalari qo'lda qayta indekslashsiz eng so'nggi xotira yozuvlarini o'z ichiga olishini anglatadi.</p>
+<h2 id="anthropic-xotira-tooli">Anthropic xotira tooli<a class="headerlink" href="#anthropic-xotira-tooli" title="Permanent link">&para;</a></h2>
+<p>v2.0.4 dan boshlab Qanot Anthropic ning <code>memory_20250818</code> toolini ikki darajali arxitektura bilan qo'llab-quvvatlaydi.</p>
+<h3 id="ikki-darajali-arxitektura">Ikki darajali arxitektura<a class="headerlink" href="#ikki-darajali-arxitektura" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Barcha providerlar</strong> uchun <code>/memories</code> tooli mavjud -- xotira fayllarini ko'rish, yaratish, tahrirlash, o'chirish va nomini o'zgartirish imkonini beradi</li>
+<li><strong>Anthropic provider</strong> qo'shimcha ravishda o'rnatilgan xotira xatti-harakatiga ega -- har xabar boshida xotiralarni avtomatik tekshiradi va strukturalangan qaydlar yozadi</li>
+</ol>
+<h3 id="memories-papkasi">/memories papkasi<a class="headerlink" href="#memories-papkasi" title="Permanent link">&para;</a></h3>
+<p>Xotira fayllari <code>workspace/memories/</code> papkasida saqlanadi. Bu papka RAG tizimi tomonidan avtomatik indekslanadi -- shu orqali semantik qidiruv ham ishlaydi.</p>
+<p>MEMORY.md dan farqi: MEMORY.md bitta fayl bo'lib, WAL protocol va agent tomonidan boshqariladi. <code>/memories</code> papkasi esa ko'p fayllardan iborat -- har bir mavzu uchun alohida fayl.</p>
 <h2 id="fayl-joylashuvi">Fayl joylashuvi<a class="headerlink" href="#fayl-joylashuvi" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1646,6 +1734,11 @@
 <td><code>workspace/MEMORY.md</code></td>
 <td>Uzoq muddatli xotira</td>
 <td>Ha ("Your Long-Term Memory" bo'limi sifatida)</td>
+</tr>
+<tr>
+<td><code>workspace/memories/*.md</code></td>
+<td>Anthropic xotira tooli fayllari</td>
+<td>Yo'q (RAG orqali qidiriladi)</td>
 </tr>
 <tr>
 <td><code>workspace/memory/YYYY-MM-DD.md</code></td>

@@ -1196,6 +1196,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#konikmalar-bilan-integratsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ko'nikmalar bilan integratsiya
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#arxitektura-eslatmalari" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1438,6 +1449,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#konikmalar-bilan-integratsiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ko'nikmalar bilan integratsiya
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#arxitektura-eslatmalari" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1648,6 +1670,14 @@
 <li><strong>Muvaffaqiyatsiz system event'lar:</strong> Xatolar loglanadi va keyingi proaktiv loop iteratsiyasida qayta uriniladi</li>
 <li><strong>Noto'g'ri cron ifodalar:</strong> 5 ta maydon bo'lmagan ifodali job'lar ogohlantirish bilan o'tkazib yuboriladi</li>
 </ul>
+<h2 id="konikmalar-bilan-integratsiya">Ko'nikmalar bilan integratsiya<a class="headerlink" href="#konikmalar-bilan-integratsiya" title="Permanent link">&para;</a></h2>
+<p>Cron job'lar va ko'nikmalar tizimi birgalikda ishlaydi. Agent takroriy cron vazifalarni aniqlaydi va ular uchun ko'nikmalar yaratishi mumkin:</p>
+<ol>
+<li>Agent <code>create_skill</code> orqali ko'nikma va skript yaratadi</li>
+<li><code>cron_create</code> orqali rejalashtirilgan vazifa sifatida ro'yxatga oladi</li>
+<li>Cron job <code>run_skill_script</code> orqali ko'nikma skriptini bajaradi</li>
+</ol>
+<p>Masalan: agent har kuni soat 20:00 da hisobot yaratish uchun avval skriptni ko'nikma sifatida yaratadi, keyin cron job orqali avtomatik ishga tushiradi.</p>
 <h2 id="arxitektura-eslatmalari">Arxitektura eslatmalari<a class="headerlink" href="#arxitektura-eslatmalari" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Scheduler APScheduler 3.x dan <code>AsyncIOScheduler</code> ishlatadi</li>

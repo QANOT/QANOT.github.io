@@ -1525,7 +1525,7 @@
 <td>3.75</td>
 </tr>
 <tr>
-<td><code>claude-opus-4-20250514</code></td>
+<td><code>claude-opus-4-6</code></td>
 <td>15.00</td>
 <td>75.00</td>
 <td>1.50</td>
@@ -1541,6 +1541,13 @@
 </tbody>
 </table>
 <p><strong>OAuth tokens:</strong> If your API key starts with <code>sk-ant-oat</code>, Qanot automatically switches to Bearer authentication with the <code>anthropic-beta: oauth-2025-04-20</code> header.</p>
+<p><strong>1M context window:</strong> Opus 4.6 and Sonnet 4.6 support up to 1M tokens context window. Qanot auto-detects these models and adjusts <code>max_context_tokens</code> accordingly.</p>
+<p><strong>Thinking display:</strong> Qanot sets <code>thinking.display: "omitted"</code> by default, which reduces time-to-first-token by not streaming the thinking content back.</p>
+<p><strong>Server-side features:</strong></p>
+<ul>
+<li><strong>Code execution</strong> (<code>code_execution_20250825</code>): Enable with <code>"code_execution": true</code> in config. Allows the agent to run Python code in Anthropic's sandbox. Free when used with web search.</li>
+<li><strong>Memory tool</strong> (<code>memory_20250818</code>): Enable with <code>"memory_tool": true</code> in config. Adds trained memory behavior where the model auto-checks and creates structured memory notes.</li>
+</ul>
 <h3 id="openai-gpt">OpenAI (GPT)<a class="headerlink" href="#openai-gpt" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai&quot;</span><span class="p">,</span>

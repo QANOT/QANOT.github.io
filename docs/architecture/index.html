@@ -1477,12 +1477,15 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>              |   Tracker   +---&gt; Cron Tools
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>              |             +---&gt; RAG Tools
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>              |             +---&gt; Plugin Tools
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>              |
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        +-----+-----+
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        |     |     |
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>   Anthropic OpenAI Gemini Groq
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        |     |     |     |
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        +--FailoverProvider--+
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>              |             +---&gt; MCP Tools
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>              |             +---&gt; Browser Tools
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>              |             +---&gt; Skill Tools
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>              |
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        +-----+-----+
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        |     |     |
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>   Anthropic OpenAI Gemini Groq
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        |     |     |     |
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        +--FailoverProvider--+
 </code></pre></div>
 <h2 id="startup-sequence">Startup Sequence<a class="headerlink" href="#startup-sequence" title="Permanent link">&para;</a></h2>
 <p><code>qanot/main.py</code> orchestrates initialization in this order:</p>
@@ -1501,7 +1504,13 @@
 <li><strong>Create agent</strong> -- Wire provider, tools, session, context</li>
 <li><strong>Register RAG tools</strong> -- <code>rag_index</code>, <code>rag_search</code>, <code>rag_list</code>, <code>rag_forget</code> (needs agent reference)</li>
 <li><strong>Register memory hooks</strong> -- Wire RAG indexer to memory write events</li>
+<li><strong>Register MCP tools</strong> (if enabled) -- Connect to MCP servers, register discovered tools</li>
+<li><strong>Register browser tools</strong> (if enabled) -- Register Playwright-based browser tools</li>
+<li><strong>Register skill tools</strong> -- Register skill management tools</li>
+<li><strong>Register memory tool</strong> (if enabled) -- Register Anthropic memory tool operations</li>
+<li><strong>Run lifecycle hooks</strong> -- Execute on_startup hooks</li>
 <li><strong>Start scheduler</strong> -- Load jobs, start APScheduler</li>
+<li><strong>Start webhook/webchat</strong> (if enabled) -- Start webhook endpoint and/or webchat WebSocket server</li>
 <li><strong>Start Telegram</strong> -- Start polling or webhook server</li>
 </ol>
 <h2 id="agent-loop">Agent Loop<a class="headerlink" href="#agent-loop" title="Permanent link">&para;</a></h2>
@@ -1857,6 +1866,22 @@
 <td><code>cli.py</code></td>
 <td>CLI: init/start/stop/restart/status/config/update/doctor</td>
 </tr>
+<tr>
+<td><code>mcp_client.py</code></td>
+<td>MCP (Model Context Protocol) client for external tool servers</td>
+</tr>
+<tr>
+<td><code>webhook.py</code></td>
+<td>Webhook endpoint for external events (GitHub, CRM, CI/CD)</td>
+</tr>
+<tr>
+<td><code>webchat.py</code></td>
+<td>WebChat adapter with WebSocket streaming</td>
+</tr>
+<tr>
+<td><code>hooks.py</code></td>
+<td>Lifecycle hooks system (on_startup, on_shutdown, on_pre_turn, on_post_turn)</td>
+</tr>
 </tbody>
 </table>
 <h3 id="tool-modules-tools">Tool Modules (<code>tools/</code>)<a class="headerlink" href="#tool-modules-tools" title="Permanent link">&para;</a></h3>
@@ -1911,6 +1936,18 @@
 <tr>
 <td><code>jobs_io.py</code></td>
 <td>Cron jobs JSON I/O utilities</td>
+</tr>
+<tr>
+<td><code>memory_tool.py</code></td>
+<td>Anthropic memory tool (view/create/str_replace/insert/delete/rename)</td>
+</tr>
+<tr>
+<td><code>browser.py</code></td>
+<td>Browser tools via Playwright (browse_url, click, fill_form, screenshot, extract_data)</td>
+</tr>
+<tr>
+<td><code>skill_tools.py</code></td>
+<td>Skill management tools (create_skill, list_skills, run_skill_script, delete_skill)</td>
 </tr>
 </tbody>
 </table>

@@ -1755,8 +1755,8 @@
 <h2 id="memory-integration">Memory Integration<a class="headerlink" href="#memory-integration" title="Permanent link">&para;</a></h2>
 <p>RAG automatically indexes the agent's memory files:</p>
 <ol>
-<li><strong>On startup:</strong> <code>index_workspace()</code> indexes MEMORY.md, SESSION-STATE.md, and the last 30 daily notes</li>
-<li><strong>On memory writes:</strong> A write hook triggers re-indexing when WAL entries or daily notes are written</li>
+<li><strong>On startup:</strong> <code>index_workspace()</code> indexes MEMORY.md, SESSION-STATE.md, the last 30 daily notes, and the <code>memories/</code> directory (Anthropic memory tool entries)</li>
+<li><strong>On memory writes:</strong> A write hook triggers re-indexing when WAL entries, daily notes, or <code>/memories</code> entries are written</li>
 <li><strong>Content-hash deduplication:</strong> Files are only re-indexed when their content changes</li>
 </ol>
 <p>The <code>memory_search</code> built-in tool checks RAG first (when available) before falling back to substring search:</p>
