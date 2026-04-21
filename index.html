@@ -344,10 +344,10 @@
             border-color: rgba(37,99,235,0.2);
             box-shadow: 0 12px 32px rgba(0,0,0,0.05);
         }
-        .scenario-emoji {
-            font-size: 32px;
-            margin-bottom: 14px;
-            display: inline-block;
+        .scenario-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
         }
         .scenario-card h3 {
             font-family: var(--serif);
@@ -711,37 +711,37 @@
         </div>
         <div class="scenario-grid reveal">
             <div class="scenario-card">
-                <div class="scenario-emoji" aria-hidden="true">🍽</div>
+                <div class="scenario-icon" aria-hidden="true" style="background:rgba(234,88,12,0.10);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.8"><path d="M5 3v18M9 3v7a2 2 0 01-2 2M9 3v18M3 3v7a2 2 0 002 2M17 8a5 5 0 015-5v18M15 13h4" stroke-linecap="round"/></svg></div>
                 <h3>Restoran</h3>
                 <p>"Bugun qancha buyurtma tushdi?" desangiz — agent Bito POS'dan tekshirib aytadi. "Bu hafta eng ko'p qaysi taom sotildi?" — raqamini chiqarib beradi.</p>
                 <div class="scenario-quote">"Egasiman, lekin telefonim tinch."</div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-emoji" aria-hidden="true">🛍</div>
+                <div class="scenario-icon" aria-hidden="true" style="background:rgba(236,72,153,0.10);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7zM9 7V5a3 3 0 016 0v2" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
                 <h3>Do'kon</h3>
                 <p>Ertalab telefonni qo'lga olasiz: kechagi sotuv, daromad, eng yaxshi ketgan tovar — hammasini agent yozib qo'yadi. Siz faqat o'qib chiqasiz.</p>
                 <div class="scenario-quote">"Kassirga qo'ng'iroq qilishning hojati yo'q."</div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-emoji" aria-hidden="true">📱</div>
+                <div class="scenario-icon" aria-hidden="true" style="background:rgba(37,99,235,0.10);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8"><path d="M4 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 4v-4H6a2 2 0 01-2-2V5z" stroke-linejoin="round"/><path d="M8 8h6M8 11h4" stroke-linecap="round"/></svg></div>
                 <h3>Xizmat biznesi</h3>
                 <p>"Alisher qaysi bosqichda?" — agent amoCRM'dan tekshirib aytadi. "Uchrashuv tasdig'ini SMS qilib yubor" desangiz — Eskiz orqali jo'natadi.</p>
                 <div class="scenario-quote">"CRM ochib ko'rib o'tirmayman — so'rasam yetarli."</div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-emoji" aria-hidden="true">🎬</div>
+                <div class="scenario-icon" aria-hidden="true" style="background:rgba(168,85,247,0.10);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l3-4h3l-2 4M8 8l3-4h3l-2 4M13 8l3-4h3l-2 4" stroke-linejoin="round"/></svg></div>
                 <h3>Content creator</h3>
                 <p>Uzun video yuborasiz — agent 3 ta 9:16 Shorts qilib beradi. Reels yoki TikTok uchun tayyor. Eng qiziq paytlarini o'zi ajratib beradi.</p>
                 <div class="scenario-quote">"Videomontaj endi 2 daqiqalik ish."</div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-emoji" aria-hidden="true">📊</div>
+                <div class="scenario-icon" aria-hidden="true" style="background:rgba(16,185,129,0.10);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2" stroke-linecap="round"/></svg></div>
                 <h3>Menejer</h3>
                 <p>"Bugun kun qanday o'tyapti?" desangiz — agent qisqa aytadi: 47 ta xabar, 8 buyurtma, 2 shikoyat. "Sardor 3 kun oldin nima so'ragan edi?" — agent esidan chiqarmaydi.</p>
                 <div class="scenario-quote">"Siz esdan chiqarsangiz ham — Qanot eslab qoladi."</div>
             </div>
             <div class="scenario-card">
-                <div class="scenario-emoji" aria-hidden="true">🏢</div>
+                <div class="scenario-icon" aria-hidden="true" style="background:rgba(71,85,105,0.10);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.8"><rect x="5" y="4" width="14" height="16" rx="1.5"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2M9 16h6" stroke-linecap="round"/></svg></div>
                 <h3>Buxgalter</h3>
                 <p>"1C bilan AbsMarket'ni solishtirib ber" desangiz — agent ikkalasidan ma'lumotni oladi, taqqoslab, Notion'ga yozib qo'yadi. Qo'lda ko'chirishning hojati yo'q.</p>
                 <div class="scenario-quote">"Oy oxiri tinchgina o'tadi."</div>
