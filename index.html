@@ -472,22 +472,38 @@
             background: #fff; color: var(--blue);
         }
 
-        /* ── Integrations ── */
-        .int-row {
-            display: flex; justify-content: center;
-            gap: 14px; flex-wrap: wrap; margin-top: 48px;
+        /* ── Integrations — clean white tiles, not sticker pills ── */
+        .int-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            max-width: 920px;
+            margin: 56px auto 0;
         }
-        .int-item {
-            display: flex; align-items: center; gap: 10px;
-            padding: 12px 20px; border-radius: 10px;
-            border: 1px solid var(--border);
-            font-size: 14px; font-weight: 500; color: var(--ink-secondary);
-            transition: border-color 0.2s, box-shadow 0.2s;
+        .int-tile {
             background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 12px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
-        .int-item:hover {
-            border-color: var(--blue);
-            box-shadow: 0 2px 12px var(--blue-soft);
+        .int-tile:hover {
+            border-color: rgba(37,99,235,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(17,24,39,0.06);
+        }
+        .int-icon {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .int-name {
+            font-size: 13.5px; font-weight: 600;
+            color: var(--ink); letter-spacing: -0.1px;
+            text-align: center;
         }
 
         /* ── Bottom CTA ── */
@@ -569,8 +585,9 @@
             .hero-buttons { flex-direction: column; }
             .btn { width: 100%; justify-content: center; }
             .hero-stats { flex-wrap: wrap; }
-            .int-row { gap: 10px; }
-            .int-item { padding: 10px 14px; font-size: 13px; }
+            .int-grid { grid-template-columns: repeat(2, 1fr); max-width: 400px; gap: 10px; }
+            .int-tile { padding: 20px 10px 14px; }
+            .int-name { font-size: 12.5px; }
             .cta-box { padding: 48px 20px; border-radius: 12px; }
             .footer-inner { flex-direction: column; gap: 12px; }
             .scenario-card { padding: 24px 20px; }
@@ -689,7 +706,7 @@
     <div class="container">
         <div class="reveal">
             <div class="section-label">Haqiqiy misollar</div>
-            <div class="section-title">Qaysi biznes — <em>qaysi natija</em>.</div>
+            <div class="section-title">Qaysi biznes — <em>qanday natija</em>?</div>
             <p class="section-desc">Siz so'raysiz, agent javob beradi. Har qanday biznes uchun.</p>
         </div>
         <div class="scenario-grid reveal">
@@ -820,46 +837,46 @@
             <div class="section-title">Sizdagi <em>tizimlar bilan</em> ishlaydi.</div>
             <p class="section-desc" style="margin:16px auto 0;">Yangi dastur o'rnatish shart emas. Qanot AI sizning joriy tizimlaringizni ulaydi.</p>
         </div>
-        <div class="int-row reveal">
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#2AABEE"/><path d="M5.5 11.5l12-5-1.5 11.5-4-3-2.5 2.5.5-3.5-4.5-2.5z" fill="#fff"/></svg>
-                Telegram
+        <div class="int-grid reveal">
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><path d="M29.5 4.8L3.6 14.9c-1.7.7-1.7 1.7-.3 2.1l6.6 2.1 15.4-9.7c.7-.4 1.4-.2.9.3L13.8 19.9l-.5 7.3c.7 0 1-.3 1.3-.6l3.3-3.2 6.8 5c1.3.7 2.2.3 2.5-1.2l4.5-21.1c.5-1.8-.6-2.6-1.9-2.1l-.3.8z" fill="#229ED9"/></svg></div>
+                <div class="int-name">Telegram</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#339DC9"/><path d="M7 8.5C7 7.67 7.67 7 8.5 7h7c.83 0 1.5.67 1.5 1.5v7c0 .83-.67 1.5-1.5 1.5h-7A1.5 1.5 0 017 15.5v-7z" fill="#fff" fill-opacity=".9"/><path d="M10 11h4M10 13h2.5" stroke="#339DC9" stroke-width="1.2" stroke-linecap="round"/></svg>
-                amoCRM
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><circle cx="16" cy="16" r="13" stroke="#FF3C78" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="#FF3C78"/></svg></div>
+                <div class="int-name">amoCRM</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#2FC6F6"/><path d="M6 9l6 3.5L18 9M6 13l6 3.5L18 13" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Bitrix24
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><path d="M8 10c0-1.1.9-2 2-2h12a2 2 0 012 2v5h-7v-3h-4v10h4v-3h7v5a2 2 0 01-2 2H10a2 2 0 01-2-2V10z" fill="#0C88BF"/></svg></div>
+                <div class="int-name">Bitrix24</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#6C5CE7"/><text x="5" y="17" fill="#fff" font-size="12" font-weight="700" font-family="sans-serif">1C</text></svg>
-                1C Enterprise
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><rect x="3" y="6" width="26" height="20" rx="3" fill="#FAB000"/><text x="16" y="21.5" text-anchor="middle" fill="#111" font-size="13" font-weight="800" font-family="Arial, sans-serif">1С</text></svg></div>
+                <div class="int-name">1C Enterprise</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#00B894"/><text x="4" y="16" fill="#fff" font-size="10" font-weight="700" font-family="sans-serif">bito</text></svg>
-                Bito POS
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><rect x="3" y="8" width="26" height="16" rx="3" fill="#00B894"/><text x="16" y="20" text-anchor="middle" fill="#fff" font-size="10" font-weight="800" font-family="Arial, sans-serif" letter-spacing="0.5">BITO</text></svg></div>
+                <div class="int-name">Bito POS</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0EA5E9"/><text x="4" y="16" fill="#fff" font-size="10" font-weight="700" font-family="sans-serif">iBox</text></svg>
-                iBox POS
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><rect x="3" y="8" width="26" height="16" rx="3" fill="#0EA5E9"/><text x="16" y="20" text-anchor="middle" fill="#fff" font-size="10" font-weight="800" font-family="Arial, sans-serif">iBox</text></svg></div>
+                <div class="int-name">iBox POS</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#FF6B35"/><path d="M8 16V8h2l2 4 2-4h2v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                AbsMarket
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><rect x="3" y="3" width="26" height="26" rx="6" fill="#FF6B35"/><path d="M10 22l6-14 6 14h-3l-1.3-3h-3.4L13 22h-3zm5-6h2l-1-2.5-1 2.5z" fill="#fff"/></svg></div>
+                <div class="int-name">AbsMarket</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#7C3AED"/><path d="M6 17l6-10 6 10H6z" fill="#fff"/></svg>
-                MoySklad
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><rect x="3" y="3" width="26" height="26" rx="6" fill="#E31E24"/><path d="M8 22V10h2.2l3 7 3-7H18v12h-2v-8l-2.3 5.4h-1.1L10.2 14v8H8z" fill="#fff"/><path d="M18.5 22l3.2-6-3.2-6h2.4l2.1 4.3L25.1 10h2.4l-3.2 6 3.2 6h-2.4l-2.1-4.3L20.9 22h-2.4z" fill="#fff"/></svg></div>
+                <div class="int-name">MoySklad</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#EF4444"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-                Eskiz SMS
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><path d="M6 10a3 3 0 013-3h14a3 3 0 013 3v9a3 3 0 01-3 3H13l-5 4v-4h-2a3 3 0 01-3-3v-9z" fill="#EF4444"/><path d="M11 13h10M11 16.5h7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                <div class="int-name">Eskiz SMS</div>
             </div>
-            <div class="int-item">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#000"/><text x="4" y="16" fill="#fff" font-size="11" font-weight="700" font-family="sans-serif">N</text><path d="M9 7v10M15 7v10M9 7l6 10" stroke="#fff" stroke-width="1.2"/></svg>
-                Notion
+            <div class="int-tile">
+                <div class="int-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" fill="#fff" stroke="#111" stroke-width="1.5"/><path d="M11 10.5v11h1.5v-8l5.8 8h1.7v-11h-1.5v7.8l-5.6-7.8H11z" fill="#111"/></svg></div>
+                <div class="int-name">Notion</div>
             </div>
         </div>
     </div>
